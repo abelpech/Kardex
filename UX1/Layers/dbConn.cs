@@ -225,7 +225,7 @@ namespace Kardex.Layers
 
         /*
         
-        Lo que quieras!,
+        Lo que quieras! Marc y BYron,
 
         
         */
