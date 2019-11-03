@@ -219,7 +219,7 @@ namespace Kardex.Layers
         }
 
         /*
-        Probando que funciona esta cosa rara
+        Marc y Diez son pareja!
         */
     }
 
