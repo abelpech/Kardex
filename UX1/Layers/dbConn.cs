@@ -19,8 +19,9 @@ namespace Kardex.Layers
             //Obtiene el hostname de la computadora que utiliz el programa para adecuar la instancia
             //a la correcta de cada quien
             string host = Dns.GetHostName();
+            MessageBox.Show(host);
             //Se le asigna al objeto de SqlConnection la direccion de la instancia de la BD
-            conn = new SqlConnection("server = " +host + "\\SQLEXPRESS; database=kardex ; integrated security = true");
+            conn = new SqlConnection("server =  "+host+"; database=kardex ; integrated security = true");
 
         }
 
