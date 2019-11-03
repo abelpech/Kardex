@@ -218,6 +218,34 @@ namespace Kardex.Layers
 
         }
 
+        /*
+        public void ExcQryBaja(string query)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = query;
+            cmd.CommandTimeout = 0;
+            cmd.Connection = conn;
+            //cmd.CommandType = CommandType.StoredProcedure;
+
+            conn.Open();
+
+
+            int retVal = (Int32)cmd.ExecuteScalar();
+
+            //MessageBox.Show(retVal.ToString());
+            if (retVal == 0)
+            {
+                MessageBox.Show("No existe un registro para dar de baja", "Aviso", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("Baja del registro exitosa", "Aviso", MessageBoxButtons.OK);
+            }
+            conn.Close();
+
+        }
+        */
     }
 
 
