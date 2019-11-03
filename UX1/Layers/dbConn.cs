@@ -223,11 +223,7 @@ namespace Kardex.Layers
          public void ExcQryBaja(string query)
         {
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = query;
-            cmd.CommandTimeout = 0;
-            cmd.Connection = conn;
-            //cmd.CommandType = CommandType.StoredProcedure;
+            Estoy cambiando esto
         */
     }
 
