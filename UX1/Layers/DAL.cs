@@ -1,0 +1,280 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data;
+using Kardex.Layers; //Podemos acceder a cada una de las clases dentro de la carpeta Layers
+using System.Windows.Forms; //Puede tirar mensajitos
+using UX1.Layers;
+
+namespace Kardex.Layers
+{
+    class DAL //DAL - Data Acces Layer
+    {
+        dbConn conn = new dbConn();
+        
+        public DataTable ConsultaCarrera(string carrera)
+        {
+            string query;
+            DataTable dt = new DataTable();
+            try
+            {
+                //Le asignamos a query el valor del SP "nombre" mas el parametro carrera
+                //Para ejecutarlo posteriormente.
+                query = "ConsultaCarrera '" + carrera + "'";
+                dt = conn.ExcQryDt(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+            }
+
+            return dt;
+        }
+
+
+        public void ModificaCarrera(string carrerabaja, string carrera, bool estatus)
+        {
+            try
+            {
+                string query = "ModificaCarrera '" + carrerabaja + "', '" + carrera + "', '" + estatus + "', '" + Permisos.usuario + "'";
+                conn.ExcQry(query);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        public void AltaCarrera(string carrera, bool estatus)
+        {
+            try
+            {
+                string query = "AltaCarrera '" + carrera + "', '" + Convert.ToInt32(estatus) + "', '" + Permisos.usuario + "'";
+                conn.ExcQryReturn(query);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+        public void BajaCarrera(string carrera)
+        {
+            try
+            {
+                string query = "BajaCarrera '" + carrera + "', '" + Permisos.usuario + "'";
+                conn.ExcQryBaja(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        public int LoginValidation(string username, string password)
+        {
+            int dt = 0;
+            //DataTable dt = new DataTable();
+            try
+            {
+                //string query = "LoginMaestrosAlumnos '" + username + "'," + "'" + password + "'";
+                string query = "LoginMaestrosAlumnos";
+                //string query2 = "'" + username + "'," + "'" + password + "'";
+                dt = conn.ExcQryInt(query, username, password);
+                
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+            return dt;
+        }
+
+        //Login Validation for Password Reset
+
+        public int LoginValidationPR(string username)
+        {
+            int dt = 0;
+           
+            try
+            {
+                //string query = "LoginMaestrosAlumnos '" + username + "'";
+                string query = "LoginMaestrosAlumnosEmail";
+                dt = conn.ExcQryLG(query, username);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+            }
+            return dt;
+        }
+
+
+        //Materia
+        public void AltaMateria(string materia)
+        {
+            try
+            {
+                string query = "AltaMateria '" + materia + "', '" + Permisos.usuario + "'";
+                conn.ExcQryReturn(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        public void BajaMateria(string materia)
+        {
+            try
+            {
+                string query = "BajaMateria '" + materia + "', '" + Permisos.usuario + "'";
+                conn.ExcQryBaja(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        public DataTable ConsultaMateria(string materia)
+        {
+            string query;
+            DataTable dt = new DataTable();
+            try
+            {
+                //Le asignamos a query el valor del SP "nombre" mas el parametro materia
+                //Para ejecutarlo posteriormente.
+                query = "ConsultaMateria " + materia;
+                dt = conn.ExcQryDt(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+            }
+
+            return dt;
+        }
+
+        public void ModificaMateria(string materiabaja1, string materia, bool estatus)
+        {
+            try
+            {
+
+                string query = "ModificaMateria '" + materiabaja1 + "', '" + materia + "', '" + Convert.ToInt32(estatus) + "', '" + Permisos.usuario + "'";
+                conn.ExcQry(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+            }
+        }
+        //ALUMNO
+        public void AltaAlumno(string alumno,string direccion, string telefono, DateTime fechaalta, string carrera)
+        {
+            try
+            {
+                string query = "AltaAlumno '" + alumno + "', '" + direccion + "', '" + telefono + "', '" + fechaalta + "', '" + carrera + "', '" + Permisos.usuario + "'";
+                conn.ExcQry(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        public void BajaAlumno(string alumno, string carrera)
+        {
+            try
+            {
+                string query = "BajaAlumno '" + alumno + "', '" + carrera + "', '" + Permisos.usuario + "'";
+                conn.ExcQryBaja(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+            }
+        }
+        public DataTable ConsultaAlumno(int matricula, string alumno, string carrera)
+        {
+            string query;
+            DataTable dt = new DataTable();
+            try
+            {
+                //Le asignamos a query el valor del SP "nombre" mas el parametro materia
+                //Para ejecutarlo posteriormente.
+                query = "ConsultaAlumno '" + matricula + "', '" + alumno + "', '" + carrera + "'" ;
+                dt = conn.ExcQryDt(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+            }
+
+            return dt;
+        }
+        public void ModificaAlumno(int matricula, string alumno, string direccion, string telefono, DateTime fechaNac, bool estatus, string carrera)
+        {
+            try
+            {
+                string query = "ActualizaAlumno '" + matricula + "', '" + alumno + "', '" + direccion + "', '" + telefono + "', '" + fechaNac + "', '" + Convert.ToInt32(estatus) + "', '" + carrera + "','" + Permisos.usuario + "'";
+                conn.ExcQry(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        public AutoCompleteStringCollection AutoCarrera()
+        {
+            AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
+            try
+            {
+                string query = "select [carrera] from [carrera] ";
+                mycollection = conn.ExcQryAuto(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+            }
+            return mycollection;
+        }
+
+        public AutoCompleteStringCollection AutoMateria()
+        {
+            AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
+            try
+            {
+                string query = "select [materia] from [materia]";
+                mycollection = conn.ExcQryAuto(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+            }
+            return mycollection;
+        }
+
+        public AutoCompleteStringCollection AutoAlumno()
+        {
+            AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
+            try
+            {
+                string query = "select [nombre] from [alumno]";
+                mycollection = conn.ExcQryAuto(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+            }
+            return mycollection;
+        }
+    }
+
+
+
+}
