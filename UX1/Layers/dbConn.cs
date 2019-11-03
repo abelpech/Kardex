@@ -16,6 +16,7 @@ namespace Kardex.Layers
         SqlConnection conn;
         public dbConn()
         {
+
             //Obtiene el hostname de la computadora que utiliz el programa para adecuar la instancia
             //a la correcta de cada quien
             string host = Dns.GetHostName();
@@ -222,7 +223,7 @@ namespace Kardex.Layers
             conn.Close();
 
         }
-
+        //Hola soy marc
       
     }
 
