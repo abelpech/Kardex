@@ -430,6 +430,11 @@ namespace UX1
             AbrirFormInPanel(new frmAltaMaestro());
         }
 
+        private void BtnBajaMaestro_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new frmBajaMaestro());
+        }
+
         private void EstablecerPermisos(int pm)
         {
             switch (pm)

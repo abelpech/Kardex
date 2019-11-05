@@ -527,6 +527,7 @@
             this.btnBajaMaestro.TabIndex = 16;
             this.btnBajaMaestro.Text = "Baja";
             this.btnBajaMaestro.UseVisualStyleBackColor = false;
+            this.btnBajaMaestro.Click += new System.EventHandler(this.BtnBajaMaestro_Click);
             // 
             // btnModificacionMaestro
             // 

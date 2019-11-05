@@ -265,6 +265,23 @@ namespace Kardex.Layers
 
             }
         }
+
+        public void BajaMaestro(int matricula, string maestro)
+        {
+            if (matricula == 0)
+            {
+
+                MessageBox.Show("Es necesario especificar una matricula", "Alerta", MessageBoxButtons.OK);
+
+            }
+            else
+            {
+
+                dal.BajaMaestro(matricula, maestro);
+                //MessageBox.Show("El Maestro se dio de baja correctamente", "Aviso", MessageBoxButtons.OK);
+
+            }
+        }
         public int LoginValidation(string username, string password)
         {
             if(username == "")

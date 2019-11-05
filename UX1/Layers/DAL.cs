@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
-using Kardex.Layers; //Podemos acceder a cada una de las clases dentro de la carpeta Layers
 using System.Windows.Forms; //Puede tirar mensajitos
 using UX1.Layers;
 
@@ -235,6 +230,19 @@ namespace Kardex.Layers
             {
                 string query = "AltaMaestro '" + maestro + "', '" + direccion + "', '" + telefono + "', '" + Permisos.usuario + "'";
                 conn.ExcQryReturn(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        public void BajaMaestro(int matricula, string maestro)
+        {
+            try
+            {
+                string query = "BajaMaestro '" + matricula + "', '" + maestro + "', '" + Permisos.usuario + "'";
+                conn.ExcQryBaja(query);
             }
             catch (Exception ex)
             {

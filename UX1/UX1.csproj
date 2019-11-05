@@ -82,6 +82,12 @@
     <Compile Include="frmBajaCarrera.designer.cs">
       <DependentUpon>frmBajaCarrera.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBajaMaestro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBajaMaestro.Designer.cs">
+      <DependentUpon>frmBajaMaestro.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBajaMateria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBajaCarrera.resx">
       <DependentUpon>frmBajaCarrera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBajaMaestro.resx">
+      <DependentUpon>frmBajaMaestro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBajaMateria.resx">
       <DependentUpon>frmBajaMateria.cs</DependentUpon>
