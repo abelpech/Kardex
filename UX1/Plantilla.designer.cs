@@ -31,28 +31,34 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Plantilla));
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.picLOGO = new System.Windows.Forms.PictureBox();
             this.Efecto = new System.Windows.Forms.FlowLayoutPanel();
             this.panelCarrera = new System.Windows.Forms.Panel();
+            this.btnCarrera = new System.Windows.Forms.Button();
             this.btnModificacionCarrera = new System.Windows.Forms.Button();
             this.btnConsultaCarrera = new System.Windows.Forms.Button();
             this.btnBajaCarrera = new System.Windows.Forms.Button();
             this.btnAltaCarrera = new System.Windows.Forms.Button();
             this.panelMateria = new System.Windows.Forms.Panel();
+            this.btnMateria = new System.Windows.Forms.Button();
             this.btnModificacionMateria = new System.Windows.Forms.Button();
             this.btnConsultaMateria = new System.Windows.Forms.Button();
             this.btnBajaMateria = new System.Windows.Forms.Button();
             this.btnAltaMateria = new System.Windows.Forms.Button();
             this.panelAlumno = new System.Windows.Forms.Panel();
+            this.btnAlumno = new System.Windows.Forms.Button();
             this.btnBajaAlumno = new System.Windows.Forms.Button();
             this.btnModificacionAlumno = new System.Windows.Forms.Button();
             this.btnConsultaAlumno = new System.Windows.Forms.Button();
             this.btnAltaAlumno = new System.Windows.Forms.Button();
             this.panelMaestro = new System.Windows.Forms.Panel();
+            this.btnMaestro = new System.Windows.Forms.Button();
             this.btnBajaMaestro = new System.Windows.Forms.Button();
             this.btnModificacionMaestro = new System.Windows.Forms.Button();
             this.btnConsultaMaestro = new System.Windows.Forms.Button();
             this.btnAltaMaestro = new System.Windows.Forms.Button();
             this.panelPeriodo = new System.Windows.Forms.Panel();
+            this.btnPeriodo = new System.Windows.Forms.Button();
             this.btnBajaPeriodo = new System.Windows.Forms.Button();
             this.btnModificacionPeriodo = new System.Windows.Forms.Button();
             this.btnConsultaPeriodo = new System.Windows.Forms.Button();
@@ -60,9 +66,15 @@
             this.panelCalificacion = new System.Windows.Forms.Panel();
             this.btnModificacionCalificacion = new System.Windows.Forms.Button();
             this.btnConsultaCalificacion = new System.Windows.Forms.Button();
+            this.btnCalificacion = new System.Windows.Forms.Button();
             this.btnAltaCalificacion = new System.Windows.Forms.Button();
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.lbUsuario = new System.Windows.Forms.Label();
+            this.iconrestaurar = new System.Windows.Forms.PictureBox();
+            this.iconminimizar = new System.Windows.Forms.PictureBox();
+            this.iconmaximizar = new System.Windows.Forms.PictureBox();
+            this.iconcerrar = new System.Windows.Forms.PictureBox();
+            this.btnslide = new System.Windows.Forms.PictureBox();
             this.tmExpandirMenu = new System.Windows.Forms.Timer(this.components);
             this.tmContraerMenu = new System.Windows.Forms.Timer(this.components);
             this.expandirCarrera = new System.Windows.Forms.Timer(this.components);
@@ -75,19 +87,8 @@
             this.expandirMateriaAlumnoMaestro = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.PanelContenedor = new System.Windows.Forms.Panel();
-            this.iconrestaurar = new System.Windows.Forms.PictureBox();
-            this.iconminimizar = new System.Windows.Forms.PictureBox();
-            this.iconmaximizar = new System.Windows.Forms.PictureBox();
-            this.iconcerrar = new System.Windows.Forms.PictureBox();
-            this.btnslide = new System.Windows.Forms.PictureBox();
-            this.picLOGO = new System.Windows.Forms.PictureBox();
-            this.btnCarrera = new System.Windows.Forms.Button();
-            this.btnMateria = new System.Windows.Forms.Button();
-            this.btnAlumno = new System.Windows.Forms.Button();
-            this.btnMaestro = new System.Windows.Forms.Button();
-            this.btnPeriodo = new System.Windows.Forms.Button();
-            this.btnCalificacion = new System.Windows.Forms.Button();
             this.MenuVertical.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLOGO)).BeginInit();
             this.Efecto.SuspendLayout();
             this.panelCarrera.SuspendLayout();
             this.panelMateria.SuspendLayout();
@@ -101,7 +102,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconmaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconcerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnslide)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLOGO)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuVertical
@@ -116,6 +116,18 @@
             this.MenuVertical.Size = new System.Drawing.Size(333, 996);
             this.MenuVertical.TabIndex = 0;
             this.MenuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuVertical_Paint);
+            // 
+            // picLOGO
+            // 
+            this.picLOGO.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.picLOGO.Image = ((System.Drawing.Image)(resources.GetObject("picLOGO.Image")));
+            this.picLOGO.Location = new System.Drawing.Point(0, 0);
+            this.picLOGO.Margin = new System.Windows.Forms.Padding(4);
+            this.picLOGO.Name = "picLOGO";
+            this.picLOGO.Size = new System.Drawing.Size(333, 139);
+            this.picLOGO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLOGO.TabIndex = 1;
+            this.picLOGO.TabStop = false;
             // 
             // Efecto
             // 
@@ -147,6 +159,26 @@
             this.panelCarrera.Name = "panelCarrera";
             this.panelCarrera.Size = new System.Drawing.Size(317, 82);
             this.panelCarrera.TabIndex = 0;
+            // 
+            // btnCarrera
+            // 
+            this.btnCarrera.BackColor = System.Drawing.Color.Transparent;
+            this.btnCarrera.FlatAppearance.BorderSize = 0;
+            this.btnCarrera.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCarrera.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnCarrera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarrera.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarrera.ForeColor = System.Drawing.Color.White;
+            this.btnCarrera.Image = global::UX1.Properties.Resources.Expand_Arrow_20px;
+            this.btnCarrera.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCarrera.Location = new System.Drawing.Point(0, 0);
+            this.btnCarrera.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCarrera.Name = "btnCarrera";
+            this.btnCarrera.Size = new System.Drawing.Size(317, 82);
+            this.btnCarrera.TabIndex = 1;
+            this.btnCarrera.Text = "Carrera";
+            this.btnCarrera.UseVisualStyleBackColor = false;
+            this.btnCarrera.Click += new System.EventHandler(this.BtnCarrera_Click);
             // 
             // btnModificacionCarrera
             // 
@@ -236,6 +268,28 @@
             this.panelMateria.Size = new System.Drawing.Size(317, 82);
             this.panelMateria.TabIndex = 10;
             // 
+            // btnMateria
+            // 
+            this.btnMateria.BackColor = System.Drawing.Color.Transparent;
+            this.btnMateria.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMateria.FlatAppearance.BorderSize = 0;
+            this.btnMateria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnMateria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnMateria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMateria.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnMateria.Image = global::UX1.Properties.Resources.Expand_Arrow_20px;
+            this.btnMateria.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMateria.Location = new System.Drawing.Point(0, 0);
+            this.btnMateria.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMateria.MaximumSize = new System.Drawing.Size(317, 84);
+            this.btnMateria.Name = "btnMateria";
+            this.btnMateria.Size = new System.Drawing.Size(317, 84);
+            this.btnMateria.TabIndex = 2;
+            this.btnMateria.Text = "Materia";
+            this.btnMateria.UseVisualStyleBackColor = false;
+            this.btnMateria.Click += new System.EventHandler(this.BtnMateria_Click);
+            // 
             // btnModificacionMateria
             // 
             this.btnModificacionMateria.BackColor = System.Drawing.Color.Transparent;
@@ -323,6 +377,26 @@
             this.panelAlumno.Name = "panelAlumno";
             this.panelAlumno.Size = new System.Drawing.Size(317, 82);
             this.panelAlumno.TabIndex = 11;
+            // 
+            // btnAlumno
+            // 
+            this.btnAlumno.BackColor = System.Drawing.Color.Transparent;
+            this.btnAlumno.FlatAppearance.BorderSize = 0;
+            this.btnAlumno.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAlumno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAlumno.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAlumno.Image = global::UX1.Properties.Resources.Expand_Arrow_20px;
+            this.btnAlumno.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAlumno.Location = new System.Drawing.Point(0, 0);
+            this.btnAlumno.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAlumno.Name = "btnAlumno";
+            this.btnAlumno.Size = new System.Drawing.Size(317, 86);
+            this.btnAlumno.TabIndex = 3;
+            this.btnAlumno.Text = "Alumno";
+            this.btnAlumno.UseVisualStyleBackColor = false;
+            this.btnAlumno.Click += new System.EventHandler(this.BtnAlumno_Click);
             // 
             // btnBajaAlumno
             // 
@@ -416,6 +490,26 @@
             this.panelMaestro.Size = new System.Drawing.Size(317, 82);
             this.panelMaestro.TabIndex = 12;
             // 
+            // btnMaestro
+            // 
+            this.btnMaestro.BackColor = System.Drawing.Color.Transparent;
+            this.btnMaestro.FlatAppearance.BorderSize = 0;
+            this.btnMaestro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnMaestro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnMaestro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaestro.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaestro.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnMaestro.Image = global::UX1.Properties.Resources.Expand_Arrow_20px;
+            this.btnMaestro.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMaestro.Location = new System.Drawing.Point(0, 4);
+            this.btnMaestro.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMaestro.Name = "btnMaestro";
+            this.btnMaestro.Size = new System.Drawing.Size(317, 81);
+            this.btnMaestro.TabIndex = 4;
+            this.btnMaestro.Text = "Maestro";
+            this.btnMaestro.UseVisualStyleBackColor = false;
+            this.btnMaestro.Click += new System.EventHandler(this.BtnMaestro_Click);
+            // 
             // btnBajaMaestro
             // 
             this.btnBajaMaestro.BackColor = System.Drawing.Color.Transparent;
@@ -487,6 +581,7 @@
             this.btnAltaMaestro.TabIndex = 13;
             this.btnAltaMaestro.Text = "Alta";
             this.btnAltaMaestro.UseVisualStyleBackColor = false;
+            this.btnAltaMaestro.Click += new System.EventHandler(this.BtnAltaMaestro_Click);
             // 
             // panelPeriodo
             // 
@@ -503,6 +598,27 @@
             this.panelPeriodo.Name = "panelPeriodo";
             this.panelPeriodo.Size = new System.Drawing.Size(317, 82);
             this.panelPeriodo.TabIndex = 13;
+            // 
+            // btnPeriodo
+            // 
+            this.btnPeriodo.BackColor = System.Drawing.Color.Transparent;
+            this.btnPeriodo.Enabled = false;
+            this.btnPeriodo.FlatAppearance.BorderSize = 0;
+            this.btnPeriodo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnPeriodo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnPeriodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPeriodo.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnPeriodo.Image = global::UX1.Properties.Resources.Expand_Arrow_20px;
+            this.btnPeriodo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPeriodo.Location = new System.Drawing.Point(0, 4);
+            this.btnPeriodo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPeriodo.Name = "btnPeriodo";
+            this.btnPeriodo.Size = new System.Drawing.Size(317, 90);
+            this.btnPeriodo.TabIndex = 5;
+            this.btnPeriodo.Text = "Periodo";
+            this.btnPeriodo.UseVisualStyleBackColor = false;
+            this.btnPeriodo.Click += new System.EventHandler(this.Button5_Click);
             // 
             // btnBajaPeriodo
             // 
@@ -621,6 +737,27 @@
             this.btnConsultaCalificacion.Text = "Consulta";
             this.btnConsultaCalificacion.UseVisualStyleBackColor = false;
             // 
+            // btnCalificacion
+            // 
+            this.btnCalificacion.BackColor = System.Drawing.Color.Transparent;
+            this.btnCalificacion.Enabled = false;
+            this.btnCalificacion.FlatAppearance.BorderSize = 0;
+            this.btnCalificacion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCalificacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnCalificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCalificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalificacion.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnCalificacion.Image = global::UX1.Properties.Resources.Expand_Arrow_20px;
+            this.btnCalificacion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCalificacion.Location = new System.Drawing.Point(-4, 1);
+            this.btnCalificacion.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCalificacion.Name = "btnCalificacion";
+            this.btnCalificacion.Size = new System.Drawing.Size(317, 81);
+            this.btnCalificacion.TabIndex = 6;
+            this.btnCalificacion.Text = "Calificacion";
+            this.btnCalificacion.UseVisualStyleBackColor = false;
+            this.btnCalificacion.Click += new System.EventHandler(this.BtnCalificacion_Click);
+            // 
             // btnAltaCalificacion
             // 
             this.btnAltaCalificacion.BackColor = System.Drawing.Color.Transparent;
@@ -665,57 +802,6 @@
             this.lbUsuario.Size = new System.Drawing.Size(137, 38);
             this.lbUsuario.TabIndex = 3;
             this.lbUsuario.Text = "Usuario";
-            // 
-            // tmExpandirMenu
-            // 
-            this.tmExpandirMenu.Tick += new System.EventHandler(this.TmExpandirMenu_Tick);
-            // 
-            // tmContraerMenu
-            // 
-            this.tmContraerMenu.Tick += new System.EventHandler(this.TmContraerMenu_Tick);
-            // 
-            // expandirCarrera
-            // 
-            this.expandirCarrera.Tick += new System.EventHandler(this.Expandir_Tick);
-            // 
-            // expandirMateria
-            // 
-            this.expandirMateria.Tick += new System.EventHandler(this.expandirMateria_Tick);
-            // 
-            // expandirAlumno
-            // 
-            this.expandirAlumno.Tick += new System.EventHandler(this.expandirAlumno_Tick);
-            // 
-            // expandirMaestro
-            // 
-            this.expandirMaestro.Tick += new System.EventHandler(this.expandirMaestro_Tick);
-            // 
-            // expandirPeriodo
-            // 
-            this.expandirPeriodo.Tick += new System.EventHandler(this.expandirPeriodo_Tick);
-            // 
-            // expandirCalificacion
-            // 
-            this.expandirCalificacion.Tick += new System.EventHandler(this.expandirCalificacion_Tick);
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(3, 913);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(530, 85);
-            this.panel1.TabIndex = 3;
-            // 
-            // PanelContenedor
-            // 
-            this.PanelContenedor.BackColor = System.Drawing.Color.White;
-            this.PanelContenedor.BackgroundImage = global::UX1.Properties.Resources.cesunl;
-            this.PanelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.PanelContenedor.Location = new System.Drawing.Point(333, 55);
-            this.PanelContenedor.Margin = new System.Windows.Forms.Padding(4);
-            this.PanelContenedor.Name = "PanelContenedor";
-            this.PanelContenedor.Size = new System.Drawing.Size(1292, 857);
-            this.PanelContenedor.TabIndex = 2;
-            this.PanelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
             // 
             // iconrestaurar
             // 
@@ -778,142 +864,56 @@
             this.btnslide.TabStop = false;
             this.btnslide.Click += new System.EventHandler(this.Btnslide_Click);
             // 
-            // picLOGO
+            // tmExpandirMenu
             // 
-            this.picLOGO.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.picLOGO.Image = ((System.Drawing.Image)(resources.GetObject("picLOGO.Image")));
-            this.picLOGO.Location = new System.Drawing.Point(0, 0);
-            this.picLOGO.Margin = new System.Windows.Forms.Padding(4);
-            this.picLOGO.Name = "picLOGO";
-            this.picLOGO.Size = new System.Drawing.Size(333, 139);
-            this.picLOGO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLOGO.TabIndex = 1;
-            this.picLOGO.TabStop = false;
+            this.tmExpandirMenu.Tick += new System.EventHandler(this.TmExpandirMenu_Tick);
             // 
-            // btnCarrera
+            // tmContraerMenu
             // 
-            this.btnCarrera.BackColor = System.Drawing.Color.Transparent;
-            this.btnCarrera.FlatAppearance.BorderSize = 0;
-            this.btnCarrera.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCarrera.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnCarrera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCarrera.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCarrera.ForeColor = System.Drawing.Color.White;
-            this.btnCarrera.Image = global::UX1.Properties.Resources.Expand_Arrow_20px;
-            this.btnCarrera.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCarrera.Location = new System.Drawing.Point(0, 0);
-            this.btnCarrera.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCarrera.Name = "btnCarrera";
-            this.btnCarrera.Size = new System.Drawing.Size(317, 82);
-            this.btnCarrera.TabIndex = 1;
-            this.btnCarrera.Text = "Carrera";
-            this.btnCarrera.UseVisualStyleBackColor = false;
-            this.btnCarrera.Click += new System.EventHandler(this.BtnCarrera_Click);
+            this.tmContraerMenu.Tick += new System.EventHandler(this.TmContraerMenu_Tick);
             // 
-            // btnMateria
+            // expandirCarrera
             // 
-            this.btnMateria.BackColor = System.Drawing.Color.Transparent;
-            this.btnMateria.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMateria.FlatAppearance.BorderSize = 0;
-            this.btnMateria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMateria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnMateria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMateria.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnMateria.Image = global::UX1.Properties.Resources.Expand_Arrow_20px;
-            this.btnMateria.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMateria.Location = new System.Drawing.Point(0, 0);
-            this.btnMateria.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMateria.MaximumSize = new System.Drawing.Size(317, 84);
-            this.btnMateria.Name = "btnMateria";
-            this.btnMateria.Size = new System.Drawing.Size(317, 84);
-            this.btnMateria.TabIndex = 2;
-            this.btnMateria.Text = "Materia";
-            this.btnMateria.UseVisualStyleBackColor = false;
-            this.btnMateria.Click += new System.EventHandler(this.BtnMateria_Click);
+            this.expandirCarrera.Tick += new System.EventHandler(this.Expandir_Tick);
             // 
-            // btnAlumno
+            // expandirMateria
             // 
-            this.btnAlumno.BackColor = System.Drawing.Color.Transparent;
-            this.btnAlumno.FlatAppearance.BorderSize = 0;
-            this.btnAlumno.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAlumno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlumno.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAlumno.Image = global::UX1.Properties.Resources.Expand_Arrow_20px;
-            this.btnAlumno.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAlumno.Location = new System.Drawing.Point(0, 0);
-            this.btnAlumno.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAlumno.Name = "btnAlumno";
-            this.btnAlumno.Size = new System.Drawing.Size(317, 86);
-            this.btnAlumno.TabIndex = 3;
-            this.btnAlumno.Text = "Alumno";
-            this.btnAlumno.UseVisualStyleBackColor = false;
-            this.btnAlumno.Click += new System.EventHandler(this.BtnAlumno_Click);
+            this.expandirMateria.Tick += new System.EventHandler(this.expandirMateria_Tick);
             // 
-            // btnMaestro
+            // expandirAlumno
             // 
-            this.btnMaestro.BackColor = System.Drawing.Color.Transparent;
-            this.btnMaestro.Enabled = false;
-            this.btnMaestro.FlatAppearance.BorderSize = 0;
-            this.btnMaestro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMaestro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnMaestro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaestro.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMaestro.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnMaestro.Image = global::UX1.Properties.Resources.Expand_Arrow_20px;
-            this.btnMaestro.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMaestro.Location = new System.Drawing.Point(0, 4);
-            this.btnMaestro.Margin = new System.Windows.Forms.Padding(4);
-            this.btnMaestro.Name = "btnMaestro";
-            this.btnMaestro.Size = new System.Drawing.Size(317, 81);
-            this.btnMaestro.TabIndex = 4;
-            this.btnMaestro.Text = "Maestro";
-            this.btnMaestro.UseVisualStyleBackColor = false;
-            this.btnMaestro.Click += new System.EventHandler(this.BtnMaestro_Click);
+            this.expandirAlumno.Tick += new System.EventHandler(this.expandirAlumno_Tick);
             // 
-            // btnPeriodo
+            // expandirMaestro
             // 
-            this.btnPeriodo.BackColor = System.Drawing.Color.Transparent;
-            this.btnPeriodo.Enabled = false;
-            this.btnPeriodo.FlatAppearance.BorderSize = 0;
-            this.btnPeriodo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnPeriodo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnPeriodo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPeriodo.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnPeriodo.Image = global::UX1.Properties.Resources.Expand_Arrow_20px;
-            this.btnPeriodo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPeriodo.Location = new System.Drawing.Point(0, 4);
-            this.btnPeriodo.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPeriodo.Name = "btnPeriodo";
-            this.btnPeriodo.Size = new System.Drawing.Size(317, 90);
-            this.btnPeriodo.TabIndex = 5;
-            this.btnPeriodo.Text = "Periodo";
-            this.btnPeriodo.UseVisualStyleBackColor = false;
-            this.btnPeriodo.Click += new System.EventHandler(this.Button5_Click);
+            this.expandirMaestro.Tick += new System.EventHandler(this.expandirMaestro_Tick);
             // 
-            // btnCalificacion
+            // expandirPeriodo
             // 
-            this.btnCalificacion.BackColor = System.Drawing.Color.Transparent;
-            this.btnCalificacion.Enabled = false;
-            this.btnCalificacion.FlatAppearance.BorderSize = 0;
-            this.btnCalificacion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCalificacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnCalificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCalificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalificacion.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnCalificacion.Image = global::UX1.Properties.Resources.Expand_Arrow_20px;
-            this.btnCalificacion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCalificacion.Location = new System.Drawing.Point(-4, 1);
-            this.btnCalificacion.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCalificacion.Name = "btnCalificacion";
-            this.btnCalificacion.Size = new System.Drawing.Size(317, 81);
-            this.btnCalificacion.TabIndex = 6;
-            this.btnCalificacion.Text = "Calificacion";
-            this.btnCalificacion.UseVisualStyleBackColor = false;
-            this.btnCalificacion.Click += new System.EventHandler(this.BtnCalificacion_Click);
+            this.expandirPeriodo.Tick += new System.EventHandler(this.expandirPeriodo_Tick);
+            // 
+            // expandirCalificacion
+            // 
+            this.expandirCalificacion.Tick += new System.EventHandler(this.expandirCalificacion_Tick);
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(3, 913);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(530, 85);
+            this.panel1.TabIndex = 3;
+            // 
+            // PanelContenedor
+            // 
+            this.PanelContenedor.BackColor = System.Drawing.Color.White;
+            this.PanelContenedor.BackgroundImage = global::UX1.Properties.Resources.cesunl;
+            this.PanelContenedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.PanelContenedor.Location = new System.Drawing.Point(333, 55);
+            this.PanelContenedor.Margin = new System.Windows.Forms.Padding(4);
+            this.PanelContenedor.Name = "PanelContenedor";
+            this.PanelContenedor.Size = new System.Drawing.Size(1292, 857);
+            this.PanelContenedor.TabIndex = 2;
+            this.PanelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
             // 
             // Plantilla
             // 
@@ -933,6 +933,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "c";
             this.MenuVertical.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picLOGO)).EndInit();
             this.Efecto.ResumeLayout(false);
             this.panelCarrera.ResumeLayout(false);
             this.panelMateria.ResumeLayout(false);
@@ -947,7 +948,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconmaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconcerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnslide)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLOGO)).EndInit();
             this.ResumeLayout(false);
 
         }

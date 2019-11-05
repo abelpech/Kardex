@@ -247,6 +247,24 @@ namespace Kardex.Layers
                 }
             
         }
+
+//MAESTRO
+        public void AltaMaestro(string maestro, string direccion, string telefono)
+        {
+            if (maestro == "")
+            {
+
+                MessageBox.Show("Es necesario especificar la informacion completa", "Alerta", MessageBoxButtons.OK);
+
+            }
+            else
+            {
+
+                dal.AltaMaestro(maestro, direccion, telefono);
+                //MessageBox.Show("El Maestro se dio de alta correctamente", "Aviso", MessageBoxButtons.OK);
+
+            }
+        }
         public int LoginValidation(string username, string password)
         {
             if(username == "")

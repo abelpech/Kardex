@@ -17,7 +17,7 @@ namespace Kardex.Layers
         public dbConn()
         {
 
-            //Obtiene el hostname de la computadora que utiliz el programa para adecuar la instancia
+            //Obtiene el hostname de la computadora que utiliza el programa para adecuar la instancia
             //a la correcta de cada quien
             string host = Dns.GetHostName();
             
@@ -185,6 +185,7 @@ namespace Kardex.Layers
             int retVal = (Int32)cmd.ExecuteScalar();
 
             //MessageBox.Show(retVal.ToString());
+            conn.Close();
             if (retVal == 0)
             {
                 MessageBox.Show("Alta Exitosa", "Aviso", MessageBoxButtons.OK);
@@ -193,7 +194,7 @@ namespace Kardex.Layers
             {
                 MessageBox.Show("Ya existe un registro con esos datos", "Aviso", MessageBoxButtons.OK);
             }
-            conn.Close();
+           
             
         }
 
@@ -223,7 +224,7 @@ namespace Kardex.Layers
             conn.Close();
 
         }
-        //Hola soy 4566
+        
       
     }
 

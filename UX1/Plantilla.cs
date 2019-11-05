@@ -425,6 +425,11 @@ namespace UX1
             expandirMateriaAlumnoMaestro.Start();
         }
 
+        private void BtnAltaMaestro_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new frmAltaMaestro());
+        }
+
         private void EstablecerPermisos(int pm)
         {
             switch (pm)
