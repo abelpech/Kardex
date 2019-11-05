@@ -115,5 +115,50 @@ namespace UX1
                 nonNumberEntered = true;
             }
         }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtDireccion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DtpFechaAlta_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtAlumno_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtCarrera_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

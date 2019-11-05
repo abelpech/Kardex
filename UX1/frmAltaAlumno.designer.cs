@@ -83,6 +83,7 @@
             this.txtCarrera.Name = "txtCarrera";
             this.txtCarrera.Size = new System.Drawing.Size(735, 45);
             this.txtCarrera.TabIndex = 5;
+            this.txtCarrera.TextChanged += new System.EventHandler(this.TxtCarrera_TextChanged);
             // 
             // txtTelefono
             // 
@@ -109,6 +110,7 @@
             this.label4.Size = new System.Drawing.Size(179, 44);
             this.label4.TabIndex = 14;
             this.label4.Text = "Telefono:";
+            this.label4.Click += new System.EventHandler(this.Label4_Click);
             // 
             // txtDireccion
             // 
@@ -120,6 +122,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(735, 45);
             this.txtDireccion.TabIndex = 2;
+            this.txtDireccion.TextChanged += new System.EventHandler(this.TxtDireccion_TextChanged);
             // 
             // label2
             // 
@@ -132,6 +135,7 @@
             this.label2.Size = new System.Drawing.Size(190, 44);
             this.label2.TabIndex = 12;
             this.label2.Text = "Direccion:";
+            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // btnCerrar
             // 
@@ -166,6 +170,7 @@
             this.label5.Size = new System.Drawing.Size(160, 44);
             this.label5.TabIndex = 9;
             this.label5.Text = "Carrera:";
+            this.label5.Click += new System.EventHandler(this.Label5_Click);
             // 
             // dtpFechaAlta
             // 
@@ -175,6 +180,7 @@
             this.dtpFechaAlta.Name = "dtpFechaAlta";
             this.dtpFechaAlta.Size = new System.Drawing.Size(735, 49);
             this.dtpFechaAlta.TabIndex = 4;
+            this.dtpFechaAlta.ValueChanged += new System.EventHandler(this.DtpFechaAlta_ValueChanged);
             // 
             // label3
             // 
@@ -187,6 +193,7 @@
             this.label3.Size = new System.Drawing.Size(373, 44);
             this.label3.TabIndex = 4;
             this.label3.Text = "Fecha de nacimiento";
+            this.label3.Click += new System.EventHandler(this.Label3_Click);
             // 
             // txtAlumno
             // 
@@ -198,6 +205,7 @@
             this.txtAlumno.Name = "txtAlumno";
             this.txtAlumno.Size = new System.Drawing.Size(735, 45);
             this.txtAlumno.TabIndex = 1;
+            this.txtAlumno.TextChanged += new System.EventHandler(this.TxtAlumno_TextChanged);
             // 
             // label1
             // 
@@ -210,6 +218,7 @@
             this.label1.Size = new System.Drawing.Size(161, 44);
             this.label1.TabIndex = 0;
             this.label1.Text = "Alumno:";
+            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // frmAltaAlumno
             // 

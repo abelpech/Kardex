@@ -211,7 +211,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Algo Salio Mal", "Error", MessageBoxButtons.OK);
             }
 
             return dt;
@@ -222,6 +222,19 @@ namespace Kardex.Layers
             {
                 string query = "ActualizaAlumno '" + matricula + "', '" + alumno + "', '" + direccion + "', '" + telefono + "', '" + fechaNac + "', '" + Convert.ToInt32(estatus) + "', '" + carrera + "','" + Permisos.usuario + "'";
                 conn.ExcQry(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
+            }
+        }
+//MAESTRO
+        public void AltaMaestro(string maestro, string direccion, string telefono)
+        {
+            try
+            {
+                string query = "AltaMaestro '" + maestro + "', '" + direccion + "', '" + telefono + "', '" + Permisos.usuario + "'";
+                conn.ExcQryReturn(query);
             }
             catch (Exception ex)
             {
