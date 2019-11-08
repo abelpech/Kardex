@@ -282,6 +282,23 @@ namespace Kardex.Layers
 
             }
         }
+
+        public DataTable ConsultaMaestro(int matricula, string maestro)
+        {
+
+            //if (carrera != "")
+            //{
+
+            return dal.ConsultaMaestro(matricula, maestro);
+            //}
+            /*else
+            {
+                MessageBox.Show("Es necesario especificar el valor para la carrera.", "Alerta", MessageBoxButtons.OK);
+                return null;
+            }*/
+
+
+        }
         public int LoginValidation(string username, string password)
         {
             if(username == "")

@@ -250,6 +250,26 @@ namespace Kardex.Layers
             }
         }
 
+        public DataTable ConsultaMaestro(int matricula, string maestro)
+        {
+            string query;
+            DataTable dt = new DataTable();
+            try
+            {
+                //Le asignamos a query el valor del SP "nombre" mas el parametro materia
+                //Para ejecutarlo posteriormente.
+                query = "ConsultaMaestro '" + matricula + "', '" + maestro + "'";
+                dt = conn.ExcQryDt(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
+                //MessageBox.Show("Algo Salio Mal", "Error", MessageBoxButtons.OK);
+            }
+
+            return dt;
+        }
+
         public AutoCompleteStringCollection AutoCarrera()
         {
             AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();

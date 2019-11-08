@@ -564,6 +564,7 @@
             this.btnConsultaMaestro.TabIndex = 14;
             this.btnConsultaMaestro.Text = "Consulta";
             this.btnConsultaMaestro.UseVisualStyleBackColor = false;
+            this.btnConsultaMaestro.Click += new System.EventHandler(this.BtnConsultaMaestro_Click);
             // 
             // btnAltaMaestro
             // 
