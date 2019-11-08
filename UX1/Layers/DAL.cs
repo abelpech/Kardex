@@ -14,7 +14,7 @@ namespace Kardex.Layers
     {
         dbConn conn = new dbConn();
         
-        public DataTable ConsultaCarrera(string carrera)
+        public DataTable ConsultaCarrera(string carrera, int estado)
         {
             string query;
             DataTable dt = new DataTable();
@@ -22,7 +22,7 @@ namespace Kardex.Layers
             {
                 //Le asignamos a query el valor del SP "nombre" mas el parametro carrera
                 //Para ejecutarlo posteriormente.
-                query = "ConsultaCarrera '" + carrera + "'";
+                query = "ConsultaCarrera '" + carrera + "', '" + estado + "'";
                 dt = conn.ExcQryDt(query);
             }
             catch (Exception ex)

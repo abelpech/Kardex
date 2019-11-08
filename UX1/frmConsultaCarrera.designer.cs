@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.gbConsultaCarrera = new System.Windows.Forms.GroupBox();
-            this.cbInactivos = new System.Windows.Forms.CheckBox();
+            this.comboEstatus = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtCarrera = new System.Windows.Forms.TextBox();
-            this.cbTodas = new System.Windows.Forms.CheckBox();
             this.btnConsulta = new System.Windows.Forms.Button();
             this.gbCarrera = new System.Windows.Forms.GroupBox();
             this.dgvCarrera = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.gbConsultaCarrera.SuspendLayout();
             this.gbCarrera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrera)).BeginInit();
@@ -43,9 +44,10 @@
             // 
             // gbConsultaCarrera
             // 
-            this.gbConsultaCarrera.Controls.Add(this.cbInactivos);
+            this.gbConsultaCarrera.Controls.Add(this.button1);
+            this.gbConsultaCarrera.Controls.Add(this.comboEstatus);
+            this.gbConsultaCarrera.Controls.Add(this.label2);
             this.gbConsultaCarrera.Controls.Add(this.txtCarrera);
-            this.gbConsultaCarrera.Controls.Add(this.cbTodas);
             this.gbConsultaCarrera.Controls.Add(this.btnConsulta);
             this.gbConsultaCarrera.Controls.Add(this.gbCarrera);
             this.gbConsultaCarrera.Controls.Add(this.label1);
@@ -55,19 +57,29 @@
             this.gbConsultaCarrera.TabIndex = 0;
             this.gbConsultaCarrera.TabStop = false;
             // 
-            // cbInactivos
+            // comboEstatus
             // 
-            this.cbInactivos.AutoSize = true;
-            this.cbInactivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbInactivos.ForeColor = System.Drawing.Color.White;
-            this.cbInactivos.Location = new System.Drawing.Point(886, 39);
-            this.cbInactivos.Name = "cbInactivos";
-            this.cbInactivos.Size = new System.Drawing.Size(149, 36);
-            this.cbInactivos.TabIndex = 4;
-            this.cbInactivos.Text = "Inactivos";
-            this.cbInactivos.UseVisualStyleBackColor = true;
-            this.cbInactivos.CheckedChanged += new System.EventHandler(this.cbInactivos_CheckedChanged);
-            this.cbInactivos.Click += new System.EventHandler(this.cbInactivos_Click);
+            this.comboEstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboEstatus.FormattingEnabled = true;
+            this.comboEstatus.Items.AddRange(new object[] {
+            "Activos",
+            "Inactivos"});
+            this.comboEstatus.Location = new System.Drawing.Point(137, 72);
+            this.comboEstatus.Name = "comboEstatus";
+            this.comboEstatus.Size = new System.Drawing.Size(694, 44);
+            this.comboEstatus.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(6, 82);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 32);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Estatus:";
             // 
             // txtCarrera
             // 
@@ -79,37 +91,23 @@
             this.txtCarrera.Size = new System.Drawing.Size(694, 41);
             this.txtCarrera.TabIndex = 1;
             // 
-            // cbTodas
-            // 
-            this.cbTodas.AutoSize = true;
-            this.cbTodas.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTodas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cbTodas.Location = new System.Drawing.Point(887, 10);
-            this.cbTodas.Name = "cbTodas";
-            this.cbTodas.Size = new System.Drawing.Size(129, 36);
-            this.cbTodas.TabIndex = 2;
-            this.cbTodas.Text = "Activos";
-            this.cbTodas.UseVisualStyleBackColor = true;
-            this.cbTodas.CheckedChanged += new System.EventHandler(this.CbTodas_CheckedChanged);
-            this.cbTodas.Click += new System.EventHandler(this.cbTodas_Click);
-            // 
             // btnConsulta
             // 
-            this.btnConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta.Location = new System.Drawing.Point(1038, 10);
+            this.btnConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsulta.Location = new System.Drawing.Point(890, 31);
             this.btnConsulta.Name = "btnConsulta";
-            this.btnConsulta.Size = new System.Drawing.Size(153, 42);
+            this.btnConsulta.Size = new System.Drawing.Size(269, 60);
             this.btnConsulta.TabIndex = 3;
-            this.btnConsulta.Text = "&Consulta";
+            this.btnConsulta.Text = "&Consultar";
             this.btnConsulta.UseVisualStyleBackColor = true;
             this.btnConsulta.Click += new System.EventHandler(this.BtnConsulta_Click);
             // 
             // gbCarrera
             // 
             this.gbCarrera.Controls.Add(this.dgvCarrera);
-            this.gbCarrera.Location = new System.Drawing.Point(6, 69);
+            this.gbCarrera.Location = new System.Drawing.Point(6, 144);
             this.gbCarrera.Name = "gbCarrera";
-            this.gbCarrera.Size = new System.Drawing.Size(1185, 745);
+            this.gbCarrera.Size = new System.Drawing.Size(1185, 670);
             this.gbCarrera.TabIndex = 2;
             this.gbCarrera.TabStop = false;
             // 
@@ -135,6 +133,17 @@
             this.label1.Size = new System.Drawing.Size(125, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Carrera: ";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(945, 98);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(159, 40);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Limpiar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmConsultaCarrera
             // 
@@ -163,8 +172,9 @@
         private System.Windows.Forms.GroupBox gbCarrera;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.DataGridView dgvCarrera;
-        private System.Windows.Forms.CheckBox cbTodas;
         private System.Windows.Forms.TextBox txtCarrera;
-        private System.Windows.Forms.CheckBox cbInactivos;
+        private System.Windows.Forms.ComboBox comboEstatus;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }

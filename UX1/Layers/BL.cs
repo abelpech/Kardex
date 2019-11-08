@@ -14,17 +14,22 @@ namespace Kardex.Layers
         DAL dal = new DAL();
 
         //CARRERA
-        public DataTable ConsultaCarrera(string carrera)
+        public DataTable ConsultaCarrera(string carrera, int estado)
         {
             
             if (carrera != "")
             {
                 
-                return dal.ConsultaCarrera(carrera);
+                return dal.ConsultaCarrera(carrera, estado);
+            }
+            else if(carrera == "" && estado !=-1)
+            {
+                //MessageBox.Show("Es necesario especificar el valor para la carrera.", "Alerta", MessageBoxButtons.OK);
+                //return null;
+                return dal.ConsultaCarrera(carrera, estado);
             }
             else
             {
-                MessageBox.Show("Es necesario especificar el valor para la carrera.", "Alerta", MessageBoxButtons.OK);
                 return null;
             }
 
