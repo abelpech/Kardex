@@ -160,7 +160,7 @@ namespace Kardex.Layers
             {
 
                 string query = "ModificaMateria '" + materiabaja1 + "', '" + materia + "', '" + Convert.ToInt32(estatus) + "', '" + Permisos.usuario + "'";
-                conn.ExcQry(query);
+                conn.ExcQryReturn(query);
             }
             catch (Exception ex)
             {

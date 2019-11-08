@@ -15,7 +15,7 @@ namespace UX1
     public partial class frmModificaMateria : Form
     {
         BL bl = new BL();
-        string materiabaja1;
+        string materiabaja1 = "";
         public frmModificaMateria()
         {
             InitializeComponent();
@@ -46,6 +46,7 @@ namespace UX1
             {
                 estatus = false;
             }
+            //MessageBox.Show(materiabaja1 + materia + estatus.ToString());
             bl.ModificaMateria(materiabaja1, materia, estatus);
 
             txtMateria.Text = String.Empty;

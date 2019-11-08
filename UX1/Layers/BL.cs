@@ -158,7 +158,7 @@ namespace Kardex.Layers
             {
                 
                 dal.ModificaMateria(materiabaja1, materia, estatus);
-                MessageBox.Show("La materia se modifico exitosamente", "Aviso", MessageBoxButtons.OK);
+                //MessageBox.Show("La materia se modifico exitosamente", "Aviso", MessageBoxButtons.OK);
                
             }
         }
