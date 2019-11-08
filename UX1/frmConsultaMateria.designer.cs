@@ -28,37 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbTodas = new System.Windows.Forms.CheckBox();
             this.btnConsulta = new System.Windows.Forms.Button();
             this.gbCarrera = new System.Windows.Forms.GroupBox();
             this.dgvCarrera = new System.Windows.Forms.DataGridView();
             this.txtMateria = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbInactivos = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboEstatus = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.gbCarrera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrera)).BeginInit();
             this.SuspendLayout();
             // 
-            // cbTodas
-            // 
-            this.cbTodas.AutoSize = true;
-            this.cbTodas.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTodas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cbTodas.Location = new System.Drawing.Point(882, 1);
-            this.cbTodas.Name = "cbTodas";
-            this.cbTodas.Size = new System.Drawing.Size(129, 36);
-            this.cbTodas.TabIndex = 2;
-            this.cbTodas.Text = "Activos";
-            this.cbTodas.UseVisualStyleBackColor = true;
-            this.cbTodas.CheckedChanged += new System.EventHandler(this.CbTodas_CheckedChanged);
-            this.cbTodas.Click += new System.EventHandler(this.cbTodas_Click);
-            // 
             // btnConsulta
             // 
-            this.btnConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta.Location = new System.Drawing.Point(1049, 12);
+            this.btnConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsulta.Location = new System.Drawing.Point(922, 16);
             this.btnConsulta.Name = "btnConsulta";
-            this.btnConsulta.Size = new System.Drawing.Size(149, 43);
+            this.btnConsulta.Size = new System.Drawing.Size(269, 60);
             this.btnConsulta.TabIndex = 3;
             this.btnConsulta.Text = "&Consulta";
             this.btnConsulta.UseVisualStyleBackColor = true;
@@ -67,9 +54,9 @@
             // gbCarrera
             // 
             this.gbCarrera.Controls.Add(this.dgvCarrera);
-            this.gbCarrera.Location = new System.Drawing.Point(12, 66);
+            this.gbCarrera.Location = new System.Drawing.Point(12, 135);
             this.gbCarrera.Name = "gbCarrera";
-            this.gbCarrera.Size = new System.Drawing.Size(1198, 767);
+            this.gbCarrera.Size = new System.Drawing.Size(1198, 698);
             this.gbCarrera.TabIndex = 7;
             this.gbCarrera.TabStop = false;
             // 
@@ -107,19 +94,39 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Materia: ";
             // 
-            // cbInactivos
+            // label2
             // 
-            this.cbInactivos.AutoSize = true;
-            this.cbInactivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbInactivos.ForeColor = System.Drawing.Color.White;
-            this.cbInactivos.Location = new System.Drawing.Point(882, 33);
-            this.cbInactivos.Name = "cbInactivos";
-            this.cbInactivos.Size = new System.Drawing.Size(155, 40);
-            this.cbInactivos.TabIndex = 8;
-            this.cbInactivos.Text = "Inactivos";
-            this.cbInactivos.UseVisualStyleBackColor = true;
-            this.cbInactivos.CheckedChanged += new System.EventHandler(this.cbInactivos_CheckedChanged);
-            this.cbInactivos.Click += new System.EventHandler(this.cbInactivos_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(30, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 32);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Estatus:";
+            // 
+            // comboEstatus
+            // 
+            this.comboEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboEstatus.FormattingEnabled = true;
+            this.comboEstatus.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.comboEstatus.Location = new System.Drawing.Point(145, 73);
+            this.comboEstatus.Name = "comboEstatus";
+            this.comboEstatus.Size = new System.Drawing.Size(729, 44);
+            this.comboEstatus.TabIndex = 10;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(976, 86);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(159, 40);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "&Limpiar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmConsultaMateria
             // 
@@ -127,8 +134,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(40)))), ((int)(((byte)(62)))));
             this.ClientSize = new System.Drawing.Size(1222, 845);
-            this.Controls.Add(this.cbInactivos);
-            this.Controls.Add(this.cbTodas);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comboEstatus);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnConsulta);
             this.Controls.Add(this.gbCarrera);
             this.Controls.Add(this.txtMateria);
@@ -145,13 +153,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckBox cbTodas;
         private System.Windows.Forms.Button btnConsulta;
         private System.Windows.Forms.GroupBox gbCarrera;
         public System.Windows.Forms.DataGridView dgvCarrera;
         public System.Windows.Forms.TextBox txtMateria;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox cbInactivos;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboEstatus;
+        private System.Windows.Forms.Button button1;
     }
 }

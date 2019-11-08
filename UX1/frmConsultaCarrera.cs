@@ -31,7 +31,8 @@ namespace Kardex
         {
             
         }
-
+        /*Funciones de CheckBoxes comentadas para no generar conflicto con COMBOBOX
+         * 
         private void CbTodas_CheckedChanged(object sender, EventArgs e)
         {
             if (cbTodas.Checked == true)
@@ -50,11 +51,32 @@ namespace Kardex
 
         }
 
+           */
+
+
         private void BtnConsulta_Click(object sender, EventArgs e)
         {
-            if (cbTodas.Checked == true)
+            string carrera = txtCarrera.Text;
+
+            if (comboEstatus.SelectedIndex == 0 && txtCarrera.Text == "")
             {
-                DataTable dt = bl.ConsultaCarrera("todas");
+                //DataTable dt = bl.ConsultaCarrera("todas", 0);
+
+                DataTable dt = bl.ConsultaCarrera("", 0);
+                if (dt.Rows.Count > 0)
+                {
+                    dgvCarrera.DataSource = dt;
+                    //No permitir agregar datos adicionales
+                    dgvCarrera.AllowUserToAddRows = false;
+                }
+                else
+                {
+                    MessageBox.Show("No hay carreras activas", "Aviso", MessageBoxButtons.OK);
+                }
+            }
+            else if (comboEstatus.SelectedIndex == 1 && txtCarrera.Text == "")
+            {
+                DataTable dt = bl.ConsultaCarrera("", 1);
 
                 if (dt.Rows.Count > 0)
                 {
@@ -67,10 +89,9 @@ namespace Kardex
                     MessageBox.Show("No hay carreras activas", "Aviso", MessageBoxButtons.OK);
                 }
             }
-            else if (cbInactivos.Checked == true)
+            else if (comboEstatus.SelectedIndex == 0 && txtCarrera.Text != "")
             {
-                DataTable dt = bl.ConsultaCarrera("inactivos");
-
+                DataTable dt = bl.ConsultaCarrera(carrera, 0);
                 if (dt.Rows.Count > 0)
                 {
                     dgvCarrera.DataSource = dt;
@@ -79,19 +100,53 @@ namespace Kardex
                 }
                 else
                 {
-                    MessageBox.Show("No hay carreras activas", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("No registros con la carrera ingresada", "Aviso", MessageBoxButtons.OK);
                 }
             }
-            else{
-                String carrera = txtCarrera.Text.ToString();
-                
-                if(carrera == "")
+            else if (comboEstatus.SelectedIndex == 1 && txtCarrera.Text != "")
+            {
+
+                DataTable dt = bl.ConsultaCarrera(carrera, 1);
+                if (dt.Rows.Count > 0)
                 {
-                    MessageBox.Show("Favor de especificar la carrera", "Aviso", MessageBoxButtons.OK);
+                    dgvCarrera.DataSource = dt;
+                    //No permitir agregar datos adicionales
+                    dgvCarrera.AllowUserToAddRows = false;
                 }
                 else
                 {
-                    DataTable dt = bl.ConsultaCarrera(carrera);
+                    MessageBox.Show("No registros con la carrera ingresada", "Aviso", MessageBoxButtons.OK);
+                }
+
+            }
+            else if (comboEstatus.SelectedIndex == -1 && txtCarrera.Text != "")
+            {
+                DataTable dt = bl.ConsultaCarrera(carrera, 0);
+                if (dt.Rows.Count > 0)
+                {
+                    dgvCarrera.DataSource = dt;
+                    //No permitir agregar datos adicionales
+                    dgvCarrera.AllowUserToAddRows = false;
+                }
+                else
+                {
+                    MessageBox.Show("No registros con la carrera ingresada", "Aviso", MessageBoxButtons.OK);
+                }
+            }
+            else 
+            {
+                MessageBox.Show("Favor de especificar la CARRERA y/o seleccionar un tipo de ESTATUS", "Aviso", MessageBoxButtons.OK);
+            }
+              
+            
+            /*
+                if (carrera == "")
+                {
+                    MessageBox.Show("Favor de especificar la CARRERA y/o seleccionar un tipo de ESTATUS", "Aviso", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    DataTable dt = bl.ConsultaCarrera(carrera, 0);
                     if (dt.Rows.Count > 0)
                     {
                         dgvCarrera.DataSource = dt;
@@ -102,9 +157,9 @@ namespace Kardex
                     {
                         MessageBox.Show("No registros con la carrera ingresada", "Aviso", MessageBoxButtons.OK);
                     }
-                }
+                }*/
                 
-            }
+            
         }
 
       
@@ -160,7 +215,7 @@ namespace Kardex
                 MenuItem menuItem1 = new MenuItem();
                 MenuItem menuItem2 = new MenuItem();
                 MenuItem menuItem3 = new MenuItem();
-                if (cbTodas.Checked)
+                if (comboEstatus.SelectedIndex == 0)
                 {
                     menuItem1.Text = "Baja";
                     menuItem2.Text = "Modifica";
@@ -171,7 +226,7 @@ namespace Kardex
                     menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
                     menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
                 }
-                else if (cbInactivos.Checked)
+                else if (comboEstatus.SelectedIndex == 1)
                 {
                     menuItem3.Text = "Reactivar";
                     menuItem2.Text = "Modifica";
@@ -240,6 +295,21 @@ namespace Kardex
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtCarrera.Text = "";
+            comboEstatus.SelectedIndex = -1;
+            DataTable dt = bl.ConsultaCarrera("",0);
+
+            if (dt.Rows.Count > 0)
+            {
+                dgvCarrera.DataSource = dt;
+                dt.Rows.Clear();
+            }
+        }
+
+        /*Funciones de CheckBoxes comentadas para no generar conflicto con COMBOBOX
+         * 
         private void cbInactivos_CheckedChanged(object sender, EventArgs e)
         {
             if (cbInactivos.Checked == true)
@@ -283,5 +353,8 @@ namespace Kardex
                 }
             }
         }
+
+
+        */
     }
 }

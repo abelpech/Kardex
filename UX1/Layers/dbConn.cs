@@ -186,9 +186,12 @@ namespace Kardex.Layers
 
             //MessageBox.Show(retVal.ToString());
             conn.Close();
+            // El 0 sera para EXITOSO
+            // EL 1 es para ERROR
+            // Los mensajes los cambie a mas generales para que puedan aplicar en todos nuestros modulos
             if (retVal == 0)
             {
-                MessageBox.Show("Alta Exitosa", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("Solicitud Procesada Exitosamente", "Aviso", MessageBoxButtons.OK);
             }
             else
             {

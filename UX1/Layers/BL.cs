@@ -14,17 +14,22 @@ namespace Kardex.Layers
         DAL dal = new DAL();
 
         //CARRERA
-        public DataTable ConsultaCarrera(string carrera)
+        public DataTable ConsultaCarrera(string carrera, int estado)
         {
             
             if (carrera != "")
             {
                 
-                return dal.ConsultaCarrera(carrera);
+                return dal.ConsultaCarrera(carrera, estado);
+            }
+            else if(carrera == "" && estado !=-1)
+            {
+                //MessageBox.Show("Es necesario especificar el valor para la carrera.", "Alerta", MessageBoxButtons.OK);
+                //return null;
+                return dal.ConsultaCarrera(carrera, estado);
             }
             else
             {
-                MessageBox.Show("Es necesario especificar el valor para la carrera.", "Alerta", MessageBoxButtons.OK);
                 return null;
             }
 
@@ -42,7 +47,7 @@ namespace Kardex.Layers
             {
 
                 dal.ModificaCarrera(carrerabaja, carrera, estatus);
-                MessageBox.Show("La carrera se modifico exitosamente", "Aviso", MessageBoxButtons.OK);
+                //MessageBox.Show("La carrera se modifico exitosamente", "Aviso", MessageBoxButtons.OK);
 
             }
         }
@@ -123,20 +128,22 @@ namespace Kardex.Layers
             }
         }
 
-        public DataTable ConsultaMateria(string materia)
+        public DataTable ConsultaMateria(string materia, int estado)
         {
 
             if (materia != "")
             {
 
-                return dal.ConsultaMateria(materia);
+                return dal.ConsultaMateria(materia, estado);
             }
-            else
+            else if(materia == "" && estado != -1)
             {
-                MessageBox.Show("Es necesario especificar el valor para la materia.", "Alerta", MessageBoxButtons.OK);
-                return null;
+                return dal.ConsultaMateria(materia, estado);
             }
-
+                else
+                {
+                    return null;
+                }
 
         }
 
@@ -202,13 +209,13 @@ namespace Kardex.Layers
             }
         }
 
-        public DataTable ConsultaAlumno(int matricula, string alumno, string carrera)
+        public DataTable ConsultaAlumno(int matricula, string alumno, string carrera, int estado)
         {
 
             //if (carrera != "")
             //{
 
-                return dal.ConsultaAlumno(matricula, alumno, carrera);
+                return dal.ConsultaAlumno(matricula, alumno, carrera, estado);
             //}
             /*else
             {
