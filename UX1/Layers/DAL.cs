@@ -33,7 +33,7 @@ namespace Kardex.Layers
         {
             try
             {
-                string query = "ModificaCarrera '" + carrerabaja + "', '" + carrera + "', '" + estatus + "', '" + Permisos.usuario + "'";
+                string query = "ModificaCarrera '" + carrerabaja + "', '" + carrera + "', '" + Convert.ToInt32(estatus) + "', '" + Permisos.usuario + "'";
                 conn.ExcQryReturn(query);
             }
             catch(Exception ex)

@@ -66,6 +66,7 @@
             this.dgvCarrera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarrera.Location = new System.Drawing.Point(4, 11);
             this.dgvCarrera.Name = "dgvCarrera";
+            this.dgvCarrera.RowHeadersWidth = 51;
             this.dgvCarrera.RowTemplate.Height = 24;
             this.dgvCarrera.Size = new System.Drawing.Size(1188, 750);
             this.dgvCarrera.TabIndex = 0;
@@ -107,6 +108,7 @@
             // 
             // comboEstatus
             // 
+            this.comboEstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboEstatus.FormattingEnabled = true;
             this.comboEstatus.Items.AddRange(new object[] {

@@ -14,7 +14,7 @@ namespace Kardex
     public partial class frmModificaCarrera : Form
     {
         BL bl = new BL();
-        string carrerabaja1;
+        string carrerabaja1 = "";
         public frmModificaCarrera()
         {
             InitializeComponent();
@@ -56,8 +56,9 @@ namespace Kardex
             {
                 estatus = false;
             }
-          
-            
+
+            //MessageBox de prueba para ver si manda los datos correctamente.
+                //MessageBox.Show(carrerabaja1 + carrera + estatus.ToString());
                 bl.ModificaCarrera(carrerabaja1, carrera, estatus);
                 txtCarrera.Text = String.Empty;
                 cbEstatus.SelectedIndex = -1;

@@ -42,6 +42,7 @@ namespace UX1
                 estatus = false;
             }*/
             bl.BajaMateria(materia);
+            txtMateria.Text = "";
         }
 
         private void FrmBajaMateria_Load(object sender, EventArgs e)

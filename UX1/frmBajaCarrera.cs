@@ -24,6 +24,7 @@ namespace Kardex
         {
             string carrera = txtCarrera.Text.ToString();
             bl.BajaCarrera(carrera);
+            txtCarrera.Text = "";
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
