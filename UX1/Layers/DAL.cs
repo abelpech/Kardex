@@ -27,7 +27,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
 
             return dt;
@@ -43,7 +43,7 @@ namespace Kardex.Layers
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
         }
 
@@ -56,7 +56,7 @@ namespace Kardex.Layers
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
         }
         public void BajaCarrera(string carrera)
@@ -68,7 +68,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
         }
 
@@ -87,7 +87,7 @@ namespace Kardex.Layers
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
             return dt;
         }
@@ -107,7 +107,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
             return dt;
         }
@@ -123,7 +123,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
         }
 
@@ -136,7 +136,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
         }
 
@@ -153,7 +153,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
 
             return dt;
@@ -169,7 +169,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
         }
         //ALUMNO
@@ -182,7 +182,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
         }
 
@@ -195,7 +195,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
         }
         public DataTable ConsultaAlumno(int matricula, string alumno, string carrera)
@@ -211,7 +211,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo Salio Mal", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
 
             return dt;
@@ -225,7 +225,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
         }
 //MAESTRO
@@ -238,7 +238,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
         }
 
@@ -252,7 +252,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
             return mycollection;
         }
@@ -267,7 +267,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
             return mycollection;
         }
@@ -282,7 +282,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Algo Salio Mal Amigo", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
             return mycollection;
         }

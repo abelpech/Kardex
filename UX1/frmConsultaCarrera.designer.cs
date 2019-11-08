@@ -36,7 +36,7 @@
             this.gbCarrera = new System.Windows.Forms.GroupBox();
             this.dgvCarrera = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.gbConsultaCarrera.SuspendLayout();
             this.gbCarrera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrera)).BeginInit();
@@ -44,7 +44,7 @@
             // 
             // gbConsultaCarrera
             // 
-            this.gbConsultaCarrera.Controls.Add(this.button1);
+            this.gbConsultaCarrera.Controls.Add(this.btnLimpiar);
             this.gbConsultaCarrera.Controls.Add(this.comboEstatus);
             this.gbConsultaCarrera.Controls.Add(this.label2);
             this.gbConsultaCarrera.Controls.Add(this.txtCarrera);
@@ -134,16 +134,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Carrera: ";
             // 
-            // button1
+            // btnLimpiar
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(945, 98);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 40);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Limpiar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(945, 98);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(159, 40);
+            this.btnLimpiar.TabIndex = 7;
+            this.btnLimpiar.Text = "&Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmConsultaCarrera
             // 
@@ -175,6 +175,6 @@
         private System.Windows.Forms.TextBox txtCarrera;
         private System.Windows.Forms.ComboBox comboEstatus;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }
