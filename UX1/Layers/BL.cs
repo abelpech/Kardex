@@ -128,20 +128,22 @@ namespace Kardex.Layers
             }
         }
 
-        public DataTable ConsultaMateria(string materia)
+        public DataTable ConsultaMateria(string materia, int estado)
         {
 
             if (materia != "")
             {
 
-                return dal.ConsultaMateria(materia);
+                return dal.ConsultaMateria(materia, estado);
             }
-            else
+            else if(materia == "" && estado != -1)
             {
-                MessageBox.Show("Es necesario especificar el valor para la materia.", "Alerta", MessageBoxButtons.OK);
-                return null;
+                return dal.ConsultaMateria(materia, estado);
             }
-
+                else
+                {
+                    return null;
+                }
 
         }
 

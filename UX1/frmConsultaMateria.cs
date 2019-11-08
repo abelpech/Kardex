@@ -22,6 +22,8 @@ namespace UX1
             InitializeComponent();
         }
 
+        /*Codigo comentado para evitar conflicto de codigo con comboBox 
+         * 
         private void CbTodas_CheckedChanged(object sender, EventArgs e)
         {
             if (cbTodas.Checked == true)
@@ -36,12 +38,30 @@ namespace UX1
             }
 
         }
-
+        */
         private void BtnConsulta_Click(object sender, EventArgs e)
         {
-            if (cbTodas.Checked == true)
+            string materia = txtMateria.Text;
+
+            if (comboEstatus.SelectedIndex == 0 && txtMateria.Text == "")
             {
-                DataTable dt = bl.ConsultaMateria("todas");
+                //DataTable dt = bl.ConsultaCarrera("todas", 0);
+
+                DataTable dt = bl.ConsultaMateria("", 0);
+                if (dt.Rows.Count > 0)
+                {
+                    dgvCarrera.DataSource = dt;
+                    //No permitir agregar datos adicionales
+                    dgvCarrera.AllowUserToAddRows = false;
+                }
+                else
+                {
+                    MessageBox.Show("No hay materias activas", "Aviso", MessageBoxButtons.OK);
+                }
+            }
+            else if (comboEstatus.SelectedIndex == 1 && txtMateria.Text == "")
+            {
+                DataTable dt = bl.ConsultaMateria("", 1);
 
                 if (dt.Rows.Count > 0)
                 {
@@ -54,11 +74,9 @@ namespace UX1
                     MessageBox.Show("No hay materias activas", "Aviso", MessageBoxButtons.OK);
                 }
             }
-
-            else if (cbInactivos.Checked == true)
+            else if (comboEstatus.SelectedIndex == 0 && txtMateria.Text != "")
             {
-                DataTable dt = bl.ConsultaMateria("inactivos");
-
+                DataTable dt = bl.ConsultaMateria(materia, 0);
                 if (dt.Rows.Count > 0)
                 {
                     dgvCarrera.DataSource = dt;
@@ -67,33 +85,42 @@ namespace UX1
                 }
                 else
                 {
-                    MessageBox.Show("No hay materias inactivas", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("No registros con la materia ingresada", "Aviso", MessageBoxButtons.OK);
                 }
             }
-
-            else
+            else if (comboEstatus.SelectedIndex == 1 && txtMateria.Text != "")
             {
-                String materia = txtMateria.Text.ToString();
 
-                if (materia == "")
+                DataTable dt = bl.ConsultaMateria(materia, 1);
+                if (dt.Rows.Count > 0)
                 {
-                    MessageBox.Show("Favor de especificar la materia", "Aviso", MessageBoxButtons.OK);
+                    dgvCarrera.DataSource = dt;
+                    //No permitir agregar datos adicionales
+                    dgvCarrera.AllowUserToAddRows = false;
                 }
                 else
                 {
-                    DataTable dt = bl.ConsultaMateria(materia);
-                    if (dt.Rows.Count > 0)
-                    {
-                        dgvCarrera.DataSource = dt;
-                        //No permitir agregar datos adicionales
-                        dgvCarrera.AllowUserToAddRows = false;
-                    }
-                    else
-                    {
-                        MessageBox.Show("No registros con la materia ingresada", "Aviso", MessageBoxButtons.OK);
-                    }
+                    MessageBox.Show("No registros con la materia ingresada", "Aviso", MessageBoxButtons.OK);
                 }
 
+            }
+            else if (comboEstatus.SelectedIndex == -1 && txtMateria.Text != "")
+            {
+                DataTable dt = bl.ConsultaMateria(materia, 0);
+                if (dt.Rows.Count > 0)
+                {
+                    dgvCarrera.DataSource = dt;
+                    //No permitir agregar datos adicionales
+                    dgvCarrera.AllowUserToAddRows = false;
+                }
+                else
+                {
+                    MessageBox.Show("No registros con la materia ingresada", "Aviso", MessageBoxButtons.OK);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Favor de especificar la MATERIA y/o seleccionar un tipo de ESTATUS", "Aviso", MessageBoxButtons.OK);
             }
         }
 
@@ -106,6 +133,7 @@ namespace UX1
 
         }
 
+        /*Codigo comentado para evitar conflicto de codigo con comboBox 
         private void cbInactivos_CheckedChanged(object sender, EventArgs e)
         {
             if (cbInactivos.Checked == true)
@@ -120,6 +148,7 @@ namespace UX1
             }
             //BtnConsulta_Click(sender, e);
         }
+        */
 
         private void dgvCarrera_MouseClick(object sender, MouseEventArgs e)
         {
@@ -130,7 +159,7 @@ namespace UX1
                 MenuItem menuItem1 = new MenuItem();
                 MenuItem menuItem2 = new MenuItem();
                 MenuItem menuItem3 = new MenuItem();
-                if (cbTodas.Checked)
+                if (comboEstatus.SelectedIndex == 0)
                 {
                     menuItem1.Text = "Baja";
                     menuItem2.Text = "Modifica";
@@ -141,7 +170,7 @@ namespace UX1
                     menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
                     menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
                 }
-                else if (cbInactivos.Checked)
+                else if (comboEstatus.SelectedIndex == 1)
                 {
                     menuItem3.Text = "Reactivar";
                     menuItem2.Text = "Modifica";
@@ -210,7 +239,20 @@ namespace UX1
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtMateria.Text = "";
+            comboEstatus.SelectedIndex = -1;
+            DataTable dt = bl.ConsultaMateria("", 0);
 
+            if (dt.Rows.Count > 0)
+            {
+                dgvCarrera.DataSource = dt;
+                dt.Rows.Clear();
+            }
+        }
+
+        /*Codigo comentado para evitar conflicto de codigo con comboBox 
         private void cbInactivos_Click(object sender, EventArgs e)
         {
             if (cbInactivos.Checked == false)
@@ -238,5 +280,6 @@ namespace UX1
                 }
             }
         }
+        */
     }
 }

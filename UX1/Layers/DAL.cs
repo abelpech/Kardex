@@ -140,15 +140,14 @@ namespace Kardex.Layers
             }
         }
 
-        public DataTable ConsultaMateria(string materia)
+        public DataTable ConsultaMateria(string materia, int estado)
         {
             string query;
             DataTable dt = new DataTable();
             try
             {
-                //Le asignamos a query el valor del SP "nombre" mas el parametro materia
-                //Para ejecutarlo posteriormente.
-                query = "ConsultaMateria " + materia;
+              
+                query = "ConsultaMateria '" + materia + "', '" + estado + "'";
                 dt = conn.ExcQryDt(query);
             }
             catch (Exception ex)
