@@ -47,7 +47,7 @@ namespace Kardex.Layers
             {
 
                 dal.ModificaCarrera(carrerabaja, carrera, estatus);
-                MessageBox.Show("La carrera se modifico exitosamente", "Aviso", MessageBoxButtons.OK);
+                //MessageBox.Show("La carrera se modifico exitosamente", "Aviso", MessageBoxButtons.OK);
 
             }
         }

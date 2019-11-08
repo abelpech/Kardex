@@ -39,11 +39,12 @@ namespace Kardex.Layers
             try
             {
                 string query = "ModificaCarrera '" + carrerabaja + "', '" + carrera + "', '" + estatus + "', '" + Permisos.usuario + "'";
-                conn.ExcQry(query);
+                conn.ExcQryReturn(query);
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
+               // MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
         }
 
