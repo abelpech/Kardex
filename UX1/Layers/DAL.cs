@@ -197,7 +197,7 @@ namespace Kardex.Layers
                 MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
         }
-        public DataTable ConsultaAlumno(int matricula, string alumno, string carrera)
+        public DataTable ConsultaAlumno(int matricula, string alumno, string carrera, int estado)
         {
             string query;
             DataTable dt = new DataTable();
@@ -205,7 +205,7 @@ namespace Kardex.Layers
             {
                 //Le asignamos a query el valor del SP "nombre" mas el parametro materia
                 //Para ejecutarlo posteriormente.
-                query = "ConsultaAlumno '" + matricula + "', '" + alumno + "', '" + carrera + "'" ;
+                query = "ConsultaAlumno '" + matricula + "', '" + alumno + "', '" + carrera + "', '" + estado + "'" ;
                 dt = conn.ExcQryDt(query);
             }
             catch (Exception ex)

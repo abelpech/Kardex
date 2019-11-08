@@ -23,7 +23,7 @@ namespace UX1
         public frmConsultaAlumno()
         {
             InitializeComponent();
-            cbTodos.Checked = true;
+            //cbTodos.Checked = true;
             
             
         }
@@ -32,63 +32,51 @@ namespace UX1
         {
             String alumno = txtAlumno.Text.ToString();
             String carrera = txtCarrera.Text.ToString();
-            int matricula = 0;
-            if (cbTodos.Checked == true)
+            int matricula;
+            try
             {
-                
-                if (txtMatricula.Text =="")
-                {
-                    MessageBox.Show("Favor de especificar el id del alumno");
-                }
-                else
-                {
-                    try
-                    {
-                        matricula = Convert.ToInt32(txtMatricula.Text);
-                        
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("¡El campo de matricula solo debe contener numeros!", "Alerta", MessageBoxButtons.OK);
-                    }
-                    DataTable dt = bl.ConsultaAlumno(matricula, alumno, carrera);
-                    if (dt.Rows.Count > 0)
-                    {
-                        dgvCarrera.DataSource = dt;
-                        //No permitir agregar datos adicionales
-                        dgvCarrera.AllowUserToAddRows = false;
-                    }
-                    else
-                    {
-                        MessageBox.Show("No hay registros del alumno y la carrera ingresada", "Aviso", MessageBoxButtons.OK);
-                    }
-                }
-                
-                
+                matricula = Convert.ToInt16(txtMatricula.Text);
             }
-            else
+            catch
             {
                 matricula = 0;
-                //txtMatricula.Text = "";
-
-
-                //MessageBox.Show("Favor de completar el alumno y la carrera", "Aviso", MessageBoxButtons.OK);
-                DataTable dt = bl.ConsultaAlumno(matricula, alumno, carrera);
+            }
+            
+            if (comboEstatus.SelectedIndex == 0)
+            {
+                DataTable dt = bl.ConsultaAlumno(matricula, alumno, carrera, 0);
                 if (dt.Rows.Count > 0)
                 {
-                    dgvCarrera.DataSource = dt;
-                    //No permitir agregar datos adicionales
+                    dgvCarrera.DataSource = dt;              
                     dgvCarrera.AllowUserToAddRows = false;
                 }
                 else
                 {
-                    MessageBox.Show("No registros el alumno y la carrera ingresada", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("No hay registros disponibles con este criterio", "Aviso", MessageBoxButtons.OK);
                 }
-
             }
-        }
+            else if (comboEstatus.SelectedIndex == 1)
+            {
+                    DataTable dt = bl.ConsultaAlumno(matricula, alumno, carrera, 1);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dgvCarrera.DataSource = dt;
+                        dgvCarrera.AllowUserToAddRows = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No hay registros disponibles con este criterio", "Aviso", MessageBoxButtons.OK);
+                    }
+            }
+            else if (comboEstatus.SelectedIndex == -1)
+            {
+                
+                    MessageBox.Show("Seleccione un tipo de STATUS", "Aviso", MessageBoxButtons.OK);
+            
+            }
 
+        }
+        /*Codigo comentado para no causar conflicto con ComboBox
         private void CbTodos_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -116,6 +104,7 @@ namespace UX1
                 }
 
         }
+        */
 
         private void txtMatricula_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -163,6 +152,7 @@ namespace UX1
             txtCarrera.AutoCompleteCustomSource = mycollectionCarrera;
         }
 
+        /*Codigo comentado para no causar conflicto con ComboBox
         private void CbInactivos_CheckedChanged(object sender, EventArgs e)
         {
             cbTodos.Checked = false;
@@ -179,7 +169,10 @@ namespace UX1
             }
             
         }
+        */
 
+
+        
         private void dgvCarrera_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -189,7 +182,8 @@ namespace UX1
                 MenuItem menuItem1 = new MenuItem();
                 MenuItem menuItem2 = new MenuItem();
                 MenuItem menuItem3 = new MenuItem();
-                if (cbInactivos.Checked == false)
+                
+                if (comboEstatus.SelectedIndex == 0)
                 {
                     menuItem1.Text = "Baja";
                     menuItem2.Text = "Modifica";
@@ -200,7 +194,7 @@ namespace UX1
                     menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
                     menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
                 }
-                else if (cbInactivos.Checked)
+                else if (comboEstatus.SelectedIndex == 1)
                 {
                     //menuItem3.Text = "Reactivar";
                     menuItem2.Text = "Modifica";
@@ -225,6 +219,7 @@ namespace UX1
                 m.Show(dgvCarrera, new Point(e.X, e.Y));
             }
         }
+        
 
         private void dgvCarrera_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -285,7 +280,23 @@ namespace UX1
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtAlumno.Text = "";
+            txtCarrera.Text = "";
+            txtMatricula.Text = "";
+            comboEstatus.SelectedIndex = -1;
 
+            DataTable dt = bl.ConsultaAlumno(0, "", "", 0);
+            if (dt.Rows.Count > 0)
+            {
+                dgvCarrera.DataSource = dt;
+                dt.Rows.Clear();
+            }
+
+        }
+
+        /*Codigo comentado para no causar conflicto con ComboBox
         private void cbInactivos_Click(object sender, EventArgs e)
         {
             if (cbInactivos.Checked == false)
@@ -298,10 +309,10 @@ namespace UX1
                 }
             }
         }
-
+        
         private void cbTodos_Click(object sender, EventArgs e)
         {
-           /* if (cbTodos.Checked == false)
+            if (cbTodos.Checked == false)
             {
                 DataTable dt = bl.ConsultaAlumno(0, "inactivos", "");
                 if (dt.Rows.Count > 0)
@@ -309,7 +320,7 @@ namespace UX1
                     dgvCarrera.DataSource = dt;
                     dt.Rows.Clear();
                 }
-            }*/
-        }
+            }
+        }*/
     }
 }
