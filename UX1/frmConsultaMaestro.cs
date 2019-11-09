@@ -21,51 +21,30 @@ namespace UX1
 
         private void BtnConsulta_Click(object sender, EventArgs e)
         {
-            String maestro = txtMaestro.Text.ToString();
-            
-            int matricula = 0;
-            if (cbTodos.Checked == true)
+            int matricula;
+            try
             {
-
-                if (txtMatricula.Text == "")
-                {
-                    MessageBox.Show("Favor de especificar la matricula del maestro");
-                }
-                else
-                {
-                    try
-                    {
-                        matricula = Convert.ToInt32(txtMatricula.Text);
-
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("¡El campo de matricula solo debe contener numeros!", "Alerta", MessageBoxButtons.OK);
-                    }
-                    DataTable dt = bl.ConsultaMaestro(matricula, maestro);
-                    if (dt.Rows.Count > 0)
-                    {
-                        dgvCarrera.DataSource = dt;
-                        //No permitir agregar datos adicionales
-                        dgvCarrera.AllowUserToAddRows = false;
-                    }
-                    else
-                    {
-                        MessageBox.Show("No hay registros del maestro ingresado", "Aviso", MessageBoxButtons.OK);
-                    }
-                }
-
-
+                matricula = Convert.ToInt32(txtMatricula.Text);
             }
-            else
+            catch
             {
                 matricula = 0;
-                //txtMatricula.Text = "";
+            }
+            
+            string maestro = txtMaestro.Text;
+            bool estatus = false;
+
+            //Establece el status activo o inactivo
+            if (comboEstatus.SelectedIndex == 0)
+                estatus = true;
+            else if(comboEstatus.SelectedIndex == 1)
+                estatus = false;
 
 
-                //MessageBox.Show("Favor de completar el alumno y la carrera", "Aviso", MessageBoxButtons.OK);
-                DataTable dt = bl.ConsultaMaestro(matricula, maestro);
+            if ((comboEstatus.SelectedIndex == 0 || comboEstatus.SelectedIndex == 1))
+            {
+
+                DataTable dt = bl.ConsultaMaestro(matricula, maestro, estatus);
                 if (dt.Rows.Count > 0)
                 {
                     dgvCarrera.DataSource = dt;
@@ -74,10 +53,14 @@ namespace UX1
                 }
                 else
                 {
-                    MessageBox.Show("No registros del maestro ingresado", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("No hay maestros activos con los datos especificados", "Aviso", MessageBoxButtons.OK);
                 }
-
             }
+            else
+            {
+                MessageBox.Show("Favor de especificar el Maestro y/o seleccionar un tipo de ESTATUS", "Aviso", MessageBoxButtons.OK);
+            }
+
         }
     }
 }

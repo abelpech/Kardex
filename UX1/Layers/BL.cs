@@ -290,13 +290,13 @@ namespace Kardex.Layers
             }
         }
 
-        public DataTable ConsultaMaestro(int matricula, string maestro)
+        public DataTable ConsultaMaestro(int matricula, string maestro, bool estatus)
         {
 
             //if (carrera != "")
             //{
 
-            return dal.ConsultaMaestro(matricula, maestro);
+            return dal.ConsultaMaestro(matricula, maestro, estatus);
             //}
             /*else
             {

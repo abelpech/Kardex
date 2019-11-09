@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.gbConsultaCarrera = new System.Windows.Forms.GroupBox();
-            this.cbInactivos = new System.Windows.Forms.CheckBox();
             this.txtMaestro = new System.Windows.Forms.TextBox();
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.lbAlumno = new System.Windows.Forms.Label();
             this.lbMatricula = new System.Windows.Forms.Label();
-            this.cbTodos = new System.Windows.Forms.CheckBox();
             this.btnConsulta = new System.Windows.Forms.Button();
             this.gbCarrera = new System.Windows.Forms.GroupBox();
             this.dgvCarrera = new System.Windows.Forms.DataGridView();
+            this.comboEstatus = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gbConsultaCarrera.SuspendLayout();
             this.gbCarrera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrera)).BeginInit();
@@ -46,12 +46,12 @@
             // gbConsultaCarrera
             // 
             this.gbConsultaCarrera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(40)))), ((int)(((byte)(62)))));
-            this.gbConsultaCarrera.Controls.Add(this.cbInactivos);
+            this.gbConsultaCarrera.Controls.Add(this.label1);
+            this.gbConsultaCarrera.Controls.Add(this.comboEstatus);
             this.gbConsultaCarrera.Controls.Add(this.txtMaestro);
             this.gbConsultaCarrera.Controls.Add(this.txtMatricula);
             this.gbConsultaCarrera.Controls.Add(this.lbAlumno);
             this.gbConsultaCarrera.Controls.Add(this.lbMatricula);
-            this.gbConsultaCarrera.Controls.Add(this.cbTodos);
             this.gbConsultaCarrera.Controls.Add(this.btnConsulta);
             this.gbConsultaCarrera.Controls.Add(this.gbCarrera);
             this.gbConsultaCarrera.Location = new System.Drawing.Point(3, 12);
@@ -59,18 +59,6 @@
             this.gbConsultaCarrera.Size = new System.Drawing.Size(1198, 798);
             this.gbConsultaCarrera.TabIndex = 2;
             this.gbConsultaCarrera.TabStop = false;
-            // 
-            // cbInactivos
-            // 
-            this.cbInactivos.AutoSize = true;
-            this.cbInactivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbInactivos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cbInactivos.Location = new System.Drawing.Point(670, 38);
-            this.cbInactivos.Name = "cbInactivos";
-            this.cbInactivos.Size = new System.Drawing.Size(128, 33);
-            this.cbInactivos.TabIndex = 7;
-            this.cbInactivos.Text = "Inactivos";
-            this.cbInactivos.UseVisualStyleBackColor = true;
             // 
             // txtMaestro
             // 
@@ -80,7 +68,7 @@
             this.txtMaestro.Location = new System.Drawing.Point(147, 73);
             this.txtMaestro.MaxLength = 250;
             this.txtMaestro.Name = "txtMaestro";
-            this.txtMaestro.Size = new System.Drawing.Size(501, 38);
+            this.txtMaestro.Size = new System.Drawing.Size(769, 38);
             this.txtMaestro.TabIndex = 3;
             // 
             // txtMatricula
@@ -89,7 +77,7 @@
             this.txtMatricula.Location = new System.Drawing.Point(147, 17);
             this.txtMatricula.Multiline = true;
             this.txtMatricula.Name = "txtMatricula";
-            this.txtMatricula.Size = new System.Drawing.Size(501, 39);
+            this.txtMatricula.Size = new System.Drawing.Size(769, 39);
             this.txtMatricula.TabIndex = 1;
             // 
             // lbAlumno
@@ -114,24 +102,12 @@
             this.lbMatricula.TabIndex = 0;
             this.lbMatricula.Text = "Matricula: ";
             // 
-            // cbTodos
-            // 
-            this.cbTodos.AutoSize = true;
-            this.cbTodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTodos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cbTodos.Location = new System.Drawing.Point(670, 10);
-            this.cbTodos.Name = "cbTodos";
-            this.cbTodos.Size = new System.Drawing.Size(176, 33);
-            this.cbTodos.TabIndex = 2;
-            this.cbTodos.Text = "Por matricula";
-            this.cbTodos.UseVisualStyleBackColor = true;
-            // 
             // btnConsulta
             // 
             this.btnConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta.Location = new System.Drawing.Point(940, 18);
+            this.btnConsulta.Location = new System.Drawing.Point(928, 126);
             this.btnConsulta.Name = "btnConsulta";
-            this.btnConsulta.Size = new System.Drawing.Size(244, 40);
+            this.btnConsulta.Size = new System.Drawing.Size(244, 46);
             this.btnConsulta.TabIndex = 5;
             this.btnConsulta.Text = "&Consulta";
             this.btnConsulta.UseVisualStyleBackColor = true;
@@ -140,9 +116,9 @@
             // gbCarrera
             // 
             this.gbCarrera.Controls.Add(this.dgvCarrera);
-            this.gbCarrera.Location = new System.Drawing.Point(6, 134);
+            this.gbCarrera.Location = new System.Drawing.Point(6, 204);
             this.gbCarrera.Name = "gbCarrera";
-            this.gbCarrera.Size = new System.Drawing.Size(1178, 675);
+            this.gbCarrera.Size = new System.Drawing.Size(1178, 605);
             this.gbCarrera.TabIndex = 2;
             this.gbCarrera.TabStop = false;
             // 
@@ -152,9 +128,34 @@
             this.dgvCarrera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarrera.Location = new System.Drawing.Point(6, 21);
             this.dgvCarrera.Name = "dgvCarrera";
+            this.dgvCarrera.RowHeadersWidth = 51;
             this.dgvCarrera.RowTemplate.Height = 24;
             this.dgvCarrera.Size = new System.Drawing.Size(1160, 648);
             this.dgvCarrera.TabIndex = 0;
+            // 
+            // comboEstatus
+            // 
+            this.comboEstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboEstatus.FormattingEnabled = true;
+            this.comboEstatus.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.comboEstatus.Location = new System.Drawing.Point(147, 126);
+            this.comboEstatus.Name = "comboEstatus";
+            this.comboEstatus.Size = new System.Drawing.Size(769, 44);
+            this.comboEstatus.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(6, 132);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 32);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Estatus: ";
             // 
             // frmConsultaMaestro
             // 
@@ -177,14 +178,14 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbConsultaCarrera;
-        private System.Windows.Forms.CheckBox cbInactivos;
         public System.Windows.Forms.TextBox txtMaestro;
         public System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.Label lbAlumno;
         private System.Windows.Forms.Label lbMatricula;
-        private System.Windows.Forms.CheckBox cbTodos;
         private System.Windows.Forms.Button btnConsulta;
         private System.Windows.Forms.GroupBox gbCarrera;
         public System.Windows.Forms.DataGridView dgvCarrera;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboEstatus;
     }
 }

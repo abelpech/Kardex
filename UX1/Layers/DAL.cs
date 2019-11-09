@@ -250,7 +250,7 @@ namespace Kardex.Layers
             }
         }
 
-        public DataTable ConsultaMaestro(int matricula, string maestro)
+        public DataTable ConsultaMaestro(int matricula, string maestro, bool estatus)
         {
             string query;
             DataTable dt = new DataTable();
@@ -258,7 +258,7 @@ namespace Kardex.Layers
             {
                 //Le asignamos a query el valor del SP "nombre" mas el parametro materia
                 //Para ejecutarlo posteriormente.
-                query = "ConsultaMaestro '" + matricula + "', '" + maestro + "'";
+                query = "ConsultaMaestro '" + matricula + "', '" + maestro + "', '" + Convert.ToInt32(estatus) + "'";
                 dt = conn.ExcQryDt(query);
             }
             catch (Exception ex)
