@@ -604,7 +604,6 @@
             // btnPeriodo
             // 
             this.btnPeriodo.BackColor = System.Drawing.Color.Transparent;
-            this.btnPeriodo.Enabled = false;
             this.btnPeriodo.FlatAppearance.BorderSize = 0;
             this.btnPeriodo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnPeriodo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
