@@ -169,6 +169,12 @@
     <Compile Include="Login.designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModificaMaestro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificaMaestro.Designer.cs">
+      <DependentUpon>frmModificaMaestro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Permisos.cs" />
     <Compile Include="Plantilla.cs">
       <SubType>Form</SubType>
@@ -225,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificaCarrera.resx">
       <DependentUpon>frmModificaCarrera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificaMaestro.resx">
+      <DependentUpon>frmModificaMaestro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificaMateria.resx">
       <DependentUpon>frmModificaMateria.cs</DependentUpon>
