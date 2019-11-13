@@ -329,6 +329,12 @@ namespace Kardex.Layers
 
         }
 
+        public void AltaPeriodo(string periodo, bool estatus)
+        {
+            dal.AltaPeriodo(periodo, estatus);
+        }
+
+
         public int LoginValidation(string username, string password)
         {
             if(username == "")

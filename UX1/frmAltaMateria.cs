@@ -23,20 +23,20 @@ namespace UX1
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             string materia = txtMateria.Text.ToString();
-            /*DateTime fechaalta = Convert.ToDateTime(dtpFechaAlta.ToString());
-            bool estatus;
+            
 
-            if (cbEstatus.SelectedValue.ToString() == "Activo")
+            //Validacion para TextBox vacio.
+
+            if(txtMateria.Text == "")
             {
-                estatus = true;
+                MessageBox.Show("Favor de ingresar dato solicitado", "Advertencia", MessageBoxButtons.OK);
             }
             else
             {
-                estatus = false;
-            }*/
-            bl.AltaMateria(materia);
-
-            txtMateria.Text = String.Empty;
+                bl.AltaMateria(materia);
+                txtMateria.Text = String.Empty;
+            }
+            
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)

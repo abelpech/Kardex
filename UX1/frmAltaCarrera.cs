@@ -22,21 +22,30 @@ namespace Kardex
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             string carrera = txtCarrera.Text.ToString();
-        
+            
             bool estatus;
 
-            if(cbEstatus.SelectedIndex == 0)
+            //Validacion a TxtBox y ComboBox
+
+            if(txtCarrera.Text =="" || cbEstatus.SelectedIndex == -1)
             {
-                estatus = true;
+                MessageBox.Show("Favor de llenar toda la informacion solicitada", "Advertencia", MessageBoxButtons.OK);
             }
             else
             {
-                estatus = false;
-            }
-            bl.AltaCarrera(carrera, estatus);
-            
-            txtCarrera.Text = String.Empty;
-            cbEstatus.SelectedIndex = -1;
+                if (cbEstatus.SelectedIndex == 0)
+                {
+                    estatus = true;
+                }
+                else
+                {
+                    estatus = false;
+                }
+                bl.AltaCarrera(carrera, estatus);
+
+                txtCarrera.Text = String.Empty;
+                cbEstatus.SelectedIndex = -1;
+            }  
 
         }
 

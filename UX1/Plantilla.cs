@@ -445,6 +445,11 @@ namespace UX1
             AbrirFormInPanel(new frmConsultaPeriodo());
         }
 
+        private void BtnAltaPeriodo_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new frmAltaPeriodo());
+        }
+
         private void EstablecerPermisos(int pm)
         {
             switch (pm)

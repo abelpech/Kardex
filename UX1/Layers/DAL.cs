@@ -270,7 +270,7 @@ namespace Kardex.Layers
             return dt;
         }
 
-        //PERIODO
+//PERIODO
 
         public DataTable ConsultaPeriodo(string periodo, int estado)
         {
@@ -288,6 +288,19 @@ namespace Kardex.Layers
             }
 
             return dt;
+        }
+
+        public void AltaPeriodo(string periodo, bool estatus)
+        {
+            try
+            {
+                string query = "AltaPeriodo '" + periodo + "', '" + Convert.ToInt32(estatus) + "', '" + Permisos.usuario + "'";
+                conn.ExcQryReturn(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+            }
         }
 
         public AutoCompleteStringCollection AutoCarrera()

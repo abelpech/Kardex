@@ -689,6 +689,7 @@
             this.btnAltaPeriodo.TabIndex = 14;
             this.btnAltaPeriodo.Text = "Alta";
             this.btnAltaPeriodo.UseVisualStyleBackColor = false;
+            this.btnAltaPeriodo.Click += new System.EventHandler(this.BtnAltaPeriodo_Click);
             // 
             // panelCalificacion
             // 
