@@ -671,6 +671,7 @@
             this.btnConsultaPeriodo.TabIndex = 15;
             this.btnConsultaPeriodo.Text = "Consulta";
             this.btnConsultaPeriodo.UseVisualStyleBackColor = false;
+            this.btnConsultaPeriodo.Click += new System.EventHandler(this.BtnConsultaPeriodo_Click);
             // 
             // btnAltaPeriodo
             // 

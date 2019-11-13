@@ -306,6 +306,29 @@ namespace Kardex.Layers
 
 
         }
+
+
+        //PERIODO
+
+        public DataTable ConsultaPeriodo(string periodo, int estado)
+        {
+
+            if (periodo != "")
+            {
+
+                return dal.ConsultaPeriodo(periodo, estado);
+            }
+            else if (periodo == "" && estado != -1)
+            {
+                return dal.ConsultaPeriodo(periodo, estado);
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+
         public int LoginValidation(string username, string password)
         {
             if(username == "")
@@ -369,6 +392,13 @@ namespace Kardex.Layers
             return mycollection;
         }
 
+        public AutoCompleteStringCollection AutoPeriodo()
+        {
+            AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
+            mycollection = dal.AutoPeriodo();
+
+            return mycollection;
+        }
 
     }
 }

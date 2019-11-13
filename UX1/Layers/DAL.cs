@@ -270,6 +270,26 @@ namespace Kardex.Layers
             return dt;
         }
 
+        //PERIODO
+
+        public DataTable ConsultaPeriodo(string periodo, int estado)
+        {
+            string query;
+            DataTable dt = new DataTable();
+            try
+            {
+
+                query = "ConsultaPeriodo '" + periodo + "', '" + estado + "'";
+                dt = conn.ExcQryDt(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+            }
+
+            return dt;
+        }
+
         public AutoCompleteStringCollection AutoCarrera()
         {
             AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
@@ -314,6 +334,22 @@ namespace Kardex.Layers
             }
             return mycollection;
         }
+
+        public AutoCompleteStringCollection AutoPeriodo()
+        {
+            AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
+            try
+            {
+                string query = "select [periodo] from [periodo] ";
+                mycollection = conn.ExcQryAuto(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+            }
+            return mycollection;
+        }
+
     }
 
 

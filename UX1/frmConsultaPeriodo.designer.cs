@@ -32,7 +32,7 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.comboEstatus = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtCarrera = new System.Windows.Forms.TextBox();
+            this.txtPeriodo = new System.Windows.Forms.TextBox();
             this.btnConsulta = new System.Windows.Forms.Button();
             this.gbCarrera = new System.Windows.Forms.GroupBox();
             this.dgvCarrera = new System.Windows.Forms.DataGridView();
@@ -47,7 +47,7 @@
             this.gbConsultaCarrera.Controls.Add(this.btnLimpiar);
             this.gbConsultaCarrera.Controls.Add(this.comboEstatus);
             this.gbConsultaCarrera.Controls.Add(this.label2);
-            this.gbConsultaCarrera.Controls.Add(this.txtCarrera);
+            this.gbConsultaCarrera.Controls.Add(this.txtPeriodo);
             this.gbConsultaCarrera.Controls.Add(this.btnConsulta);
             this.gbConsultaCarrera.Controls.Add(this.gbCarrera);
             this.gbConsultaCarrera.Controls.Add(this.label1);
@@ -92,15 +92,15 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Estatus:";
             // 
-            // txtCarrera
+            // txtPeriodo
             // 
-            this.txtCarrera.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtCarrera.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtCarrera.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCarrera.Location = new System.Drawing.Point(137, 11);
-            this.txtCarrera.Name = "txtCarrera";
-            this.txtCarrera.Size = new System.Drawing.Size(694, 41);
-            this.txtCarrera.TabIndex = 1;
+            this.txtPeriodo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtPeriodo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPeriodo.Location = new System.Drawing.Point(137, 11);
+            this.txtPeriodo.Name = "txtPeriodo";
+            this.txtPeriodo.Size = new System.Drawing.Size(694, 41);
+            this.txtPeriodo.TabIndex = 1;
             // 
             // btnConsulta
             // 
@@ -171,7 +171,7 @@
         private System.Windows.Forms.GroupBox gbCarrera;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.DataGridView dgvCarrera;
-        private System.Windows.Forms.TextBox txtCarrera;
+        private System.Windows.Forms.TextBox txtPeriodo;
         private System.Windows.Forms.ComboBox comboEstatus;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnLimpiar;

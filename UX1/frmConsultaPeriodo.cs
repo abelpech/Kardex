@@ -35,13 +35,13 @@ namespace Kardex
 
         private void BtnConsulta_Click(object sender, EventArgs e)
         {
-            string carrera = txtCarrera.Text;
+            string carrera = txtPeriodo.Text;
 
-            if (comboEstatus.SelectedIndex == 0 && txtCarrera.Text == "")
+            if (comboEstatus.SelectedIndex == 0 && txtPeriodo.Text == "")
             {
                 //DataTable dt = bl.ConsultaCarrera("todas", 0);
 
-                DataTable dt = bl.ConsultaCarrera("", 0);
+                DataTable dt = bl.ConsultaPeriodo("", 0);
                 if (dt.Rows.Count > 0)
                 {
                     dgvCarrera.DataSource = dt;
@@ -50,12 +50,12 @@ namespace Kardex
                 }
                 else
                 {
-                    MessageBox.Show("No hay carreras activas", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("No hay periodos activos", "Aviso", MessageBoxButtons.OK);
                 }
             }
-            else if (comboEstatus.SelectedIndex == 1 && txtCarrera.Text == "")
+            else if (comboEstatus.SelectedIndex == 1 && txtPeriodo.Text == "")
             {
-                DataTable dt = bl.ConsultaCarrera("", 1);
+                DataTable dt = bl.ConsultaPeriodo("", 1);
 
                 if (dt.Rows.Count > 0)
                 {
@@ -65,12 +65,13 @@ namespace Kardex
                 }
                 else
                 {
-                    MessageBox.Show("No hay carreras activas", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("No hay periodos activos", "Aviso", MessageBoxButtons.OK);
+
                 }
             }
-            else if (comboEstatus.SelectedIndex == 0 && txtCarrera.Text != "")
+            else if (comboEstatus.SelectedIndex == 0 && txtPeriodo.Text != "")
             {
-                DataTable dt = bl.ConsultaCarrera(carrera, 0);
+                DataTable dt = bl.ConsultaPeriodo(carrera, 0);
                 if (dt.Rows.Count > 0)
                 {
                     dgvCarrera.DataSource = dt;
@@ -79,13 +80,13 @@ namespace Kardex
                 }
                 else
                 {
-                    MessageBox.Show("No registros con la carrera ingresada", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("No existen registros con el periodo ingresado", "Aviso", MessageBoxButtons.OK);
                 }
             }
-            else if (comboEstatus.SelectedIndex == 1 && txtCarrera.Text != "")
+            else if (comboEstatus.SelectedIndex == 1 && txtPeriodo.Text != "")
             {
 
-                DataTable dt = bl.ConsultaCarrera(carrera, 1);
+                DataTable dt = bl.ConsultaPeriodo(carrera, 1);
                 if (dt.Rows.Count > 0)
                 {
                     dgvCarrera.DataSource = dt;
@@ -94,13 +95,13 @@ namespace Kardex
                 }
                 else
                 {
-                    MessageBox.Show("No registros con la carrera ingresada", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("No existen registros con el periodo ingresado", "Aviso", MessageBoxButtons.OK);
                 }
 
             }
-            else if (comboEstatus.SelectedIndex == -1 && txtCarrera.Text != "")
+            else if (comboEstatus.SelectedIndex == -1 && txtPeriodo.Text != "")
             {
-                DataTable dt = bl.ConsultaCarrera(carrera, 0);
+                DataTable dt = bl.ConsultaPeriodo(carrera, 0);
                 if (dt.Rows.Count > 0)
                 {
                     dgvCarrera.DataSource = dt;
@@ -109,12 +110,12 @@ namespace Kardex
                 }
                 else
                 {
-                    MessageBox.Show("No registros con la carrera ingresada", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("No existen registros con el periodo ingresado", "Aviso", MessageBoxButtons.OK);
                 }
             }
-            else 
+            else
             {
-                MessageBox.Show("Favor de especificar la CARRERA y/o seleccionar un tipo de ESTATUS", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("Favor de especificar el PERIODO y/o seleccionar un tipo de ESTATUS", "Aviso", MessageBoxButtons.OK);
             }
               
             
@@ -130,8 +131,8 @@ namespace Kardex
         {
             
             AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
-            mycollection = bl.AutoCarrera();
-            txtCarrera.AutoCompleteCustomSource = mycollection;
+            mycollection = bl.AutoPeriodo();
+            txtPeriodo.AutoCompleteCustomSource = mycollection;
           
         }
 
@@ -217,9 +218,9 @@ namespace Kardex
 
         private void button1_Click(object sender, EventArgs e)
         {
-            txtCarrera.Text = "";
+            txtPeriodo.Text = "";
             comboEstatus.SelectedIndex = -1;
-            DataTable dt = bl.ConsultaCarrera("",0);
+            DataTable dt = bl.ConsultaPeriodo("",0);
 
             if (dt.Rows.Count > 0)
             {
