@@ -19,6 +19,13 @@ namespace UX1
             InitializeComponent();
         }
 
+        public frmModificaMaestro(int matri, string maestrobaja)
+        {
+            InitializeComponent();
+            txtMaestro.Text = maestrobaja;
+            nudMatricula.Value = matri;
+        }
+
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();

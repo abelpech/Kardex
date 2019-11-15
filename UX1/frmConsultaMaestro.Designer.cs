@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gbConsultaCarrera = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboEstatus = new System.Windows.Forms.ComboBox();
             this.txtMaestro = new System.Windows.Forms.TextBox();
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.lbAlumno = new System.Windows.Forms.Label();
@@ -36,8 +38,6 @@
             this.btnConsulta = new System.Windows.Forms.Button();
             this.gbCarrera = new System.Windows.Forms.GroupBox();
             this.dgvCarrera = new System.Windows.Forms.DataGridView();
-            this.comboEstatus = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.gbConsultaCarrera.SuspendLayout();
             this.gbCarrera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrera)).BeginInit();
@@ -59,6 +59,30 @@
             this.gbConsultaCarrera.Size = new System.Drawing.Size(1198, 798);
             this.gbConsultaCarrera.TabIndex = 2;
             this.gbConsultaCarrera.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(6, 132);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 32);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Estatus: ";
+            // 
+            // comboEstatus
+            // 
+            this.comboEstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboEstatus.FormattingEnabled = true;
+            this.comboEstatus.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
+            this.comboEstatus.Location = new System.Drawing.Point(147, 126);
+            this.comboEstatus.Name = "comboEstatus";
+            this.comboEstatus.Size = new System.Drawing.Size(769, 44);
+            this.comboEstatus.TabIndex = 11;
             // 
             // txtMaestro
             // 
@@ -132,30 +156,8 @@
             this.dgvCarrera.RowTemplate.Height = 24;
             this.dgvCarrera.Size = new System.Drawing.Size(1160, 648);
             this.dgvCarrera.TabIndex = 0;
-            // 
-            // comboEstatus
-            // 
-            this.comboEstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboEstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboEstatus.FormattingEnabled = true;
-            this.comboEstatus.Items.AddRange(new object[] {
-            "Activo",
-            "Inactivo"});
-            this.comboEstatus.Location = new System.Drawing.Point(147, 126);
-            this.comboEstatus.Name = "comboEstatus";
-            this.comboEstatus.Size = new System.Drawing.Size(769, 44);
-            this.comboEstatus.TabIndex = 11;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(6, 132);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 32);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Estatus: ";
+            this.dgvCarrera.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrera_CellClick);
+            this.dgvCarrera.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvCarrera_MouseClick);
             // 
             // frmConsultaMaestro
             // 
