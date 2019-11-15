@@ -56,7 +56,7 @@
             this.gbConsultaCarrera.Controls.Add(this.gbCarrera);
             this.gbConsultaCarrera.Location = new System.Drawing.Point(3, 12);
             this.gbConsultaCarrera.Name = "gbConsultaCarrera";
-            this.gbConsultaCarrera.Size = new System.Drawing.Size(1198, 798);
+            this.gbConsultaCarrera.Size = new System.Drawing.Size(1198, 782);
             this.gbConsultaCarrera.TabIndex = 2;
             this.gbConsultaCarrera.TabStop = false;
             // 
@@ -140,9 +140,9 @@
             // gbCarrera
             // 
             this.gbCarrera.Controls.Add(this.dgvCarrera);
-            this.gbCarrera.Location = new System.Drawing.Point(6, 204);
+            this.gbCarrera.Location = new System.Drawing.Point(6, 178);
             this.gbCarrera.Name = "gbCarrera";
-            this.gbCarrera.Size = new System.Drawing.Size(1178, 605);
+            this.gbCarrera.Size = new System.Drawing.Size(1178, 596);
             this.gbCarrera.TabIndex = 2;
             this.gbCarrera.TabStop = false;
             // 
@@ -150,11 +150,11 @@
             // 
             this.dgvCarrera.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.dgvCarrera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCarrera.Location = new System.Drawing.Point(6, 21);
+            this.dgvCarrera.Location = new System.Drawing.Point(8, 21);
             this.dgvCarrera.Name = "dgvCarrera";
             this.dgvCarrera.RowHeadersWidth = 51;
             this.dgvCarrera.RowTemplate.Height = 24;
-            this.dgvCarrera.Size = new System.Drawing.Size(1160, 648);
+            this.dgvCarrera.Size = new System.Drawing.Size(1160, 569);
             this.dgvCarrera.TabIndex = 0;
             this.dgvCarrera.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrera_CellClick);
             this.dgvCarrera.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvCarrera_MouseClick);

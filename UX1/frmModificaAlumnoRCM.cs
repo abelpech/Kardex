@@ -15,6 +15,7 @@ namespace UX1
     public partial class frmModificaAlumnoRCM : Form
     {
         BL bl = new BL();
+        dbConn db = new dbConn();
         private bool nonNumberEntered = false;
 
         public frmModificaAlumnoRCM()
@@ -30,6 +31,25 @@ namespace UX1
             //txtDireccion.Text = direccion;
             //txtTelefono.Text = telefono;
             txtCarrera.Text = carrera;
+            DataTable reader = db.getInfo("alumno");
+            foreach (DataRow row in reader.Rows)
+            {
+                if (row["id_alumno"].ToString() == Matricula.ToString())
+                {
+                    txtDireccion.Text = row["direccion"].ToString();
+                    txtTelefono.Text = row["telefono"].ToString();
+                    dtpFechaAlta.Value = DateTime.ParseExact(row["fechanac"].ToString(), "dd/mm/yyyy", null);
+                    int estatus = Convert.ToInt32(row["activo"]);
+                    if (estatus ==1)
+                    {
+                        cbEstatus.SelectedIndex = 0;
+                    }
+                    else
+                        cbEstatus.SelectedIndex = 1;
+                    //DateTime da = Convert.ToDateTime ();
+
+                }
+            }
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
@@ -56,12 +76,12 @@ namespace UX1
                 estatus = false;
 
             //validacion campos vacios, nulos o espacios en blanco
-            if (String.IsNullOrEmpty(nudMatricula.Text) || String.IsNullOrWhiteSpace(nudMatricula.Text) &&
+            if (!(String.IsNullOrEmpty(nudMatricula.Text) || String.IsNullOrWhiteSpace(nudMatricula.Text) &&
                 String.IsNullOrEmpty(txtAlumno.Text) || String.IsNullOrWhiteSpace(txtAlumno.Text) &&
                 String.IsNullOrEmpty(txtDireccion.Text) || String.IsNullOrWhiteSpace(txtDireccion.Text) &&
                 String.IsNullOrEmpty(txtTelefono.Text) || String.IsNullOrWhiteSpace(txtTelefono.Text) &&
                 String.IsNullOrEmpty(txtCarrera.Text) || String.IsNullOrWhiteSpace(txtCarrera.Text) &&
-                cbEstatus.SelectedIndex > 0)
+                cbEstatus.SelectedIndex > 0))
             {
                 bl.ModificaAlumno(matricula, alumno, direccion, telefono, fechaNac, estatus, carrera);
                 nudMatricula.Text = String.Empty;
@@ -155,6 +175,11 @@ namespace UX1
             //txtAlumno.AutoCompleteCustomSource = mycollectionalumno;
             txtCarrera.AutoCompleteCustomSource = mycollectioncarrera;
             //txtNCarrera.AutoCompleteCustomSource = mycollectioncarrera;
+        }
+
+        private void nudMatricula_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

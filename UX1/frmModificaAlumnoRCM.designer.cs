@@ -120,6 +120,7 @@
             this.nudMatricula.ReadOnly = true;
             this.nudMatricula.Size = new System.Drawing.Size(791, 45);
             this.nudMatricula.TabIndex = 1;
+            this.nudMatricula.ValueChanged += new System.EventHandler(this.nudMatricula_ValueChanged);
             // 
             // label6
             // 

@@ -14,6 +14,7 @@ namespace Kardex
     public partial class frmModificaCarrera : Form
     {
         BL bl = new BL();
+        dbConn db = new dbConn();
         string carrerabaja1 = "";
         public frmModificaCarrera()
         {
@@ -25,6 +26,7 @@ namespace Kardex
             InitializeComponent();
             txtCarrera.Text = carrerabaja;
             carrerabaja1 = carrerabaja;
+       
         }
 
         private void Label2_Click(object sender, EventArgs e)
