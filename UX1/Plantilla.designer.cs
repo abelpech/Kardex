@@ -546,6 +546,7 @@
             this.btnModificacionMaestro.TabIndex = 15;
             this.btnModificacionMaestro.Text = "Modificacion";
             this.btnModificacionMaestro.UseVisualStyleBackColor = false;
+            this.btnModificacionMaestro.Click += new System.EventHandler(this.btnModificacionMaestro_Click);
             // 
             // btnConsultaMaestro
             // 

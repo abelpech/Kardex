@@ -220,9 +220,13 @@ namespace Kardex.Layers
             {
                 MessageBox.Show("No existe un registro para dar de baja", "Aviso", MessageBoxButtons.OK);
             }
-            else
+            else if(retVal > 0)
             {
                 MessageBox.Show("Baja del registro exitosa", "Aviso", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("La carrera no puede darse de baja porque tiene Alumnos asignados", "Aviso", MessageBoxButtons.OK);
             }
             conn.Close();
 
