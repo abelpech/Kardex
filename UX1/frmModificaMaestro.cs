@@ -8,15 +8,44 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Kardex.Layers;
+using System.Data.SqlClient;
+
 
 namespace UX1
 {
     public partial class frmModificaMaestro : Form
     {
         BL bl = new BL();
+        dbConn db = new dbConn();
         public frmModificaMaestro()
         {
             InitializeComponent();
+            nudMatricula.Enabled = true;
+        }
+
+        public frmModificaMaestro(int matri, string maestrobaja)
+        {
+            InitializeComponent();
+            txtMaestro.Text = maestrobaja;
+            nudMatricula.Value = matri;
+            DataTable reader = db.getInfo("maestro");
+            foreach (DataRow row in reader.Rows)
+            {
+                if (row["id_maestro"].ToString() == matri.ToString())
+                {
+                    txtMaestro.Text = row["nombre"].ToString();
+                    txtDireccion.Text = row["direccion"].ToString();
+                    txtTelefono.Text = row["telefono"].ToString();
+                    int estatus = Convert.ToInt32(row["activo"]);
+                    if (estatus == 1)
+                    {
+                        cbEstatus.SelectedIndex = 0;
+                    }
+                    else
+                        cbEstatus.SelectedIndex = 1;
+                }
+            }
+            nudMatricula.Enabled = false;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -59,7 +88,26 @@ namespace UX1
 
         private void nudMatricula_ValueChanged(object sender, EventArgs e)
         {
-
+            int maxId = 0;
+            DataTable reader = db.getInfo("maestro");
+            foreach (DataRow row in reader.Rows)
+            {
+                if (row["id_maestro"].ToString() == nudMatricula.Value.ToString())
+                {
+                    txtMaestro.Text = row["nombre"].ToString();
+                    txtDireccion.Text = row["direccion"].ToString();
+                    txtTelefono.Text = row["telefono"].ToString();
+                    int estatus = Convert.ToInt32(row["activo"]);
+                    if (estatus == 1)
+                    {
+                        cbEstatus.SelectedIndex = 0;
+                    }
+                    else
+                        cbEstatus.SelectedIndex = 1;
+                }
+                maxId = Convert.ToInt32(row["id_maestro"]);
+            }
+            nudMatricula.Maximum = maxId;
         }
     }
 }

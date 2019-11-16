@@ -64,11 +64,11 @@
             // 
             this.dgvCarrera.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.dgvCarrera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCarrera.Location = new System.Drawing.Point(4, 11);
+            this.dgvCarrera.Location = new System.Drawing.Point(4, 21);
             this.dgvCarrera.Name = "dgvCarrera";
             this.dgvCarrera.RowHeadersWidth = 51;
             this.dgvCarrera.RowTemplate.Height = 24;
-            this.dgvCarrera.Size = new System.Drawing.Size(1188, 750);
+            this.dgvCarrera.Size = new System.Drawing.Size(1188, 671);
             this.dgvCarrera.TabIndex = 0;
             this.dgvCarrera.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrera_CellClick);
             this.dgvCarrera.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvCarrera_MouseClick);

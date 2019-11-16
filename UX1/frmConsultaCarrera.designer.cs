@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbConsultaCarrera = new System.Windows.Forms.GroupBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.comboEstatus = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCarrera = new System.Windows.Forms.TextBox();
@@ -36,7 +37,6 @@
             this.gbCarrera = new System.Windows.Forms.GroupBox();
             this.dgvCarrera = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             this.gbConsultaCarrera.SuspendLayout();
             this.gbCarrera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrera)).BeginInit();
@@ -56,6 +56,17 @@
             this.gbConsultaCarrera.Size = new System.Drawing.Size(1197, 820);
             this.gbConsultaCarrera.TabIndex = 0;
             this.gbConsultaCarrera.TabStop = false;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(945, 98);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(159, 40);
+            this.btnLimpiar.TabIndex = 7;
+            this.btnLimpiar.Text = "&Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboEstatus
             // 
@@ -115,10 +126,11 @@
             // 
             this.dgvCarrera.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.dgvCarrera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCarrera.Location = new System.Drawing.Point(6, 21);
+            this.dgvCarrera.Location = new System.Drawing.Point(6, 14);
             this.dgvCarrera.Name = "dgvCarrera";
+            this.dgvCarrera.RowHeadersWidth = 51;
             this.dgvCarrera.RowTemplate.Height = 24;
-            this.dgvCarrera.Size = new System.Drawing.Size(1173, 711);
+            this.dgvCarrera.Size = new System.Drawing.Size(1173, 646);
             this.dgvCarrera.TabIndex = 0;
             this.dgvCarrera.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrera_CellClick);
             this.dgvCarrera.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvCarrera_MouseClick);
@@ -133,17 +145,6 @@
             this.label1.Size = new System.Drawing.Size(125, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Carrera: ";
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(945, 98);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(159, 40);
-            this.btnLimpiar.TabIndex = 7;
-            this.btnLimpiar.Text = "&Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmConsultaCarrera
             // 

@@ -15,6 +15,8 @@ namespace UX1
     public partial class frmModificaAlumno : Form
     {
         BL bl = new BL();
+        dbConn db = new dbConn();
+        
         private bool nonNumberEntered = false;
 
         public frmModificaAlumno()
@@ -30,6 +32,7 @@ namespace UX1
             //txtDireccion.Text = direccion;
             //txtTelefono.Text = telefono;
             txtCarrera.Text = carrera;
+            
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
@@ -56,12 +59,12 @@ namespace UX1
                 estatus = false;
 
             //validacion campos vacios, nulos o espacios en blanco
-            if (String.IsNullOrEmpty(nudMatricula.Text) && 
+            if (!(String.IsNullOrEmpty(nudMatricula.Text) && 
                 String.IsNullOrEmpty(txtAlumno.Text)&& 
                 String.IsNullOrEmpty(txtDireccion.Text) && 
                 String.IsNullOrEmpty(txtTelefono.Text) && 
                 String.IsNullOrEmpty(txtCarrera.Text) &&
-                cbEstatus.SelectedIndex > 0)
+                cbEstatus.SelectedIndex > 0))
             {
                 bl.ModificaAlumno(matricula, alumno, direccion, telefono, fechaNac, estatus, carrera);
                 nudMatricula.Text = String.Empty;
@@ -158,6 +161,51 @@ namespace UX1
             //txtAlumno.AutoCompleteCustomSource = mycollectionalumno;
             txtCarrera.AutoCompleteCustomSource = mycollectioncarrera;
             //txtNCarrera.AutoCompleteCustomSource = mycollectioncarrera;
+        }
+
+        private void nudMatricula_ValueChanged(object sender, EventArgs e)
+        {
+            string maxId = "";
+            string carrera = "";
+            DataTable reader = db.getInfo("alumno");
+            DataTable readerC = db.getInfo("carrera");
+            foreach (DataRow row in reader.Rows)
+            {
+                if (row["id_alumno"].ToString() == nudMatricula.Value.ToString())
+                {
+                    txtAlumno.Text = row["nombre"].ToString();
+                    txtDireccion.Text = row["direccion"].ToString();
+                    txtTelefono.Text = row["telefono"].ToString();
+                    try
+                    {
+                        dtpFechaAlta.Value = DateTime.ParseExact(row["fechanac"].ToString(), "dd/mm/yyyy", null);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+
+                    int estatus = Convert.ToInt32(row["activo"]);
+                    if (estatus == 1)
+                    {
+                        cbEstatus.SelectedIndex = 0;
+                    }
+                    else
+                        cbEstatus.SelectedIndex = 1;
+                    carrera = row["id_carrera"].ToString();
+                    //DateTime da = Convert.ToDateTime ();
+
+                }
+                maxId = row["id_alumno"].ToString();
+            }
+            foreach (DataRow row in readerC.Rows)
+            {
+                if (row["id_carrera"].ToString() == carrera)
+                {
+                    txtCarrera.Text = row["carrera"].ToString();
+                }
+            }
+            nudMatricula.Maximum = Convert.ToInt32(maxId);
         }
     }
 }

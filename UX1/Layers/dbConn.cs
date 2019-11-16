@@ -14,6 +14,7 @@ namespace Kardex.Layers
     class dbConn
     {
         SqlConnection conn;
+        public static List<string> lista = new List<string>();
         public dbConn()
         {
 
@@ -231,6 +232,66 @@ namespace Kardex.Layers
             conn.Close();
 
         }
+
+        public DataTable getInfo(string query)
+        {
+            int opcion = 0;
+            SqlCommand cmd = new SqlCommand(("Select * from " + query), conn);
+            
+
+            //Valores de parametros para distintas listas:
+            //alumno - Lista de todos los alumnos
+            //materia - Lista de todas las materias
+            //carrera - Lista de todas las carreras
+            //maestro - Lista de todos los maestros
+            //periodo - Lista de todos los periodos
+            
+
+
+            //Set up the parameters
+            //cmd.Parameters.Add("@Result", SqlDbType.Int);
+            //cmd.Parameters["@Result"].Direction = ParameterDirection.Output;
+
+            conn.Open();
+
+            DataTable reader2 = new DataTable();
+            reader2.Load(cmd.ExecuteReader());
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            
+            while (reader.Read())
+            {
+                lista.Clear();
+                switch (query)
+                {
+                    case "alumno":
+                        lista.Add(reader["nombre"].ToString());
+                        break;
+                    case "materia":
+                        lista.Add(reader["materia"].ToString());
+                        break;
+                    case "carrera":
+                        lista.Add(reader["carrera"].ToString());
+                        break;
+                    case "maestro":
+                        lista.Add(reader["nombre"].ToString());
+                        break;
+                    case "periodo":
+                        lista.Add(reader["periodo"].ToString());
+                        break;
+                    default:
+                        MessageBox.Show("Parametro incorrecto.");
+                        break;
+
+                }
+                
+
+            }
+            conn.Close();
+            return reader2;
+            //TableName.Rows[0]["ColumnName"].ToString(); 
+        }
+
         
       
     }
