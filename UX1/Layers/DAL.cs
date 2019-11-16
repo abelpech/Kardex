@@ -270,7 +270,22 @@ namespace Kardex.Layers
             return dt;
         }
 
-//PERIODO
+
+        public void ModificaMaestro(int matricula, string maestro, string direccion, string telefono, bool estatus)
+        {
+            try
+            {
+                string query = "ModificaMaestro '" + matricula + "', '" + maestro + "', '" + direccion + "', '" + telefono + "', '" + Convert.ToInt32(estatus) + "', '" + Permisos.usuario + "'";
+                //MessageBox.Show(query);
+                conn.ExcQryReturn(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        //PERIODO
 
         public DataTable ConsultaPeriodo(string periodo, int estado)
         {

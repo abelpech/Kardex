@@ -307,6 +307,17 @@ namespace Kardex.Layers
 
         }
 
+        public void ModificaMaestro(int matricula, string maestro, string direccion, string telefono, bool estatus)
+        {
+
+
+            dal.ModificaMaestro(matricula, maestro, direccion, telefono, estatus);
+            //MessageBox.Show("El Maestro se modifico exitosamente", "Aviso", MessageBoxButtons.OK);
+
+
+        }
+
+
 
         //PERIODO
 
