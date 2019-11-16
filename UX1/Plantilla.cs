@@ -440,6 +440,10 @@ namespace UX1
             AbrirFormInPanel(new frmConsultaMaestro());
         }
 
+        private void btnModificacionMaestro_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new frmModificaMaestro());
+        }
         private void BtnConsultaPeriodo_Click(object sender, EventArgs e)
         {
             AbrirFormInPanel(new frmConsultaPeriodo());
