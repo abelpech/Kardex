@@ -501,7 +501,7 @@
             this.btnMaestro.ForeColor = System.Drawing.SystemColors.Window;
             this.btnMaestro.Image = global::UX1.Properties.Resources.Expand_Arrow_20px;
             this.btnMaestro.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMaestro.Location = new System.Drawing.Point(0, 4);
+            this.btnMaestro.Location = new System.Drawing.Point(0, 1);
             this.btnMaestro.Margin = new System.Windows.Forms.Padding(4);
             this.btnMaestro.Name = "btnMaestro";
             this.btnMaestro.Size = new System.Drawing.Size(317, 81);
@@ -520,7 +520,7 @@
             this.btnBajaMaestro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnBajaMaestro.ForeColor = System.Drawing.SystemColors.Window;
             this.btnBajaMaestro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBajaMaestro.Location = new System.Drawing.Point(4, 271);
+            this.btnBajaMaestro.Location = new System.Drawing.Point(0, 271);
             this.btnBajaMaestro.Margin = new System.Windows.Forms.Padding(4);
             this.btnBajaMaestro.Name = "btnBajaMaestro";
             this.btnBajaMaestro.Size = new System.Drawing.Size(317, 81);
@@ -539,7 +539,7 @@
             this.btnModificacionMaestro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnModificacionMaestro.ForeColor = System.Drawing.SystemColors.Window;
             this.btnModificacionMaestro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificacionMaestro.Location = new System.Drawing.Point(4, 202);
+            this.btnModificacionMaestro.Location = new System.Drawing.Point(0, 202);
             this.btnModificacionMaestro.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificacionMaestro.Name = "btnModificacionMaestro";
             this.btnModificacionMaestro.Size = new System.Drawing.Size(317, 81);
@@ -577,7 +577,7 @@
             this.btnAltaMaestro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.btnAltaMaestro.ForeColor = System.Drawing.SystemColors.Window;
             this.btnAltaMaestro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAltaMaestro.Location = new System.Drawing.Point(4, 73);
+            this.btnAltaMaestro.Location = new System.Drawing.Point(0, 73);
             this.btnAltaMaestro.Margin = new System.Windows.Forms.Padding(4);
             this.btnAltaMaestro.Name = "btnAltaMaestro";
             this.btnAltaMaestro.Size = new System.Drawing.Size(317, 81);
