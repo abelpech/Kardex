@@ -454,6 +454,16 @@ namespace UX1
             AbrirFormInPanel(new frmAltaPeriodo());
         }
 
+        private void BtnBajaPeriodo_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new frmBajaPeriodo());
+        }
+
+        private void BtnModificaPeriodo_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new frmModificaPeriodo());
+        }
+
         private void EstablecerPermisos(int pm)
         {
             switch (pm)

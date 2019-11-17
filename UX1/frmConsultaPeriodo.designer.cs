@@ -131,7 +131,7 @@
             this.dgvCarrera.RowTemplate.Height = 24;
             this.dgvCarrera.Size = new System.Drawing.Size(1173, 711);
             this.dgvCarrera.TabIndex = 0;
-            this.dgvCarrera.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrera_CellClick);
+            this.dgvCarrera.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrera_CellClick);
             this.dgvCarrera.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvCarrera_MouseClick);
             // 
             // label1

@@ -26,13 +26,7 @@ namespace Kardex
             InitializeComponent();
         }
 
-        private void TxtCarrera_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-        
-
-
+  
         private void BtnConsulta_Click(object sender, EventArgs e)
         {
             string carrera = txtPeriodo.Text;
@@ -123,9 +117,6 @@ namespace Kardex
             
         }
 
-      
-
-   
 
         private void FrmConsultaCarrera_Load(object sender, EventArgs e)
         {
@@ -177,7 +168,7 @@ namespace Kardex
         {
             try
             {
-                data = dgvCarrera["Carrera", e.RowIndex].Value.ToString();
+                data = dgvCarrera["Periodo", e.RowIndex].Value.ToString();
                 //MessageBox.Show(data);
             }
             catch (Exception ex)
@@ -192,7 +183,7 @@ namespace Kardex
         private void menuItem1_Click(object sender, System.EventArgs e)
         {
 
-            bl.BajaCarrera(data);
+            bl.BajaPeriodo(data);
             BtnConsulta_Click(sender, e);
             data = "";
 
@@ -202,15 +193,16 @@ namespace Kardex
         {
             // MessageBox.Show("Modifica");
             //pl.BtnModificacionCarrera_Click(sender, e);
-            frmModificaCarrera baja = new frmModificaCarrera(data);
+            frmModificaPeriodo baja = new frmModificaPeriodo(data);
             baja.Show();
+            BtnConsulta_Click(sender, e);
             data = "";
         }
 
         private void menuItem3_Click(object sender, System.EventArgs e)
         {
             //MessageBox.Show(data);
-            bl.ModificaCarrera(data, data, true);
+            bl.ModificaPeriodo(data, data, true);
             BtnConsulta_Click(sender, e);
             data = "";
 

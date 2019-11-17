@@ -638,6 +638,7 @@
             this.btnBajaPeriodo.TabIndex = 17;
             this.btnBajaPeriodo.Text = "Baja";
             this.btnBajaPeriodo.UseVisualStyleBackColor = false;
+            this.btnBajaPeriodo.Click += new System.EventHandler(this.BtnBajaPeriodo_Click);
             // 
             // btnModificacionPeriodo
             // 
@@ -655,6 +656,7 @@
             this.btnModificacionPeriodo.TabIndex = 16;
             this.btnModificacionPeriodo.Text = "Modificacion";
             this.btnModificacionPeriodo.UseVisualStyleBackColor = false;
+            this.btnModificacionPeriodo.Click += new System.EventHandler(this.BtnModificaPeriodo_Click);
             // 
             // btnConsultaPeriodo
             // 

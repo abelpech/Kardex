@@ -76,6 +76,12 @@
     <Compile Include="frmBajaAlumno.designer.cs">
       <DependentUpon>frmBajaAlumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBajaPeriodo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBajaPeriodo.designer.cs">
+      <DependentUpon>frmBajaPeriodo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBajaCarrera.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,12 @@
     </Compile>
     <Compile Include="frmModificaAlumno.designer.cs">
       <DependentUpon>frmModificaAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificaPeriodo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificaPeriodo.designer.cs">
+      <DependentUpon>frmModificaPeriodo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmModificaCarrera.cs">
       <SubType>Form</SubType>
@@ -208,6 +220,9 @@
     <EmbeddedResource Include="frmBajaAlumno.resx">
       <DependentUpon>frmBajaAlumno.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBajaPeriodo.resx">
+      <DependentUpon>frmBajaPeriodo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBajaCarrera.resx">
       <DependentUpon>frmBajaCarrera.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificaAlumno.resx">
       <DependentUpon>frmModificaAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificaPeriodo.resx">
+      <DependentUpon>frmModificaPeriodo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificaCarrera.resx">
       <DependentUpon>frmModificaCarrera.cs</DependentUpon>

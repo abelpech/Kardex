@@ -319,7 +319,7 @@ namespace Kardex.Layers
 
 
 
-        //PERIODO
+//PERIODO
 
         public DataTable ConsultaPeriodo(string periodo, int estado)
         {
@@ -345,6 +345,35 @@ namespace Kardex.Layers
             dal.AltaPeriodo(periodo, estatus);
         }
 
+        public void BajaPeriodo(string periodo)
+        {
+            if (periodo == "")
+            {
+                MessageBox.Show("Es necesario especificar el nombre del periodo", "Alerta", MessageBoxButtons.OK);
+
+            }
+            else
+            {
+                dal.BajaPeriodo(periodo);
+
+            }
+        }
+
+        public void ModificaPeriodo(string periodobaja, string periodo, bool estatus)
+        {
+            if (periodo == "")
+            {
+                MessageBox.Show("Favor de especificar el periodo a modificar", "Alerta", MessageBoxButtons.OK);
+
+            }
+            else
+            {
+
+                dal.ModificaPeriodo(periodobaja, periodo, estatus);
+                //MessageBox.Show("La carrera se modifico exitosamente", "Aviso", MessageBoxButtons.OK);
+
+            }
+        }
 
         public int LoginValidation(string username, string password)
         {
