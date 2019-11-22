@@ -464,6 +464,25 @@ namespace UX1
             AbrirFormInPanel(new frmModificaPeriodo());
         }
 
+        //Metodos para CALIFICACION
+
+        private void BtnConsultaCalificacion_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new frmConsultaCalificacion());
+        }
+
+        private void BtnAltaCalificacion_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new frmAltaPeriodo());
+        }
+
+        
+
+        private void BtnModificaCalificacion_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new frmModificaPeriodo());
+        }
+
         private void EstablecerPermisos(int pm)
         {
             switch (pm)
@@ -577,7 +596,7 @@ namespace UX1
                     {
                       //ROOT
                         
-                        lbUsuario.Text = "God Mode";
+                        lbUsuario.Text = "Administrator";
                         //Modulo Alumno
                         btnAltaAlumno.Enabled = true;
                         btnBajaAlumno.Enabled = true;

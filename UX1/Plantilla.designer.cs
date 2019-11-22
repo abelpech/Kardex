@@ -121,10 +121,10 @@
             // 
             this.picLOGO.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.picLOGO.Image = ((System.Drawing.Image)(resources.GetObject("picLOGO.Image")));
-            this.picLOGO.Location = new System.Drawing.Point(0, 0);
+            this.picLOGO.Location = new System.Drawing.Point(-4, 0);
             this.picLOGO.Margin = new System.Windows.Forms.Padding(4);
             this.picLOGO.Name = "picLOGO";
-            this.picLOGO.Size = new System.Drawing.Size(333, 139);
+            this.picLOGO.Size = new System.Drawing.Size(337, 139);
             this.picLOGO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLOGO.TabIndex = 1;
             this.picLOGO.TabStop = false;
@@ -725,6 +725,7 @@
             this.btnModificacionCalificacion.TabIndex = 17;
             this.btnModificacionCalificacion.Text = "Modificacion";
             this.btnModificacionCalificacion.UseVisualStyleBackColor = false;
+            this.btnModificacionCalificacion.Click += new System.EventHandler(this.BtnModificaCalificacion_Click);
             // 
             // btnConsultaCalificacion
             // 
@@ -742,11 +743,11 @@
             this.btnConsultaCalificacion.TabIndex = 16;
             this.btnConsultaCalificacion.Text = "Consulta";
             this.btnConsultaCalificacion.UseVisualStyleBackColor = false;
+            this.btnConsultaCalificacion.Click += new System.EventHandler(this.BtnConsultaCalificacion_Click);
             // 
             // btnCalificacion
             // 
             this.btnCalificacion.BackColor = System.Drawing.Color.Transparent;
-            this.btnCalificacion.Enabled = false;
             this.btnCalificacion.FlatAppearance.BorderSize = 0;
             this.btnCalificacion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnCalificacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
@@ -780,6 +781,7 @@
             this.btnAltaCalificacion.TabIndex = 15;
             this.btnAltaCalificacion.Text = "Alta";
             this.btnAltaCalificacion.UseVisualStyleBackColor = false;
+            this.btnAltaCalificacion.Click += new System.EventHandler(this.BtnAltaCalificacion_Click);
             // 
             // BarraTitulo
             // 

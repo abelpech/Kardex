@@ -53,6 +53,7 @@ namespace UX1
             else
             {
                 MessageBox.Show("Usuario o contraseña incorrectos.", "Alerta", MessageBoxButtons.OK);
+                txtPassword.Text = "";
             }
 
             // Si dt = 1, entonces el usuario es alumno
