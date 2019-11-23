@@ -131,6 +131,9 @@ namespace Kardex
         {
             if (e.Button == MouseButtons.Right)
             {
+                int i = dgvCarrera.CurrentCell.RowIndex;
+                dgvCarrera.Rows[i].Selected = true;
+
                 ContextMenu m = new ContextMenu();
 
                 MenuItem menuItem1 = new MenuItem();
@@ -166,6 +169,7 @@ namespace Kardex
 
         private void dgvCarrera_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            /*
             try
             {
                 data = dgvCarrera["Periodo", e.RowIndex].Value.ToString();
@@ -175,7 +179,7 @@ namespace Kardex
             {
 
             }
-            
+            */
             //MessageBox.Show(data);
 
         }
@@ -196,7 +200,7 @@ namespace Kardex
             frmModificaPeriodo baja = new frmModificaPeriodo(data);
             baja.Show();
             BtnConsulta_Click(sender, e);
-            data = "";
+            //data = "";
         }
 
         private void menuItem3_Click(object sender, System.EventArgs e)
@@ -221,6 +225,24 @@ namespace Kardex
             }
         }
 
-       
+        private void dgvCarrera_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvCarrera.CurrentRow.Index >= 0)
+                {
+                    //MessageBox.Show(Convert.ToInt32(dgvCarrera.CurrentRow.Index).ToString());
+                    data = dgvCarrera["Periodo", Convert.ToInt32(dgvCarrera.CurrentRow.Index)].Value.ToString();
+
+                }
+
+
+                //MessageBox.Show(data);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
     }
 }

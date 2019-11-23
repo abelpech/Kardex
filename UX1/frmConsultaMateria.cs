@@ -155,6 +155,9 @@ namespace UX1
         {
             if (e.Button == MouseButtons.Right)
             {
+                int i = dgvCarrera.CurrentCell.RowIndex;
+                dgvCarrera.Rows[i].Selected = true;
+
                 ContextMenu m = new ContextMenu();
 
                 MenuItem menuItem1 = new MenuItem();
@@ -228,7 +231,7 @@ namespace UX1
             //pl.BtnModificacionCarrera_Click(sender, e);
             frmModificaMateria baja = new frmModificaMateria(data);
             baja.Show();
-            data = "";
+            //data = "";
         }
 
         private void menuItem3_Click(object sender, System.EventArgs e)
@@ -250,6 +253,26 @@ namespace UX1
             {
                 dgvCarrera.DataSource = dt;
                 dt.Rows.Clear();
+            }
+        }
+
+        private void dgvCarrera_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvCarrera.CurrentRow.Index >= 0)
+                {
+                    //MessageBox.Show(Convert.ToInt32(dgvCarrera.CurrentRow.Index).ToString());
+                    data = dgvCarrera["Materia", Convert.ToInt32(dgvCarrera.CurrentRow.Index)].Value.ToString();
+
+                }
+
+
+                //MessageBox.Show(data);
+            }
+            catch (Exception ex)
+            {
+
             }
         }
 

@@ -179,6 +179,10 @@ namespace UX1
         {
             if (e.Button == MouseButtons.Right)
             {
+
+                int i = dgvCarrera.CurrentCell.RowIndex;
+                dgvCarrera.Rows[i].Selected = true;
+
                 ContextMenu m = new ContextMenu();
 
                 MenuItem menuItem1 = new MenuItem();
@@ -225,16 +229,7 @@ namespace UX1
 
         private void dgvCarrera_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                data = dgvCarrera["Alumno", e.RowIndex].Value.ToString();
-                Row = e.RowIndex;
-                //MessageBox.Show(data);
-            }
-            catch (Exception ex)
-            {
-
-            }
+            
 
             //MessageBox.Show(data);
 
@@ -263,8 +258,8 @@ namespace UX1
 
             frmModificaAlumnoRCM baja = new frmModificaAlumnoRCM(matricula, nombre, carrera);
             baja.Show();
-            data = "";
-            Row = 0;
+            //data = "";
+            //Row = 0;
         }
 
         private void menuItem3_Click(object sender, System.EventArgs e)
@@ -316,6 +311,27 @@ namespace UX1
                 return true;
             }
             return false;
+        }
+
+        private void dgvCarrera_SelectionChanged(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                if (dgvCarrera.CurrentRow.Index >=0)
+                {
+                    //MessageBox.Show(Convert.ToInt32(dgvCarrera.CurrentRow.Index).ToString());
+                    data = dgvCarrera["Alumno", Convert.ToInt32(dgvCarrera.CurrentRow.Index)].Value.ToString();
+                    Row = Convert.ToInt32(dgvCarrera.CurrentRow.Index);
+                }
+
+
+                //MessageBox.Show(data);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
 
