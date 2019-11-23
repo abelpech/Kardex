@@ -32,15 +32,15 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.comboEstatus = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtPeriodo = new System.Windows.Forms.TextBox();
             this.txtAlumno = new System.Windows.Forms.TextBox();
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.lbAlumno = new System.Windows.Forms.Label();
             this.lbMatricula = new System.Windows.Forms.Label();
+            this.lbCarrera = new System.Windows.Forms.Label();
             this.btnConsulta = new System.Windows.Forms.Button();
             this.gbCarrera = new System.Windows.Forms.GroupBox();
             this.dgvCarrera = new System.Windows.Forms.DataGridView();
-            this.txtCarrera = new System.Windows.Forms.TextBox();
-            this.lbCarrera = new System.Windows.Forms.Label();
             this.gbConsultaCarrera.SuspendLayout();
             this.gbCarrera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrera)).BeginInit();
@@ -51,7 +51,7 @@
             this.gbConsultaCarrera.Controls.Add(this.btnLimpiar);
             this.gbConsultaCarrera.Controls.Add(this.comboEstatus);
             this.gbConsultaCarrera.Controls.Add(this.label1);
-            this.gbConsultaCarrera.Controls.Add(this.txtCarrera);
+            this.gbConsultaCarrera.Controls.Add(this.txtPeriodo);
             this.gbConsultaCarrera.Controls.Add(this.txtAlumno);
             this.gbConsultaCarrera.Controls.Add(this.txtMatricula);
             this.gbConsultaCarrera.Controls.Add(this.lbAlumno);
@@ -100,6 +100,17 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Estatus Alumno:";
             // 
+            // txtPeriodo
+            // 
+            this.txtPeriodo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtPeriodo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPeriodo.Location = new System.Drawing.Point(147, 126);
+            this.txtPeriodo.MaxLength = 50;
+            this.txtPeriodo.Name = "txtPeriodo";
+            this.txtPeriodo.Size = new System.Drawing.Size(479, 38);
+            this.txtPeriodo.TabIndex = 4;
+            // 
             // txtAlumno
             // 
             this.txtAlumno.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -113,6 +124,7 @@
             // 
             // txtMatricula
             // 
+            this.txtMatricula.Enabled = false;
             this.txtMatricula.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMatricula.Location = new System.Drawing.Point(147, 17);
             this.txtMatricula.Multiline = true;
@@ -143,6 +155,17 @@
             this.lbMatricula.Size = new System.Drawing.Size(146, 32);
             this.lbMatricula.TabIndex = 0;
             this.lbMatricula.Text = "Matricula: ";
+            // 
+            // lbCarrera
+            // 
+            this.lbCarrera.AutoSize = true;
+            this.lbCarrera.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCarrera.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbCarrera.Location = new System.Drawing.Point(12, 126);
+            this.lbCarrera.Name = "lbCarrera";
+            this.lbCarrera.Size = new System.Drawing.Size(122, 32);
+            this.lbCarrera.TabIndex = 4;
+            this.lbCarrera.Text = "Periodo:";
             // 
             // btnConsulta
             // 
@@ -177,28 +200,6 @@
             this.dgvCarrera.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrera_CellClick);
             this.dgvCarrera.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvCarrera_MouseClick);
             // 
-            // txtCarrera
-            // 
-            this.txtCarrera.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txtCarrera.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtCarrera.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCarrera.Location = new System.Drawing.Point(147, 126);
-            this.txtCarrera.MaxLength = 50;
-            this.txtCarrera.Name = "txtCarrera";
-            this.txtCarrera.Size = new System.Drawing.Size(479, 38);
-            this.txtCarrera.TabIndex = 4;
-            // 
-            // lbCarrera
-            // 
-            this.lbCarrera.AutoSize = true;
-            this.lbCarrera.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCarrera.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbCarrera.Location = new System.Drawing.Point(12, 126);
-            this.lbCarrera.Name = "lbCarrera";
-            this.lbCarrera.Size = new System.Drawing.Size(125, 32);
-            this.lbCarrera.TabIndex = 4;
-            this.lbCarrera.Text = "Carrera: ";
-            // 
             // frmConsultaCalificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -231,7 +232,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbMatricula;
         private System.Windows.Forms.Button btnLimpiar;
-        public System.Windows.Forms.TextBox txtCarrera;
+        public System.Windows.Forms.TextBox txtPeriodo;
         private System.Windows.Forms.Label lbCarrera;
     }
 }

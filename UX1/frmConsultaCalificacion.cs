@@ -31,7 +31,7 @@ namespace UX1
         private void BtnConsulta_Click(object sender, EventArgs e)
         {
             String alumno = txtAlumno.Text.ToString();
-            String carrera = txtCarrera.Text.ToString();
+            String periodo = txtPeriodo.Text.ToString();
             int matricula;
             try
             {
@@ -44,7 +44,7 @@ namespace UX1
             
             if (comboEstatus.SelectedIndex == 0)
             {
-                DataTable dt = bl.ConsultaAlumno(matricula, alumno, carrera, 0);
+                DataTable dt = bl.ConsultaCalificacion(matricula, alumno, periodo, 0);
                 if (dt.Rows.Count > 0)
                 {
                     dgvCarrera.DataSource = dt;              
@@ -57,7 +57,7 @@ namespace UX1
             }
             else if (comboEstatus.SelectedIndex == 1)
             {
-                    DataTable dt = bl.ConsultaAlumno(matricula, alumno, carrera, 1);
+                    DataTable dt = bl.ConsultaCalificacion(matricula, alumno, periodo, 1);
                     if (dt.Rows.Count > 0)
                     {
                         dgvCarrera.DataSource = dt;
@@ -76,35 +76,7 @@ namespace UX1
             }
 
         }
-        /*Codigo comentado para no causar conflicto con ComboBox
-        private void CbTodos_CheckedChanged(object sender, EventArgs e)
-        {
-
-                if (cbTodos.Checked == true)
-                {
-                    txtMatricula.Show();
-                lbMatricula.Show();
-
-                    txtAlumno.Hide();
-                lbAlumno.Hide();
-                    txtCarrera.Hide();
-                lbCarrera.Hide();
-                cbInactivos.Checked = false;
-
-                }
-                else
-                {
-                    txtMatricula.Hide();
-                lbMatricula.Hide();
-
-                    txtAlumno.Show();
-                lbAlumno.Show();
-                    txtCarrera.Show();
-                lbCarrera.Show();
-                }
-
-        }
-        */
+        
 
         private void txtMatricula_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -145,34 +117,14 @@ namespace UX1
         private void FrmConsultaAlumno_Load(object sender, EventArgs e)
         {
             AutoCompleteStringCollection mycollectionAlumno = new AutoCompleteStringCollection();
-            AutoCompleteStringCollection mycollectionCarrera = new AutoCompleteStringCollection();
+            AutoCompleteStringCollection mycollectionPeriodo = new AutoCompleteStringCollection();
             mycollectionAlumno = bl.AutoAlumno();
-            mycollectionCarrera = bl.AutoCarrera();
+            mycollectionPeriodo = bl.AutoPeriodo();
             txtAlumno.AutoCompleteCustomSource = mycollectionAlumno;
-            txtCarrera.AutoCompleteCustomSource = mycollectionCarrera;
+            txtPeriodo.AutoCompleteCustomSource = mycollectionPeriodo;
         }
 
-        /*Codigo comentado para no causar conflicto con ComboBox
-        private void CbInactivos_CheckedChanged(object sender, EventArgs e)
-        {
-            cbTodos.Checked = false;
-            DataTable dt = bl.ConsultaAlumno(0,"inactivos","");
-            if (dt.Rows.Count > 0)
-            {
-                dgvCarrera.DataSource = dt;
-                //No permitir agregar datos adicionales
-                dgvCarrera.AllowUserToAddRows = false;
-            }
-            else
-            {
-                MessageBox.Show("No hay alumnos inactivos", "Aviso", MessageBoxButtons.OK);
-            }
-            
-        }
-        */
 
-
-        
         private void dgvCarrera_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -185,13 +137,13 @@ namespace UX1
                 
                 if (comboEstatus.SelectedIndex == 0)
                 {
-                    menuItem1.Text = "Baja";
+                    //menuItem1.Text = "Baja";
                     menuItem2.Text = "Modifica";
 
-                    m.MenuItems.Add(menuItem1);
+                    //m.MenuItems.Add(menuItem1);
                     m.MenuItems.Add(menuItem2);
 
-                    menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
+                   // menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
                     menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
                 }
                 else if (comboEstatus.SelectedIndex == 1)
@@ -202,20 +154,11 @@ namespace UX1
                     //m.MenuItems.Add(menuItem3);
                     m.MenuItems.Add(menuItem2);
 
-                    menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
+                    //menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
                     menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
                 }
 
-                /*
-                int currentMouseOverRow = dgvCarrera.HitTest(e.X, e.Y).RowIndex;
-                m.GetContextMenu();
-
-                if (currentMouseOverRow == 0)
-                {
-                    txtCarrera.Text = data;
-                   
-                }
-                */
+                
                 m.Show(dgvCarrera, new Point(e.X, e.Y));
             }
         }
@@ -238,6 +181,7 @@ namespace UX1
 
         }
 
+        /*
         private void menuItem1_Click(object sender, System.EventArgs e)
         {
             string carrera = dgvCarrera["Carrera", Row].Value.ToString();
@@ -247,16 +191,15 @@ namespace UX1
             data = "";
             Row = 0;
 
-        }
+        }*/
 
         private void menuItem2_Click(object sender, System.EventArgs e)
         {
-            // MessageBox.Show("Modifica");
-            //pl.BtnModificacionCarrera_Click(sender, e);
+            //It needs to be rewritten for CALIFICACION
+            //TO BE COMPLETED
             string matricula = dgvCarrera["Matricula", Row].Value.ToString();
             string nombre = dgvCarrera["Alumno", Row].Value.ToString();
-            //string direccion = dgvCarrera["Direccion", Row].Value.ToString();
-            //string telefono = dgvCarrera["Telefono", Row].Value.ToString();
+            
             string carrera = dgvCarrera["Carrera", Row].Value.ToString();
 
             frmModificaAlumnoRCM baja = new frmModificaAlumnoRCM(matricula, nombre, carrera);
@@ -265,6 +208,7 @@ namespace UX1
             Row = 0;
         }
 
+        /*
         private void menuItem3_Click(object sender, System.EventArgs e)
         {
             //MessageBox.Show(data);
@@ -278,16 +222,16 @@ namespace UX1
             data = "";
             Row = 0;
 
-        }
+        }*/
 
         private void button1_Click(object sender, EventArgs e)
         {
             txtAlumno.Text = "";
-            txtCarrera.Text = "";
+            txtPeriodo.Text = "";
             txtMatricula.Text = "";
             comboEstatus.SelectedIndex = -1;
 
-            DataTable dt = bl.ConsultaAlumno(0, "", "", 0);
+            DataTable dt = bl.ConsultaCalificacion(0, "", "", 0);
             if (dt.Rows.Count > 0)
             {
                 dgvCarrera.DataSource = dt;
@@ -295,32 +239,5 @@ namespace UX1
             }
 
         }
-
-        /*Codigo comentado para no causar conflicto con ComboBox
-        private void cbInactivos_Click(object sender, EventArgs e)
-        {
-            if (cbInactivos.Checked == false)
-            {
-                DataTable dt = bl.ConsultaAlumno(0, "inactivos", "");
-                if (dt.Rows.Count > 0)
-                {
-                    dgvCarrera.DataSource = dt;
-                    dt.Rows.Clear();
-                }
-            }
-        }
-        
-        private void cbTodos_Click(object sender, EventArgs e)
-        {
-            if (cbTodos.Checked == false)
-            {
-                DataTable dt = bl.ConsultaAlumno(0, "inactivos", "");
-                if (dt.Rows.Count > 0)
-                {
-                    dgvCarrera.DataSource = dt;
-                    dt.Rows.Clear();
-                }
-            }
-        }*/
     }
 }

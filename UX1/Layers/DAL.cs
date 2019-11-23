@@ -344,7 +344,28 @@ namespace Kardex.Layers
                 // MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
         }
+        //CALIFICACION
 
+        public DataTable ConsultaCalificacion(int matricula, string alumno, string periodo, int estado)
+        {
+            string query;
+            DataTable dt = new DataTable();
+            try
+            {
+                //Le asignamos a query el valor del SP "nombre" mas el parametro materia
+                //Para ejecutarlo posteriormente.
+                query = "ConsultaCalificacion '" + matricula + "', '" + alumno + "', '" + periodo + "', '" + estado + "'";
+                dt = conn.ExcQryDt(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
+
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+            }
+
+            return dt;
+        }
 
         public AutoCompleteStringCollection AutoCarrera()
         {

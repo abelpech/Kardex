@@ -374,7 +374,14 @@ namespace Kardex.Layers
 
             }
         }
+ //CALIFICACION
 
+        public DataTable ConsultaCalificacion(int matricula, string alumno, string periodo, int estado)
+        {
+      
+            return dal.ConsultaCalificacion(matricula, alumno, periodo, estado);
+        
+        }
         public int LoginValidation(string username, string password)
         {
             if(username == "")
