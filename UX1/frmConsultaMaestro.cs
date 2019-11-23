@@ -33,7 +33,7 @@ namespace UX1
                 matricula = 0;
             }
             
-            string maestro = txtMaestro.Text;
+            string maestro = txtMaestro.Text.Trim();
             bool estatus = false;
 
             //Establece el status activo o inactivo
@@ -62,7 +62,7 @@ namespace UX1
             {
                 MessageBox.Show("Favor de especificar el Maestro y/o seleccionar un tipo de ESTATUS", "Aviso", MessageBoxButtons.OK);
             }
-
+            txtMaestro.Text = maestro;
         }
 
         private void dgvCarrera_MouseClick(object sender, MouseEventArgs e)
@@ -150,6 +150,26 @@ namespace UX1
             BtnConsulta_Click(sender, e);
             data = "";
 
+        }
+
+        private void txtMatricula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Evita escribir el caracter si este es diferente a las teclas de control
+            // o a algun numero
+            if (!char.IsControl(e.KeyChar) && isNumeroValido(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        public bool isNumeroValido(Char c)
+        {
+            //Regresa verdadero si el caracter es diferente de los numeros entre 0 a 9
+            if (!(c >= '0' && c <= '9'))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

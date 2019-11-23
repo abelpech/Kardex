@@ -29,7 +29,7 @@ namespace Kardex
   
         private void BtnConsulta_Click(object sender, EventArgs e)
         {
-            string carrera = txtPeriodo.Text;
+            string carrera = txtPeriodo.Text.Trim();
 
             if (comboEstatus.SelectedIndex == 0 && txtPeriodo.Text == "")
             {
@@ -111,9 +111,9 @@ namespace Kardex
             {
                 MessageBox.Show("Favor de especificar el PERIODO y/o seleccionar un tipo de ESTATUS", "Aviso", MessageBoxButtons.OK);
             }
-              
-            
-          
+
+
+            txtPeriodo.Text = carrera;
             
         }
 

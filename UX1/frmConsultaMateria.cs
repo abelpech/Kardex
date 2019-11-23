@@ -41,7 +41,7 @@ namespace UX1
         */
         private void BtnConsulta_Click(object sender, EventArgs e)
         {
-            string materia = txtMateria.Text;
+            string materia = txtMateria.Text.Trim();
 
             if (comboEstatus.SelectedIndex == 0 && txtMateria.Text == "")
             {
@@ -122,6 +122,7 @@ namespace UX1
             {
                 MessageBox.Show("Favor de especificar la MATERIA y/o seleccionar un tipo de ESTATUS", "Aviso", MessageBoxButtons.OK);
             }
+            txtMateria.Text = materia;
         }
 
         private void FrmConsultaMateria_Load(object sender, EventArgs e)

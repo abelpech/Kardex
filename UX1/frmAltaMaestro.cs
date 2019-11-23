@@ -28,9 +28,9 @@ namespace UX1
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            string maestro = txtMaestro.Text.ToString();
-            string direccion = txtDireccion.Text.ToString();
-            string telefono = txtTelefono.Text.ToString();
+            string maestro = txtMaestro.Text.ToString().Trim();
+            string direccion = txtDireccion.Text.ToString().Trim();
+            string telefono = txtTelefono.Text.ToString().Trim();
 
 
             bl.AltaMaestro(maestro, direccion, telefono);

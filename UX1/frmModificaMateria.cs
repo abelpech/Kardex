@@ -34,7 +34,7 @@ namespace UX1
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            string materia = txtMateria.Text.ToString();
+            string materia = txtMateria.Text.ToString().Trim();
             //DateTime fechaalta = Convert.ToDateTime(dtpFechaAlta.Value.ToShortDateString());
             //DateTime fechabaja = Convert.ToDateTime(dtpFechaBaja.Value.ToShortDateString());
             bool estatus;

@@ -325,6 +325,7 @@ namespace Kardex.Layers
                 string query = "BajaPeriodo '" + periodo + "', '" + Permisos.usuario + "'";
                 conn.ExcQryBaja(query);
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);

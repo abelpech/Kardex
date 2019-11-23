@@ -22,7 +22,7 @@ namespace UX1
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            string materia = txtMateria.Text.ToString();
+            string materia = txtMateria.Text.ToString().Trim();
             
 
             //Validacion para TextBox vacio.

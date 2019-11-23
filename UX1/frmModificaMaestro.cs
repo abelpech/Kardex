@@ -56,9 +56,9 @@ namespace UX1
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             int matricula = Convert.ToInt32(nudMatricula.Value);
-            string maestro = txtMaestro.Text;
-            string direccion = txtDireccion.Text;
-            string telefono = txtTelefono.Text;
+            string maestro = txtMaestro.Text.Trim();
+            string direccion = txtDireccion.Text.Trim();
+            string telefono = txtTelefono.Text.Trim();
             bool estatus = false;
 
 
@@ -108,6 +108,36 @@ namespace UX1
                 maxId = Convert.ToInt32(row["id_maestro"]);
             }
             nudMatricula.Maximum = maxId;
+        }
+
+        private void nudMatricula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Evita escribir el caracter si este es diferente a las teclas de control
+            // o a algun numero
+            if (!char.IsControl(e.KeyChar) && isNumeroValido(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        public bool isNumeroValido(Char c)
+        {
+            //Regresa verdadero si el caracter es diferente de los numeros entre 0 a 9
+            if (!(c >= '0' && c <= '9'))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Evita escribir el caracter si este es diferente a las teclas de control
+            // o a algun numero
+            if (!char.IsControl(e.KeyChar) && isNumeroValido(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

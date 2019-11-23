@@ -30,8 +30,8 @@ namespace UX1
 
         private void BtnConsulta_Click(object sender, EventArgs e)
         {
-            String alumno = txtAlumno.Text.ToString();
-            String carrera = txtCarrera.Text.ToString();
+            String alumno = txtAlumno.Text.ToString().Trim();
+            String carrera = txtCarrera.Text.ToString().Trim();
             int matricula;
             try
             {
@@ -74,7 +74,9 @@ namespace UX1
                     MessageBox.Show("Seleccione un tipo de STATUS", "Aviso", MessageBoxButtons.OK);
             
             }
-
+            txtAlumno.Text = alumno;
+            txtCarrera.Text = carrera;
+            txtMatricula.Text = matricula.ToString();
         }
         /*Codigo comentado para no causar conflicto con ComboBox
         private void CbTodos_CheckedChanged(object sender, EventArgs e)
@@ -295,6 +297,27 @@ namespace UX1
             }
 
         }
+
+        private void Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Evita escribir el caracter si este es diferente a las teclas de control
+            // o a algun numero
+            if (!char.IsControl(e.KeyChar) && isNumeroValido(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        public bool isNumeroValido(Char c)
+        {
+            //Regresa verdadero si el caracter es diferente de los numeros entre 0 a 9
+            if (!(c >= '0' && c <= '9'))
+            {
+                return true;
+            }
+            return false;
+        }
+
 
         /*Codigo comentado para no causar conflicto con ComboBox
         private void cbInactivos_Click(object sender, EventArgs e)

@@ -46,7 +46,7 @@ namespace Kardex
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            string carrera = txtCarrera.Text.ToString();
+            string carrera = txtCarrera.Text.ToString().Trim();
             //DateTime fechaalta = Convert.ToDateTime(dtpFechaAlta.Value.ToShortDateString());
             //DateTime fechabaja = Convert.ToDateTime(dtpFechaBaja.Value.ToShortDateString());
             bool estatus;
