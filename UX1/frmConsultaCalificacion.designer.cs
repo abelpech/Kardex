@@ -131,7 +131,6 @@
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(479, 39);
             this.txtMatricula.TabIndex = 1;
-            this.txtMatricula.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMatricula_KeyDown);
             this.txtMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatricula_KeyPress);
             // 
             // lbAlumno
@@ -193,11 +192,13 @@
             this.dgvCarrera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarrera.Location = new System.Drawing.Point(6, 21);
             this.dgvCarrera.Name = "dgvCarrera";
+            this.dgvCarrera.ReadOnly = true;
             this.dgvCarrera.RowHeadersWidth = 51;
             this.dgvCarrera.RowTemplate.Height = 24;
             this.dgvCarrera.Size = new System.Drawing.Size(1160, 605);
             this.dgvCarrera.TabIndex = 0;
             this.dgvCarrera.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarrera_CellClick);
+            this.dgvCarrera.SelectionChanged += new System.EventHandler(this.dgvCarrera_SelectionChanged);
             this.dgvCarrera.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvCarrera_MouseClick);
             // 
             // frmConsultaCalificacion

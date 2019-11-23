@@ -30,8 +30,8 @@ namespace UX1
 
         private void BtnConsulta_Click(object sender, EventArgs e)
         {
-            String alumno = txtAlumno.Text.ToString();
-            String periodo = txtPeriodo.Text.ToString();
+            String alumno = txtAlumno.Text.ToString().Trim();
+            String periodo = txtPeriodo.Text.ToString().Trim();
             int matricula;
             try
             {
@@ -74,16 +74,19 @@ namespace UX1
                     MessageBox.Show("Seleccione un tipo de STATUS", "Aviso", MessageBoxButtons.OK);
             
             }
+            txtAlumno.Text = alumno;
+            txtPeriodo.Text = periodo;
+            
 
         }
         
 
         private void txtMatricula_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Checa bandera de metodo descrito abajo
-            if (nonNumberEntered == true)
+            // Evita escribir el caracter si este es diferente a las teclas de control
+            // o a algun numero
+            if (!char.IsControl(e.KeyChar) && isNumeroValido(e.KeyChar))
             {
-                // Evita que el caracter se escriba con el evento.
                 e.Handled = true;
             }
         }
@@ -129,6 +132,9 @@ namespace UX1
         {
             if (e.Button == MouseButtons.Right)
             {
+                int i = dgvCarrera.CurrentCell.RowIndex;
+                dgvCarrera.Rows[i].Selected = true;
+
                 ContextMenu m = new ContextMenu();
 
                 MenuItem menuItem1 = new MenuItem();
@@ -166,6 +172,7 @@ namespace UX1
 
         private void dgvCarrera_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            /*
             try
             {
                 data = dgvCarrera["Alumno", e.RowIndex].Value.ToString();
@@ -178,6 +185,7 @@ namespace UX1
             }
 
             //MessageBox.Show(data);
+            */
 
         }
 
@@ -204,8 +212,8 @@ namespace UX1
 
             frmModificaAlumnoRCM baja = new frmModificaAlumnoRCM(matricula, nombre, carrera);
             baja.Show();
-            data = "";
-            Row = 0;
+            //data = "";
+            //Row = 0;
         }
 
         /*
@@ -238,6 +246,36 @@ namespace UX1
                 dt.Rows.Clear();
             }
 
+        }
+
+        public bool isNumeroValido(Char c)
+        {
+            //Regresa verdadero si el caracter es diferente de los numeros entre 0 a 9
+            if (!(c >= '0' && c <= '9'))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void dgvCarrera_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvCarrera.CurrentRow.Index >= 0)
+                {
+                    //MessageBox.Show(Convert.ToInt32(dgvCarrera.CurrentRow.Index).ToString());
+                    data = dgvCarrera["Alumno", Convert.ToInt32(dgvCarrera.CurrentRow.Index)].Value.ToString();
+                    Row = Convert.ToInt32(dgvCarrera.CurrentRow.Index);
+                }
+
+
+                //MessageBox.Show(data);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }
