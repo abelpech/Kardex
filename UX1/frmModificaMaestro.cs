@@ -109,5 +109,35 @@ namespace UX1
             }
             nudMatricula.Maximum = maxId;
         }
+
+        private void nudMatricula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Evita escribir el caracter si este es diferente a las teclas de control
+            // o a algun numero
+            if (!char.IsControl(e.KeyChar) && isNumeroValido(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        public bool isNumeroValido(Char c)
+        {
+            //Regresa verdadero si el caracter es diferente de los numeros entre 0 a 9
+            if (!(c >= '0' && c <= '9'))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Evita escribir el caracter si este es diferente a las teclas de control
+            // o a algun numero
+            if (!char.IsControl(e.KeyChar) && isNumeroValido(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

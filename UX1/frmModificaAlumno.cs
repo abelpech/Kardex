@@ -117,38 +117,12 @@ namespace UX1
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Checa bandera de metodo descrito abajo
-            if (nonNumberEntered == true)
-            {
-                // Evita que el caracter se escriba con el evento.
-                e.Handled = true;
-            }
+
         }
 
         private void txtTelefono_KeyDown(object sender, KeyEventArgs e)
         {
-            nonNumberEntered = false;
 
-            // Tecla presionada corresponde a KEYS en la parte superior
-            if (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9)
-            {
-                // Tecla presionada en el KEYPAD de la derecha
-                if (e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9)
-                {
-                    // Tecla presionada es BACKSPACE
-                    if (e.KeyCode != Keys.Back)
-                    {
-                        //Bandera a Verdadero para evaluar
-                        nonNumberEntered = true;
-                    }
-                }
-            }
-            //Si SHIFT fue presionado, no es una numero
-
-            if (Control.ModifierKeys == Keys.Shift)
-            {
-                nonNumberEntered = true;
-            }
         }
 
         private void FrmModificaAlumno_Load(object sender, EventArgs e)
@@ -206,6 +180,26 @@ namespace UX1
                 }
             }
             nudMatricula.Maximum = Convert.ToInt32(maxId);
+        }
+
+        private void nudMatricula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Evita escribir el caracter si este es diferente a las teclas de control
+            // o a algun numero
+            if (!char.IsControl(e.KeyChar) && isNumeroValido(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        public bool isNumeroValido(Char c)
+        {
+            //Regresa verdadero si el caracter es diferente de los numeros entre 0 a 9
+            if (!(c >= '0' && c <= '9'))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

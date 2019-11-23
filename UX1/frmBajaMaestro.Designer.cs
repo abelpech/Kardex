@@ -102,6 +102,7 @@
             this.nudMatricula.Name = "nudMatricula";
             this.nudMatricula.Size = new System.Drawing.Size(817, 45);
             this.nudMatricula.TabIndex = 11;
+            this.nudMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudMatricula_KeyPress);
             // 
             // frmBajaMaestro
             // 

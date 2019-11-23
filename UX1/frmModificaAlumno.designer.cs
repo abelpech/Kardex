@@ -115,6 +115,7 @@
             this.nudMatricula.Size = new System.Drawing.Size(791, 45);
             this.nudMatricula.TabIndex = 1;
             this.nudMatricula.ValueChanged += new System.EventHandler(this.nudMatricula_ValueChanged);
+            this.nudMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudMatricula_KeyPress);
             // 
             // label6
             // 
@@ -151,8 +152,7 @@
             this.txtTelefono.Size = new System.Drawing.Size(791, 45);
             this.txtTelefono.TabIndex = 4;
             this.txtTelefono.TextChanged += new System.EventHandler(this.TxtTelefono_TextChanged);
-            this.txtTelefono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTelefono_KeyDown);
-            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudMatricula_KeyPress);
             // 
             // label4
             // 
