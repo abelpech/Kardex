@@ -1,6 +1,6 @@
 ﻿namespace Kardex
 {
-    partial class frmAltaCalificacion
+    partial class frmModificaCalificacion
     {
         /// <summary>
         /// Required designer variable.

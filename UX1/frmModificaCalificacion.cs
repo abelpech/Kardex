@@ -11,10 +11,10 @@ using Kardex.Layers;
 
 namespace Kardex
 {
-    public partial class frmAltaCalificacion : Form
+    public partial class frmModificaCalificacion : Form
     {
         BL bl = new BL();
-        public frmAltaCalificacion()
+        public frmModificaCalificacion()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace Kardex
             bool estatus;
 
             //Validacion a TxtBox y ComboBox
-
+            /*
             if(txtAlumno.Text =="" || cbEstatus.SelectedIndex == -1)
             {
                 MessageBox.Show("Favor de llenar toda la informacion solicitada", "Advertencia", MessageBoxButtons.OK);
@@ -46,7 +46,7 @@ namespace Kardex
                 txtAlumno.Text = String.Empty;
                 cbEstatus.SelectedIndex = -1;
             }  
-
+            */
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
