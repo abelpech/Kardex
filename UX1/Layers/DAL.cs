@@ -103,6 +103,7 @@ namespace Kardex.Layers
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
             return dt;
