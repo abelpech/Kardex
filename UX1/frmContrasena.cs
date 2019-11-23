@@ -69,17 +69,17 @@ namespace UX1
 
                     mail.From = new MailAddress("cesununiversidad2019@gmail.com");
                     mail.To.Add("cesununiversidad2019@gmail.com");
-                    mail.Subject = "Actualiza tu Contraseña de KARDEX";
+                    mail.Subject = "Actualizacion de contraseña de acceso para KARDEX";
                     //Random Number 
                     
-                    mail.Body = "El usuario: " + txtUsername.Text + " ha solicitado actualizar su contraseña." + System.Environment.NewLine + System.Environment.NewLine + "El codigo de autorizacion es: " + aleatorio();
+                    mail.Body = "El usuario " + txtUsername.Text + " ha solicitado actualizar su contraseña de acceso" + System.Environment.NewLine + System.Environment.NewLine + "El codigo de autorizacion es: " + aleatorio() + System.Environment.NewLine + System.Environment.NewLine + "El codigo es de uso unico; sera requerido solicitar otro codigo nuevamente en dado caso de cerrar ventana de actualizacion.";
 
                     SmtpServer.Port = 587;
                     SmtpServer.Credentials = new System.Net.NetworkCredential("cesununiversidad2019@gmail.com", "Cesun2019");
                     SmtpServer.EnableSsl = true;
 
                     SmtpServer.Send(mail);
-                    MessageBox.Show("FAVOR DE CONTACTAR A COORDINACION PARA FOLIO DE AUTORIZACION", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("FAVOR DE CONTACTAR A COORDINACION PARA FOLIO DE AUTORIZACION" + System.Environment.NewLine + System.Environment.NewLine + "MANTENGA ESTA VENTANA ABIERTA", "Aviso", MessageBoxButtons.OK);
                     //instancia();
                 }
                 catch (Exception ex)
@@ -111,7 +111,7 @@ namespace UX1
             }
             else
             {
-                MessageBox.Show("FOLIO INCORRECTO - SOLICITARLO NUEVAMENTE", "Alerta", MessageBoxButtons.OK);
+                MessageBox.Show("FOLIO INCORRECTO O VACIO", "Alerta", MessageBoxButtons.OK);
                 textBox1.Text = "";
                 //txtUsername.Text = "";
             }

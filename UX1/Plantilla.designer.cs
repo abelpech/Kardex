@@ -87,6 +87,7 @@
             this.expandirMateriaAlumnoMaestro = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.PanelContenedor = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLOGO)).BeginInit();
             this.Efecto.SuspendLayout();
@@ -102,6 +103,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconmaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconcerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnslide)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuVertical
@@ -786,6 +788,7 @@
             // BarraTitulo
             // 
             this.BarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(40)))), ((int)(((byte)(62)))));
+            this.BarraTitulo.Controls.Add(this.pictureBox1);
             this.BarraTitulo.Controls.Add(this.lbUsuario);
             this.BarraTitulo.Controls.Add(this.iconrestaurar);
             this.BarraTitulo.Controls.Add(this.iconminimizar);
@@ -814,7 +817,7 @@
             // iconrestaurar
             // 
             this.iconrestaurar.Image = global::UX1.Properties.Resources.maximize_1_512;
-            this.iconrestaurar.Location = new System.Drawing.Point(1005, 4);
+            this.iconrestaurar.Location = new System.Drawing.Point(1056, 13);
             this.iconrestaurar.Margin = new System.Windows.Forms.Padding(4);
             this.iconrestaurar.Name = "iconrestaurar";
             this.iconrestaurar.Size = new System.Drawing.Size(48, 34);
@@ -827,7 +830,7 @@
             // iconminimizar
             // 
             this.iconminimizar.Image = global::UX1.Properties.Resources._004_Minus_512;
-            this.iconminimizar.Location = new System.Drawing.Point(946, 4);
+            this.iconminimizar.Location = new System.Drawing.Point(997, 13);
             this.iconminimizar.Margin = new System.Windows.Forms.Padding(4);
             this.iconminimizar.Name = "iconminimizar";
             this.iconminimizar.Size = new System.Drawing.Size(48, 34);
@@ -839,7 +842,7 @@
             // iconmaximizar
             // 
             this.iconmaximizar.Image = global::UX1.Properties.Resources.maximize_1_512;
-            this.iconmaximizar.Location = new System.Drawing.Point(1001, 4);
+            this.iconmaximizar.Location = new System.Drawing.Point(1052, 13);
             this.iconmaximizar.Margin = new System.Windows.Forms.Padding(4);
             this.iconmaximizar.Name = "iconmaximizar";
             this.iconmaximizar.Size = new System.Drawing.Size(48, 34);
@@ -851,7 +854,7 @@
             // iconcerrar
             // 
             this.iconcerrar.Image = global::UX1.Properties.Resources.iconfinder_close_309090;
-            this.iconcerrar.Location = new System.Drawing.Point(1058, 4);
+            this.iconcerrar.Location = new System.Drawing.Point(1109, 13);
             this.iconcerrar.Margin = new System.Windows.Forms.Padding(4);
             this.iconcerrar.Name = "iconcerrar";
             this.iconcerrar.Size = new System.Drawing.Size(48, 34);
@@ -923,6 +926,18 @@
             this.PanelContenedor.TabIndex = 2;
             this.PanelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(952, 13);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 34);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // Plantilla
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -956,6 +971,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconmaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconcerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnslide)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1019,5 +1035,6 @@
         private System.Windows.Forms.Label lbUsuario;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox picLOGO;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

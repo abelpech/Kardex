@@ -108,7 +108,20 @@ namespace Kardex.Layers
             }
             return dt;
         }
+        //Actualizacion de contrasena
 
+        public void ModificaContrasena(string username, string contrasena)
+        {
+            try
+            {
+                string query = "ModificaContrasena '" + username + "', '" + contrasena + "'";
+                conn.ExcQryReturn2(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+            }
+        }
 
         //Materia
         public void AltaMateria(string materia)

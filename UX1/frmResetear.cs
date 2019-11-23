@@ -45,7 +45,10 @@ namespace UX1
             string contra2 = txtPWD2.Text;
             if (txtPWD1.Text == txtPWD2.Text)
             {
-               // bl.modificaContrasena(username, contra2);
+               bl.ModificaContrasena(username, contra2);
+                this.Hide();
+                Login log = new Login();
+                log.Show();
             }
             else
             {
