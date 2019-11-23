@@ -30,8 +30,8 @@ namespace UX1
 
         private void BtnConsulta_Click(object sender, EventArgs e)
         {
-            String alumno = txtAlumno.Text.ToString();
-            String carrera = txtCarrera.Text.ToString();
+            String alumno = txtAlumno.Text.ToString().Trim();
+            String carrera = txtCarrera.Text.ToString().Trim();
             int matricula;
             try
             {
@@ -74,7 +74,9 @@ namespace UX1
                     MessageBox.Show("Seleccione un tipo de STATUS", "Aviso", MessageBoxButtons.OK);
             
             }
-
+            txtAlumno.Text = alumno;
+            txtCarrera.Text = carrera;
+            txtMatricula.Text = matricula.ToString();
         }
         /*Codigo comentado para no causar conflicto con ComboBox
         private void CbTodos_CheckedChanged(object sender, EventArgs e)

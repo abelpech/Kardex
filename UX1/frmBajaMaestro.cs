@@ -27,7 +27,7 @@ namespace UX1
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             int matricula = Convert.ToInt32(nudMatricula.Value);
-            string maestro = txtMaestro.Text.ToString();
+            string maestro = txtMaestro.Text.ToString().Trim();
             
             bl.BajaMaestro(matricula, maestro);
         }

@@ -33,7 +33,7 @@ namespace UX1
                 matricula = 0;
             }
             
-            string maestro = txtMaestro.Text;
+            string maestro = txtMaestro.Text.Trim();
             bool estatus = false;
 
             //Establece el status activo o inactivo
@@ -62,7 +62,7 @@ namespace UX1
             {
                 MessageBox.Show("Favor de especificar el Maestro y/o seleccionar un tipo de ESTATUS", "Aviso", MessageBoxButtons.OK);
             }
-
+            txtMaestro.Text = maestro;
         }
 
         private void dgvCarrera_MouseClick(object sender, MouseEventArgs e)

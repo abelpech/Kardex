@@ -30,11 +30,11 @@ namespace UX1
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            string alumno = txtAlumno.Text.ToString();
-            string direccion = txtDireccion.Text.ToString();
-            string telefono = txtTelefono.Text.ToString();
+            string alumno = txtAlumno.Text.ToString().Trim();
+            string direccion = txtDireccion.Text.ToString().Trim();
+            string telefono = txtTelefono.Text.ToString().Trim();
             DateTime fechaNac = Convert.ToDateTime(dtpFechaAlta.Value.ToShortDateString());
-            string carrera = txtCarrera.Text.ToString();
+            string carrera = txtCarrera.Text.ToString().Trim();
 
 
             bl.AltaAlumno(alumno, direccion, telefono, fechaNac, carrera);

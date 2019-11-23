@@ -27,8 +27,8 @@ namespace UX1
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            string alumno = txtAlumno.Text.ToString();
-            string carrera = txtCarrera.Text.ToString();
+            string alumno = txtAlumno.Text.ToString().Trim();
+            string carrera = txtCarrera.Text.ToString().Trim();
             bl.BajaAlumno(alumno, carrera);
         }
 

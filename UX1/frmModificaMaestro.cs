@@ -56,9 +56,9 @@ namespace UX1
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             int matricula = Convert.ToInt32(nudMatricula.Value);
-            string maestro = txtMaestro.Text;
-            string direccion = txtDireccion.Text;
-            string telefono = txtTelefono.Text;
+            string maestro = txtMaestro.Text.Trim();
+            string direccion = txtDireccion.Text.Trim();
+            string telefono = txtTelefono.Text.Trim();
             bool estatus = false;
 
 

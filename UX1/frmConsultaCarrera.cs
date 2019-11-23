@@ -56,7 +56,7 @@ namespace Kardex
 
         private void BtnConsulta_Click(object sender, EventArgs e)
         {
-            string carrera = txtCarrera.Text;
+            string carrera = txtCarrera.Text.Trim();
 
             if (comboEstatus.SelectedIndex == 0 && txtCarrera.Text == "")
             {
@@ -137,8 +137,8 @@ namespace Kardex
             {
                 MessageBox.Show("Favor de especificar la CARRERA y/o seleccionar un tipo de ESTATUS", "Aviso", MessageBoxButtons.OK);
             }
-              
-            
+
+            txtCarrera.Text = carrera;
             /*
                 if (carrera == "")
                 {

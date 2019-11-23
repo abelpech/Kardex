@@ -60,12 +60,12 @@ namespace UX1
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             int matricula = Convert.ToInt32(nudMatricula.Value);
-            string alumno = txtAlumno.Text;
-            string direccion = txtDireccion.Text;
-            string telefono = txtTelefono.Text;
+            string alumno = txtAlumno.Text.Trim();
+            string direccion = txtDireccion.Text.Trim();
+            string telefono = txtTelefono.Text.Trim();
             DateTime fechaNac = Convert.ToDateTime(dtpFechaAlta.Value.ToShortDateString());
             bool estatus = false;
-            string carrera = txtCarrera.Text;
+            string carrera = txtCarrera.Text.Trim();
             
             
             if (cbEstatus.SelectedIndex == 0)
