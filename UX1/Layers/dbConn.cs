@@ -202,6 +202,38 @@ namespace Kardex.Layers
             
         }
 
+        //Creacion de Nuevo Metodo para confirmar si la contrasena fue actualizada
+
+        public void ExcQryReturn2(string query)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = query;
+            cmd.CommandTimeout = 0;
+            cmd.Connection = conn;
+            //cmd.CommandType = CommandType.StoredProcedure;
+
+            conn.Open();
+
+
+            int retVal = (Int32)cmd.ExecuteScalar();
+
+            //MessageBox.Show(retVal.ToString());
+            conn.Close();
+            // El 0 sera para EXITOSO
+            // EL 1 es para ERROR
+            // Los mensajes los cambie a mas generales para que puedan aplicar en todos nuestros modulos
+            if (retVal == 0)
+            {
+                MessageBox.Show("Contraseña fue Actualizada Correctamente", "Aviso", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("No pudimos actualizar informacion - Favor de contactar Coordinacion", "Aviso", MessageBoxButtons.OK);
+            }
+
+
+        }
         public void ExcQryBaja(string query)
         {
 

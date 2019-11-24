@@ -421,6 +421,11 @@ namespace Kardex.Layers
 
         }
 
+        public void ModificaContrasena(string username, string contrasena)
+        {
+            dal.ModificaContrasena(username, contrasena);
+        }
+
         public AutoCompleteStringCollection AutoCarrera()
         {
             AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();

@@ -483,6 +483,13 @@ namespace UX1
             AbrirFormInPanel(new frmModificaPeriodo());
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login log = new Login();
+            log.Show();
+        }
+
         private void EstablecerPermisos(int pm)
         {
             switch (pm)
