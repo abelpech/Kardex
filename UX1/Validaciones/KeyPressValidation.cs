@@ -86,7 +86,7 @@ namespace UX1.Validaciones
         {
             // Regresa verdadero si el caracter es diferente a las letras "a" minuscula
             // Hasta la letra "Z" Mayuscula, incluyendo numeros del 0 al 9
-            if (!((c >= 'a' && c <= 'Z')))
+            if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9')))
             {
                 return true;
             }
