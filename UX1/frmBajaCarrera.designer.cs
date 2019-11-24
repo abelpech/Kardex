@@ -67,6 +67,7 @@
             this.txtCarrera.Name = "txtCarrera";
             this.txtCarrera.Size = new System.Drawing.Size(735, 41);
             this.txtCarrera.TabIndex = 1;
+            this.txtCarrera.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterOrNumberPressed);
             // 
             // label1
             // 

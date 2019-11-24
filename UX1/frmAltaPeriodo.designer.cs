@@ -47,7 +47,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(498, 129);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 39);
+            this.label2.Size = new System.Drawing.Size(29, 38);
             this.label2.TabIndex = 2;
             this.label2.Text = "-";
             // 
@@ -73,6 +73,7 @@
             0,
             0,
             0});
+            this.nudPeriodoUnidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsNumberPressed);
             // 
             // nudPeriodoAnio
             // 
@@ -96,6 +97,7 @@
             0,
             0,
             0});
+            this.nudPeriodoAnio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsNumberPressed);
             // 
             // btnAltaPeriodo
             // 

@@ -53,7 +53,7 @@
             this.nudMatricula.Size = new System.Drawing.Size(791, 45);
             this.nudMatricula.TabIndex = 1;
             this.nudMatricula.ValueChanged += new System.EventHandler(this.nudMatricula_ValueChanged);
-            this.nudMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudMatricula_KeyPress);
+            this.nudMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsNumberPressed);
             // 
             // label6
             // 
@@ -77,7 +77,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(791, 45);
             this.txtTelefono.TabIndex = 4;
-            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsNumberPressed);
             // 
             // label4
             // 
@@ -101,6 +101,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(791, 45);
             this.txtDireccion.TabIndex = 3;
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterOrNumberPressed);
             // 
             // label2
             // 
@@ -123,6 +124,7 @@
             this.txtMaestro.Name = "txtMaestro";
             this.txtMaestro.Size = new System.Drawing.Size(791, 41);
             this.txtMaestro.TabIndex = 2;
+            this.txtMaestro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterPressed);
             // 
             // label1
             // 

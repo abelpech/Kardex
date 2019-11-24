@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Kardex;
 using Kardex.Layers;
+using UX1.Validaciones;
 
 namespace UX1
 {
     public partial class frmAltaMateria : Form
     {
+        KeyPressValidation kpv = new KeyPressValidation();
         BL bl = new BL();
         public frmAltaMateria()
         {
@@ -42,6 +44,21 @@ namespace UX1
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void IsNumberPressed(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = kpv.IsNumber_KeyPress(sender, e);
+        }
+
+        private void IsLetterPressed(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = kpv.IsLetter_KeyPress(sender, e);
+        }
+
+        private void IsLetterOrNumberPressed(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = kpv.IsLetterOrNumber_KeyPress(sender, e);
         }
     }
 }

@@ -94,6 +94,7 @@
             this.txtMaestro.Name = "txtMaestro";
             this.txtMaestro.Size = new System.Drawing.Size(769, 38);
             this.txtMaestro.TabIndex = 3;
+            this.txtMaestro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterPressed);
             // 
             // txtMatricula
             // 
@@ -103,7 +104,7 @@
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(769, 39);
             this.txtMatricula.TabIndex = 1;
-            this.txtMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatricula_KeyPress);
+            this.txtMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsNumberPressed);
             // 
             // lbAlumno
             // 

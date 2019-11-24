@@ -10,11 +10,13 @@ using System.Windows.Forms;
 using Kardex.Layers;
 using System.Data.SqlClient;
 using UX1;
+using UX1.Validaciones;
 
 namespace Kardex
 {
     public partial class frmConsultaCarrera : Form
     {
+        KeyPressValidation kpv = new KeyPressValidation();
         SqlConnection conn = new SqlConnection("server = PECH\\SQLEXPRESS; database=kardex ; integrated security = true");
         BL bl = new BL();
         Plantilla pl = new Plantilla();
@@ -330,6 +332,21 @@ namespace Kardex
             {
 
             }
+        }
+
+        private void IsNumberPressed(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = kpv.IsNumber_KeyPress(sender, e);
+        }
+
+        private void IsLetterPressed(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = kpv.IsLetter_KeyPress(sender, e);
+        }
+
+        private void IsLetterOrNumberPressed(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = kpv.IsLetterOrNumber_KeyPress(sender, e);
         }
 
         /*Funciones de CheckBoxes comentadas para no generar conflicto con COMBOBOX

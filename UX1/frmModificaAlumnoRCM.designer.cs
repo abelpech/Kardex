@@ -121,6 +121,7 @@
             this.nudMatricula.Size = new System.Drawing.Size(791, 45);
             this.nudMatricula.TabIndex = 1;
             this.nudMatricula.ValueChanged += new System.EventHandler(this.nudMatricula_ValueChanged);
+            this.nudMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsNumberPressed);
             // 
             // label6
             // 
@@ -145,6 +146,7 @@
             this.txtCarrera.Name = "txtCarrera";
             this.txtCarrera.Size = new System.Drawing.Size(791, 45);
             this.txtCarrera.TabIndex = 6;
+            this.txtCarrera.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterOrNumberPressed);
             // 
             // txtTelefono
             // 
@@ -157,8 +159,7 @@
             this.txtTelefono.Size = new System.Drawing.Size(791, 45);
             this.txtTelefono.TabIndex = 4;
             this.txtTelefono.TextChanged += new System.EventHandler(this.TxtTelefono_TextChanged);
-            this.txtTelefono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTelefono_KeyDown);
-            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsNumberPressed);
             // 
             // label4
             // 
@@ -182,6 +183,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(791, 45);
             this.txtDireccion.TabIndex = 3;
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterOrNumberPressed);
             // 
             // label2
             // 
@@ -259,6 +261,7 @@
             this.txtAlumno.Name = "txtAlumno";
             this.txtAlumno.Size = new System.Drawing.Size(791, 41);
             this.txtAlumno.TabIndex = 2;
+            this.txtAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterPressed);
             // 
             // label1
             // 

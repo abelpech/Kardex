@@ -47,6 +47,7 @@
             this.txtAlumno.Name = "txtAlumno";
             this.txtAlumno.Size = new System.Drawing.Size(817, 41);
             this.txtAlumno.TabIndex = 1;
+            this.txtAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterPressed);
             // 
             // label1
             // 
@@ -71,6 +72,7 @@
             this.txtCarrera.Name = "txtCarrera";
             this.txtCarrera.Size = new System.Drawing.Size(817, 41);
             this.txtCarrera.TabIndex = 2;
+            this.txtCarrera.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterOrNumberPressed);
             // 
             // label2
             // 

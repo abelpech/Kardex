@@ -66,6 +66,7 @@
             this.txtMateria.Name = "txtMateria";
             this.txtMateria.Size = new System.Drawing.Size(735, 45);
             this.txtMateria.TabIndex = 1;
+            this.txtMateria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterOrNumberPressed);
             // 
             // label1
             // 

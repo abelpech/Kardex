@@ -84,6 +84,7 @@
             this.txtCarrera.Size = new System.Drawing.Size(735, 45);
             this.txtCarrera.TabIndex = 5;
             this.txtCarrera.TextChanged += new System.EventHandler(this.TxtCarrera_TextChanged);
+            this.txtCarrera.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterOrNumberPressed);
             // 
             // txtTelefono
             // 
@@ -96,8 +97,7 @@
             this.txtTelefono.Size = new System.Drawing.Size(735, 45);
             this.txtTelefono.TabIndex = 3;
             this.txtTelefono.TextChanged += new System.EventHandler(this.TxtTelefono_TextChanged);
-            this.txtTelefono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTelefono_KeyDown);
-            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsNumberPressed);
             // 
             // label4
             // 
@@ -123,6 +123,7 @@
             this.txtDireccion.Size = new System.Drawing.Size(735, 45);
             this.txtDireccion.TabIndex = 2;
             this.txtDireccion.TextChanged += new System.EventHandler(this.TxtDireccion_TextChanged);
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterOrNumberPressed);
             // 
             // label2
             // 
@@ -206,6 +207,7 @@
             this.txtAlumno.Size = new System.Drawing.Size(735, 45);
             this.txtAlumno.TabIndex = 1;
             this.txtAlumno.TextChanged += new System.EventHandler(this.TxtAlumno_TextChanged);
+            this.txtAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterPressed);
             // 
             // label1
             // 
