@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Kardex;
 using Kardex.Layers;
+using UX1.Validaciones;
 
 namespace UX1
 {
     public partial class frmModificaMateria : Form
     {
+        KeyPressValidation kpv = new KeyPressValidation();
         BL bl = new BL();
         string materiabaja1 = "";
         public frmModificaMateria()
@@ -62,6 +64,21 @@ namespace UX1
             mycollectionmateria = bl.AutoMateria();
            
             txtMateria.AutoCompleteCustomSource = mycollectionmateria;
+        }
+
+        private void IsNumberPressed(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = kpv.IsNumber_KeyPress(sender, e);
+        }
+
+        private void IsLetterPressed(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = kpv.IsLetter_KeyPress(sender, e);
+        }
+
+        private void IsLetterOrNumberPressed(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = kpv.IsLetterOrNumber_KeyPress(sender, e);
         }
     }
 }

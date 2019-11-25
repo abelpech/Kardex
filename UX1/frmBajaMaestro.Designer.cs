@@ -70,6 +70,7 @@
             this.txtMaestro.Name = "txtMaestro";
             this.txtMaestro.Size = new System.Drawing.Size(817, 41);
             this.txtMaestro.TabIndex = 6;
+            this.txtMaestro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterPressed);
             // 
             // label2
             // 
@@ -102,7 +103,7 @@
             this.nudMatricula.Name = "nudMatricula";
             this.nudMatricula.Size = new System.Drawing.Size(817, 45);
             this.nudMatricula.TabIndex = 11;
-            this.nudMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudMatricula_KeyPress);
+            this.nudMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsNumberPressed);
             // 
             // frmBajaMaestro
             // 

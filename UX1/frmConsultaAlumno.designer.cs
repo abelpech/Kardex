@@ -110,6 +110,7 @@
             this.txtCarrera.Name = "txtCarrera";
             this.txtCarrera.Size = new System.Drawing.Size(479, 38);
             this.txtCarrera.TabIndex = 4;
+            this.txtCarrera.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterOrNumberPressed);
             // 
             // txtAlumno
             // 
@@ -121,6 +122,7 @@
             this.txtAlumno.Name = "txtAlumno";
             this.txtAlumno.Size = new System.Drawing.Size(479, 41);
             this.txtAlumno.TabIndex = 3;
+            this.txtAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterPressed);
             // 
             // txtMatricula
             // 
@@ -130,7 +132,7 @@
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(479, 39);
             this.txtMatricula.TabIndex = 1;
-            this.txtMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Num_KeyPress);
+            this.txtMatricula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsNumberPressed);
             // 
             // lbAlumno
             // 

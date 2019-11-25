@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Kardex.Layers;
 using System.Data.SqlClient;
+using UX1.Validaciones;
 
 
 namespace UX1
 {
     public partial class frmModificaMaestro : Form
     {
+        KeyPressValidation kpv = new KeyPressValidation();
         BL bl = new BL();
         dbConn db = new dbConn();
         public frmModificaMaestro()
@@ -138,6 +140,21 @@ namespace UX1
             {
                 e.Handled = true;
             }
+        }
+
+        private void IsNumberPressed(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = kpv.IsNumber_KeyPress(sender, e);
+        }
+
+        private void IsLetterPressed(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = kpv.IsLetter_KeyPress(sender, e);
+        }
+
+        private void IsLetterOrNumberPressed(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = kpv.IsLetterOrNumber_KeyPress(sender, e);
         }
     }
 }

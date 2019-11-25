@@ -220,6 +220,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validaciones\KeyPressValidation.cs" />
     <EmbeddedResource Include="frmAltaAlumno.resx">
       <DependentUpon>frmAltaAlumno.cs</DependentUpon>
     </EmbeddedResource>
