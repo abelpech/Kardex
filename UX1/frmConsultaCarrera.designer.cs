@@ -37,6 +37,7 @@
             this.gbCarrera = new System.Windows.Forms.GroupBox();
             this.dgvCarrera = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.gbConsultaCarrera.SuspendLayout();
             this.gbCarrera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrera)).BeginInit();
@@ -44,6 +45,7 @@
             // 
             // gbConsultaCarrera
             // 
+            this.gbConsultaCarrera.Controls.Add(this.btnExportar);
             this.gbConsultaCarrera.Controls.Add(this.btnLimpiar);
             this.gbConsultaCarrera.Controls.Add(this.comboEstatus);
             this.gbConsultaCarrera.Controls.Add(this.label2);
@@ -60,9 +62,9 @@
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(945, 98);
+            this.btnLimpiar.Location = new System.Drawing.Point(890, 97);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(159, 40);
+            this.btnLimpiar.Size = new System.Drawing.Size(117, 40);
             this.btnLimpiar.TabIndex = 7;
             this.btnLimpiar.Text = "&Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
@@ -148,6 +150,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Carrera: ";
             // 
+            // btnExportar
+            // 
+            this.btnExportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportar.Location = new System.Drawing.Point(1013, 97);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(146, 41);
+            this.btnExportar.TabIndex = 8;
+            this.btnExportar.Text = "&Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // frmConsultaCarrera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -179,5 +192,6 @@
         private System.Windows.Forms.ComboBox comboEstatus;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnExportar;
     }
 }
