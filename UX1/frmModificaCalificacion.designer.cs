@@ -78,13 +78,14 @@
             // 
             // txtCarrera
             // 
-            this.txtCarrera.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCarrera.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtCarrera.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtCarrera.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCarrera.Location = new System.Drawing.Point(424, 204);
             this.txtCarrera.Margin = new System.Windows.Forms.Padding(4);
             this.txtCarrera.MaxLength = 50;
-            this.txtCarrera.Multiline = true;
             this.txtCarrera.Name = "txtCarrera";
-            this.txtCarrera.Size = new System.Drawing.Size(735, 45);
+            this.txtCarrera.Size = new System.Drawing.Size(735, 41);
             this.txtCarrera.TabIndex = 20;
             this.txtCarrera.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterOrNumberPressed);
             // 
@@ -140,9 +141,19 @@
             // 
             this.nudCalificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudCalificacion.Location = new System.Drawing.Point(424, 458);
+            this.nudCalificacion.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudCalificacion.Name = "nudCalificacion";
             this.nudCalificacion.Size = new System.Drawing.Size(120, 41);
             this.nudCalificacion.TabIndex = 16;
+            this.nudCalificacion.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label4
             // 
@@ -158,13 +169,14 @@
             // 
             // txtPeriodo
             // 
-            this.txtPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPeriodo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtPeriodo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPeriodo.Location = new System.Drawing.Point(424, 371);
             this.txtPeriodo.Margin = new System.Windows.Forms.Padding(4);
             this.txtPeriodo.MaxLength = 50;
-            this.txtPeriodo.Multiline = true;
             this.txtPeriodo.Name = "txtPeriodo";
-            this.txtPeriodo.Size = new System.Drawing.Size(735, 45);
+            this.txtPeriodo.Size = new System.Drawing.Size(735, 41);
             this.txtPeriodo.TabIndex = 14;
             // 
             // label3
@@ -181,13 +193,14 @@
             // 
             // txtMaestro
             // 
-            this.txtMaestro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaestro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtMaestro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtMaestro.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaestro.Location = new System.Drawing.Point(424, 285);
             this.txtMaestro.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaestro.MaxLength = 50;
-            this.txtMaestro.Multiline = true;
             this.txtMaestro.Name = "txtMaestro";
-            this.txtMaestro.Size = new System.Drawing.Size(735, 45);
+            this.txtMaestro.Size = new System.Drawing.Size(735, 41);
             this.txtMaestro.TabIndex = 12;
             this.txtMaestro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterPressed);
             // 
@@ -205,13 +218,14 @@
             // 
             // txtMateria
             // 
-            this.txtMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMateria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtMateria.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMateria.Location = new System.Drawing.Point(424, 134);
             this.txtMateria.Margin = new System.Windows.Forms.Padding(4);
             this.txtMateria.MaxLength = 50;
-            this.txtMateria.Multiline = true;
             this.txtMateria.Name = "txtMateria";
-            this.txtMateria.Size = new System.Drawing.Size(735, 45);
+            this.txtMateria.Size = new System.Drawing.Size(735, 41);
             this.txtMateria.TabIndex = 10;
             this.txtMateria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterOrNumberPressed);
             // 
@@ -251,13 +265,14 @@
             // 
             // txtAlumno
             // 
-            this.txtAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlumno.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtAlumno.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAlumno.Location = new System.Drawing.Point(424, 59);
             this.txtAlumno.Margin = new System.Windows.Forms.Padding(4);
             this.txtAlumno.MaxLength = 50;
-            this.txtAlumno.Multiline = true;
             this.txtAlumno.Name = "txtAlumno";
-            this.txtAlumno.Size = new System.Drawing.Size(735, 45);
+            this.txtAlumno.Size = new System.Drawing.Size(735, 41);
             this.txtAlumno.TabIndex = 1;
             this.txtAlumno.TextChanged += new System.EventHandler(this.TxtCarrera_TextChanged);
             this.txtAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IsLetterPressed);
@@ -274,7 +289,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Alumno:";
             // 
-            // frmModificaCalificacion
+            // frmAltaCalificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -282,8 +297,9 @@
             this.ClientSize = new System.Drawing.Size(1222, 845);
             this.Controls.Add(this.gbCarrera);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmModificaCalificacion";
+            this.Name = "frmAltaCalificacion";
             this.Text = "frmAltaCarrera";
+            this.Load += new System.EventHandler(this.frmAltaCalificacion_Load);
             this.gbCarrera.ResumeLayout(false);
             this.gbCarrera.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudUnidad)).EndInit();
@@ -298,18 +314,18 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtAlumno;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtMateria;
-        private System.Windows.Forms.TextBox txtPeriodo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtMaestro;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown nudUnidad;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown nudCalificacion;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtCarrera;
         private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.TextBox txtAlumno;
+        public System.Windows.Forms.TextBox txtMateria;
+        public System.Windows.Forms.TextBox txtPeriodo;
+        public System.Windows.Forms.TextBox txtMaestro;
+        public System.Windows.Forms.TextBox txtCarrera;
     }
 }

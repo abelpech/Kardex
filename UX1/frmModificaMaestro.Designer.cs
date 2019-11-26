@@ -221,6 +221,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmModificaMaestro";
             this.Text = "ModificaMaestro";
+            this.Load += new System.EventHandler(this.frmModificaMaestro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudMatricula)).EndInit();
             this.gbCarrera.ResumeLayout(false);
             this.gbCarrera.PerformLayout();

@@ -359,7 +359,7 @@ namespace Kardex.Layers
                 // MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
             }
         }
-        //CALIFICACION
+ //CALIFICACION
 
         public DataTable ConsultaCalificacion(int matricula, string alumno, string periodo, int estado)
         {
@@ -380,6 +380,32 @@ namespace Kardex.Layers
             }
 
             return dt;
+        }
+
+        public void AltaCalificacion(int calificacion, int unidad, string alumno, string materia, string carrera, string maestro, string periodo)
+        {
+            try
+            {
+                string query = "AltaCalificacion '" + calificacion + "', '" + unidad + "', '" + alumno + "', '" + materia + "', '" + carrera + "', '" + maestro + "', '" + periodo + "', '" + Permisos.usuario + "'";
+                conn.ExcQryReturn(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+            }
+        }
+
+        public void ModificaCalificacion(int calificacion, int unidad, string alumno, string materia, string carrera, string maestro, string periodo)
+        {
+            try
+            {
+                string query = "ModificaCalificacion '" + calificacion + "', '" + unidad + "', '" + alumno + "', '" + materia + "', '" + carrera + "', '" + maestro + "', '" + periodo + "', '" + Permisos.usuario + "'";
+                conn.ExcQryReturn(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+            }
         }
 
         public AutoCompleteStringCollection AutoCarrera()
@@ -433,6 +459,21 @@ namespace Kardex.Layers
             try
             {
                 string query = "select [periodo] from [periodo] ";
+                mycollection = conn.ExcQryAuto(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+            }
+            return mycollection;
+        }
+
+        public AutoCompleteStringCollection AutoMaestro()
+        {
+            AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
+            try
+            {
+                string query = "select [maestro] from [maestro] ";
                 mycollection = conn.ExcQryAuto(query);
             }
             catch (Exception ex)

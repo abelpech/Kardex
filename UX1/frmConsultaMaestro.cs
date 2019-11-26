@@ -215,5 +215,13 @@ namespace UX1
         {
             e.Handled = kpv.IsLetterOrNumber_KeyPress(sender, e);
         }
+
+        private void frmConsultaMaestro_Load(object sender, EventArgs e)
+        {
+            //Maestro
+            AutoCompleteStringCollection mycollectionMaestro = new AutoCompleteStringCollection();
+            mycollectionMaestro = bl.AutoMaestro();
+            txtMaestro.AutoCompleteCustomSource = mycollectionMaestro;
+        }
     }
 }

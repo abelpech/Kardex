@@ -120,6 +120,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmBajaMaestro";
             this.Text = "frmBajaMaestro";
+            this.Load += new System.EventHandler(this.frmBajaMaestro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudMatricula)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

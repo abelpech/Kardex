@@ -473,7 +473,7 @@ namespace UX1
 
         private void BtnAltaCalificacion_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new frmAltaPeriodo());
+            AbrirFormInPanel(new frmAltaCalificacion());
         }
 
         
