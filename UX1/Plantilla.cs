@@ -480,7 +480,7 @@ namespace UX1
 
         private void BtnModificaCalificacion_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new frmModificaPeriodo());
+            AbrirFormInPanel(new frmModificaCalificacion());
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

@@ -383,9 +383,9 @@ namespace Kardex.Layers
         
         }
 
-        public void AltaCalificacion(int calificacion, int unidad, string alumno, string materia, string carrera, string maestro, string periodo)
+        public void AltaCalificacion(int calificacion, int unidad, string alumno, string materia, string periodo)
         {
-            if (calificacion == 0 || unidad == 0 || alumno =="" || materia == "" || carrera == "" || maestro == "")
+            if (calificacion == 0 || unidad == 0 || alumno =="" || materia == "")
             {
                 MessageBox.Show("Es necesario llenar todos los campos", "Alerta", MessageBoxButtons.OK);
 
@@ -393,15 +393,15 @@ namespace Kardex.Layers
             else
             {
 
-                dal.AltaCalificacion(calificacion, unidad, alumno, materia, carrera, maestro, periodo);
+                dal.AltaCalificacion(calificacion, unidad, alumno, materia, periodo);
  
 
             }
         }
 
-        public void ModificaCalificacion(int calificacion, int unidad, string alumno, string materia, string carrera, string maestro, string periodo)
+        public void ModificaCalificacion(int calificacion, int unidad, string alumno, string materia, string periodo)
         {
-            if (calificacion == 0 || unidad == 0 || alumno == "" || materia == "" || carrera == "" || maestro == "")
+            if (calificacion == 0 || unidad == 0 || alumno == "" || materia == "")
             {
                 MessageBox.Show("Es necesario llenar todos los campos", "Alerta", MessageBoxButtons.OK);
 
@@ -409,7 +409,7 @@ namespace Kardex.Layers
             else
             {
 
-                dal.ModificaCalificacion(calificacion, unidad, alumno, materia, carrera, maestro, periodo);
+                dal.ModificaCalificacion(calificacion, unidad, alumno, materia, periodo);
 
 
             }

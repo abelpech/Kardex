@@ -71,10 +71,12 @@ namespace UX1
 
         private void frmBajaMaestro_Load(object sender, EventArgs e)
         {
+            /*
             //Maestro
             AutoCompleteStringCollection mycollectionMaestro = new AutoCompleteStringCollection();
             mycollectionMaestro = bl.AutoMaestro();
             txtMaestro.AutoCompleteCustomSource = mycollectionMaestro;
+            */
         }
     }
 }

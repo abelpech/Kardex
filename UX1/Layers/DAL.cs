@@ -382,16 +382,33 @@ namespace Kardex.Layers
             return dt;
         }
 
-        public void AltaCalificacion(int calificacion, int unidad, string alumno, string materia, string carrera, string maestro, string periodo)
+        public void AltaCalificacion(int calificacion, int unidad, string alumno, string materia, string periodo)
         {
             try
             {
-                string query = "AltaCalificacion '" + calificacion + "', '" + unidad + "', '" + alumno + "', '" + materia + "', '" + carrera + "', '" + maestro + "', '" + periodo + "', '" + Permisos.usuario + "'";
-                conn.ExcQryReturn(query);
+                string query = "AltaCalificacion '" + calificacion + "', '" + unidad + "', '" + alumno + "', '" + materia + "', '" + periodo + "', '" + Permisos.usuario + "'";
+                conn.ExcQryCalificacion(query);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+                //MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
+
+            }
+        }
+
+        public void ModificaCalificacion(int calificacion, int unidad, string alumno, string materia, string periodo)
+        {
+            try
+            {
+                string query = "ModificaCalificacion '" + calificacion + "', '" + unidad + "', '" + alumno + "', '" + materia + "', '" + periodo + "', '" + Permisos.usuario + "'";
+                conn.ExcQryCalificacionModifica(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+                //MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK);
+
             }
         }
 

@@ -324,8 +324,69 @@ namespace Kardex.Layers
             //TableName.Rows[0]["ColumnName"].ToString(); 
         }
 
-        
-      
+
+        public void ExcQryCalificacion(string query)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = query;
+            cmd.CommandTimeout = 0;
+            cmd.Connection = conn;
+            //cmd.CommandType = CommandType.StoredProcedure;
+
+            conn.Open();
+
+
+            int retVal = (Int32)cmd.ExecuteScalar();
+
+            //MessageBox.Show(retVal.ToString());
+            conn.Close();
+            // El 0 sera para EXITOSO
+            // EL 1 es para ERROR
+            // Los mensajes los cambie a mas generales para que puedan aplicar en todos nuestros modulos
+            if (retVal == 0)
+            {
+                MessageBox.Show("Alta de Unidad/Calificacion Exitosamente", "Aviso", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("Registro de Unidad/Calificacion Existente", "Aviso", MessageBoxButtons.OK);
+            }
+
+
+        }
+
+        public void ExcQryCalificacionModifica(string query)
+        {
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = query;
+            cmd.CommandTimeout = 0;
+            cmd.Connection = conn;
+            //cmd.CommandType = CommandType.StoredProcedure;
+
+            conn.Open();
+
+
+            int retVal = (Int32)cmd.ExecuteScalar();
+
+            //MessageBox.Show(retVal.ToString());
+            conn.Close();
+            // El 0 sera para EXITOSO
+            // EL 1 es para ERROR
+            // Los mensajes los cambie a mas generales para que puedan aplicar en todos nuestros modulos
+            if (retVal == 0)
+            {
+                MessageBox.Show("Modificacion de Calificacion Exitosamente", "Aviso", MessageBoxButtons.OK);
+            }
+            else
+            {
+                MessageBox.Show("No fue posible procesar Modificacion", "Aviso", MessageBoxButtons.OK);
+            }
+
+
+        }
+
     }
 
 
