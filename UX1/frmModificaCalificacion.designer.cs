@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbCarrera = new System.Windows.Forms.GroupBox();
+            this.cbUnidad = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cbMateria = new System.Windows.Forms.ComboBox();
@@ -42,7 +43,6 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbUnidad = new System.Windows.Forms.ComboBox();
             this.gbCarrera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCalificacion)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +70,17 @@
             this.gbCarrera.Size = new System.Drawing.Size(1196, 819);
             this.gbCarrera.TabIndex = 1;
             this.gbCarrera.TabStop = false;
+            // 
+            // cbUnidad
+            // 
+            this.cbUnidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbUnidad.FormattingEnabled = true;
+            this.cbUnidad.Location = new System.Drawing.Point(421, 404);
+            this.cbUnidad.Name = "cbUnidad";
+            this.cbUnidad.Size = new System.Drawing.Size(738, 44);
+            this.cbUnidad.TabIndex = 25;
+            this.cbUnidad.SelectedIndexChanged += new System.EventHandler(this.cbUnidad_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -155,6 +166,7 @@
             0,
             0});
             this.nudCalificacion.Name = "nudCalificacion";
+            this.nudCalificacion.ReadOnly = true;
             this.nudCalificacion.Size = new System.Drawing.Size(120, 41);
             this.nudCalificacion.TabIndex = 16;
             this.nudCalificacion.Value = new decimal(new int[] {
@@ -232,17 +244,6 @@
             this.label1.Size = new System.Drawing.Size(161, 44);
             this.label1.TabIndex = 0;
             this.label1.Text = "Alumno:";
-            // 
-            // cbUnidad
-            // 
-            this.cbUnidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbUnidad.FormattingEnabled = true;
-            this.cbUnidad.Location = new System.Drawing.Point(421, 404);
-            this.cbUnidad.Name = "cbUnidad";
-            this.cbUnidad.Size = new System.Drawing.Size(738, 44);
-            this.cbUnidad.TabIndex = 25;
-            this.cbUnidad.SelectedIndexChanged += new System.EventHandler(this.cbUnidad_SelectedIndexChanged);
             // 
             // frmModificaCalificacion
             // 

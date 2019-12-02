@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.gbCarrera = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.cbMateria = new System.Windows.Forms.ComboBox();
             this.cbPeriodo = new System.Windows.Forms.ComboBox();
             this.cbAlumno = new System.Windows.Forms.ComboBox();
@@ -41,9 +44,6 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.gbCarrera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudUnidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCalificacion)).BeginInit();
@@ -73,6 +73,42 @@
             this.gbCarrera.Size = new System.Drawing.Size(1196, 819);
             this.gbCarrera.TabIndex = 1;
             this.gbCarrera.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Location = new System.Drawing.Point(572, 416);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(180, 32);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Intervalo: 1-5";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Location = new System.Drawing.Point(416, 93);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(239, 44);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Seleccione...";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(572, 479);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(196, 32);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Intervalo: 1-10";
             // 
             // cbMateria
             // 
@@ -122,6 +158,7 @@
             0,
             0});
             this.nudUnidad.Name = "nudUnidad";
+            this.nudUnidad.ReadOnly = true;
             this.nudUnidad.Size = new System.Drawing.Size(120, 41);
             this.nudUnidad.TabIndex = 18;
             this.nudUnidad.Value = new decimal(new int[] {
@@ -158,6 +195,7 @@
             0,
             0});
             this.nudCalificacion.Name = "nudCalificacion";
+            this.nudCalificacion.ReadOnly = true;
             this.nudCalificacion.Size = new System.Drawing.Size(120, 41);
             this.nudCalificacion.TabIndex = 16;
             this.nudCalificacion.Value = new decimal(new int[] {
@@ -235,42 +273,6 @@
             this.label1.Size = new System.Drawing.Size(161, 44);
             this.label1.TabIndex = 0;
             this.label1.Text = "Alumno:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(572, 479);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(196, 32);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Intervalo: 1-10";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(416, 93);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(239, 44);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "Seleccione...";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(572, 416);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(180, 32);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Intervalo: 1-5";
             // 
             // frmAltaCalificacion
             // 
