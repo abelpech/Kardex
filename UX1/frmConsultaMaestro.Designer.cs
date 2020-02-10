@@ -173,6 +173,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmConsultaMaestro";
             this.Text = "frmConsultaMaestro";
+            this.Load += new System.EventHandler(this.frmConsultaMaestro_Load);
             this.gbConsultaCarrera.ResumeLayout(false);
             this.gbConsultaCarrera.PerformLayout();
             this.gbCarrera.ResumeLayout(false);

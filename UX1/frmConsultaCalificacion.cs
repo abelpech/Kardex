@@ -130,7 +130,7 @@ namespace UX1
 
 
         private void dgvCarrera_MouseClick(object sender, MouseEventArgs e)
-        {
+        {   /*
             if (e.Button == MouseButtons.Right)
             {
                 int i = dgvCarrera.CurrentCell.RowIndex;
@@ -168,6 +168,8 @@ namespace UX1
                 
                 m.Show(dgvCarrera, new Point(e.X, e.Y));
             }
+
+            */
         }
         
 
@@ -206,13 +208,18 @@ namespace UX1
         {
             //It needs to be rewritten for CALIFICACION
             //TO BE COMPLETED
-            string matricula = dgvCarrera["Matricula", Row].Value.ToString();
-            string nombre = dgvCarrera["Alumno", Row].Value.ToString();
             
-            string carrera = dgvCarrera["Carrera", Row].Value.ToString();
+            string nombre = dgvCarrera["Alumno", Row].Value.ToString();
+            string materia = dgvCarrera["Materia", Row].Value.ToString();
+            string maestro = dgvCarrera["Maestro", Row].Value.ToString();
+            string periodo = dgvCarrera["Periodo", Row].Value.ToString();
 
-            frmModificaAlumnoRCM baja = new frmModificaAlumnoRCM(matricula, nombre, carrera);
-            baja.Show();
+            //frmModificaCalificacion modifica = new frmModificaCalificacion(nombre, materia, maestro, periodo);
+            //modifica.Show();
+
+            //frmModificaAlumnoRCM baja = new frmModificaAlumnoRCM(matricula, nombre, carrera);
+            //baja.Show();
+            
             //data = "";
             //Row = 0;
         }

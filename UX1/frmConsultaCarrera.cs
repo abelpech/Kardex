@@ -11,6 +11,8 @@ using Kardex.Layers;
 using System.Data.SqlClient;
 using UX1;
 using UX1.Validaciones;
+using System.IO;
+
 
 namespace Kardex
 {
@@ -331,6 +333,39 @@ namespace Kardex
             catch (Exception ex)
             {
 
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if(dgvCarrera.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos disponibles para exportar", "Aviso", MessageBoxButtons.OK);
+
+            }
+            else
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    TextWriter writer = new StreamWriter(sfd.FileName);
+                    for (int i = 0; i < dgvCarrera.Rows.Count - 1; i++)
+                    {
+                        for (int j = 0; j < 2/*dgvCarrera.Columns.Count*/; j++)
+                        {
+                            if (dgvCarrera.Rows[i].Cells[j].Value.ToString() != "")
+                            {
+                                writer.Write("\t" + dgvCarrera.Rows[i].Cells[j].Value.ToString() + "\t" + "\t" + "||");
+
+                            }
+                        }
+                        writer.WriteLine("");
+                        writer.WriteLine("-----------------------------------------------------");
+                    }
+                    writer.Close();
+                    MessageBox.Show("Datos Exportados Exitosamente", "Aviso", MessageBoxButtons.OK);
+                }
+                
             }
         }
 

@@ -382,6 +382,38 @@ namespace Kardex.Layers
             return dal.ConsultaCalificacion(matricula, alumno, periodo, estado);
         
         }
+
+        public void AltaCalificacion(int calificacion, int unidad, string alumno, string materia, string periodo)
+        {
+            if (calificacion == 0 || unidad == 0 || alumno =="" || materia == "")
+            {
+                MessageBox.Show("Es necesario llenar todos los campos", "Alerta", MessageBoxButtons.OK);
+
+            }
+            else
+            {
+
+                dal.AltaCalificacion(calificacion, unidad, alumno, materia, periodo);
+ 
+
+            }
+        }
+
+        public void ModificaCalificacion(int calificacion, int unidad, string alumno, string materia, string periodo)
+        {
+            if (calificacion == 0 || unidad == 0 || alumno == "" || materia == "")
+            {
+                MessageBox.Show("Es necesario llenar todos los campos", "Alerta", MessageBoxButtons.OK);
+
+            }
+            else
+            {
+
+                dal.ModificaCalificacion(calificacion, unidad, alumno, materia, periodo);
+
+
+            }
+        }
         public int LoginValidation(string username, string password)
         {
             if(username == "")
@@ -454,6 +486,13 @@ namespace Kardex.Layers
         {
             AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
             mycollection = dal.AutoPeriodo();
+
+            return mycollection;
+        }
+        public AutoCompleteStringCollection AutoMaestro()
+        {
+            AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
+            mycollection = dal.AutoMaestro();
 
             return mycollection;
         }
