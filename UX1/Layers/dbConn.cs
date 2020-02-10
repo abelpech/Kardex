@@ -23,7 +23,7 @@ namespace Kardex.Layers
             string host = Dns.GetHostName();
             
             //Se le asigna al objeto de SqlConnection la direccion de la instancia de la BD
-            conn = new SqlConnection("server =  "+host+"; database=kardex ; integrated security = true");
+            conn = new SqlConnection("server =  "+host+ "\\SQLEXPRESS; database=kardex ; integrated security = true");
 
         }
 
@@ -267,7 +267,6 @@ namespace Kardex.Layers
 
         public DataTable getInfo(string query)
         {
-            int opcion = 0;
             SqlCommand cmd = new SqlCommand(("Select * from " + query), conn);
             
 
@@ -290,10 +289,10 @@ namespace Kardex.Layers
             reader2.Load(cmd.ExecuteReader());
             SqlDataReader reader = cmd.ExecuteReader();
 
-            
+            lista.Clear();
             while (reader.Read())
             {
-                lista.Clear();
+                
                 switch (query)
                 {
                     case "alumno":
@@ -317,6 +316,64 @@ namespace Kardex.Layers
 
                 }
                 
+
+            }
+            conn.Close();
+            return reader2;
+            //TableName.Rows[0]["ColumnName"].ToString(); 
+        }
+
+        public DataTable SCAN(string query)
+        {
+            SqlCommand cmd = new SqlCommand(("Select * from " + query), conn);
+
+
+            //Valores de parametros para distintas listas:
+            //alumno - Lista de todos los alumnos
+            //materia - Lista de todas las materias
+            //carrera - Lista de todas las carreras
+            //maestro - Lista de todos los maestros
+            //periodo - Lista de todos los periodos
+
+
+
+            //Set up the parameters
+            //cmd.Parameters.Add("@Result", SqlDbType.Int);
+            //cmd.Parameters["@Result"].Direction = ParameterDirection.Output;
+
+            conn.Open();
+
+            DataTable reader2 = new DataTable();
+            reader2.Load(cmd.ExecuteReader());
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            lista.Clear();
+            while (reader.Read())
+            {
+
+                switch (query)
+                {
+                    case "alumno":
+                        lista.Add(reader["nombre"].ToString());
+                        break;
+                    case "materia":
+                        lista.Add(reader["materia"].ToString());
+                        break;
+                    case "carrera":
+                        lista.Add(reader["carrera"].ToString());
+                        break;
+                    case "maestro":
+                        lista.Add(reader["nombre"].ToString());
+                        break;
+                    case "periodo":
+                        lista.Add(reader["periodo"].ToString());
+                        break;
+                    default:
+                        //MessageBox.Show("Parametro incorrecto.");
+                        break;
+
+                }
+
 
             }
             conn.Close();
@@ -391,6 +448,7 @@ namespace Kardex.Layers
         //Obtiene todos los parametros del SP automaticamente y devuelve un DataTable
         public DataTable ExecSP(string querySP, List<string> parametros)
         {
+            
             DataTable dt = new DataTable();
             // SPResult es la variable que se encarga de guardar el mensaje resultante de un SP (StoredProcedure).
             string SPResult = "";
@@ -484,6 +542,7 @@ namespace Kardex.Layers
             // Se limpian variables para uso posterior de la funcion.
             NombreParametros.Clear();
             i = 0;
+            
             return dt;
         }
 
