@@ -21,9 +21,10 @@ namespace Kardex.Layers
             //Obtiene el hostname de la computadora que utiliza el programa para adecuar la instancia
             //a la correcta de cada quien
             string host = Dns.GetHostName();
-            
+
             //Se le asigna al objeto de SqlConnection la direccion de la instancia de la BD
-            conn = new SqlConnection("server =  "+host+ "\\SQLEXPRESS; database=kardex ; integrated security = true");
+            
+            conn = new SqlConnection("server =  "+host+ "; database=kardex ; integrated security = true");
 
         }
 
@@ -290,9 +291,8 @@ namespace Kardex.Layers
             SqlDataReader reader = cmd.ExecuteReader();
 
             lista.Clear();
-            while (reader.Read())
+            /*while (reader.Read())
             {
-                
                 switch (query)
                 {
                     case "alumno":
@@ -315,17 +315,24 @@ namespace Kardex.Layers
                         break;
 
                 }
-                
-
-            }
+            }*/
             conn.Close();
             return reader2;
             //TableName.Rows[0]["ColumnName"].ToString(); 
         }
 
-        public DataTable SCAN(string query)
+        public DataTable SCAN(string query, int distinct)
         {
-            SqlCommand cmd = new SqlCommand(("Select * from " + query), conn);
+            string dist = "";
+            if (distinct == 1)
+            {
+                dist = ("Select distinct * from " + query);
+            }
+            else
+            {
+                dist = ("Select * from " + query);
+            }
+            SqlCommand cmd = new SqlCommand((dist), conn);
 
 
             //Valores de parametros para distintas listas:
@@ -348,37 +355,9 @@ namespace Kardex.Layers
             SqlDataReader reader = cmd.ExecuteReader();
 
             lista.Clear();
-            while (reader.Read())
-            {
-
-                switch (query)
-                {
-                    case "alumno":
-                        lista.Add(reader["nombre"].ToString());
-                        break;
-                    case "materia":
-                        lista.Add(reader["materia"].ToString());
-                        break;
-                    case "carrera":
-                        lista.Add(reader["carrera"].ToString());
-                        break;
-                    case "maestro":
-                        lista.Add(reader["nombre"].ToString());
-                        break;
-                    case "periodo":
-                        lista.Add(reader["periodo"].ToString());
-                        break;
-                    default:
-                        //MessageBox.Show("Parametro incorrecto.");
-                        break;
-
-                }
-
-
-            }
+           
             conn.Close();
             return reader2;
-            //TableName.Rows[0]["ColumnName"].ToString(); 
         }
 
 

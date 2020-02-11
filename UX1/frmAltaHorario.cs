@@ -55,16 +55,82 @@ namespace UX1
 
         private void ComboBoxDia1()
         {
+            bool founded = false;
             //Obtains and reads all days.
             List<string> parametros = new List<string>();
-            parametros.Add(cbFAHCarrera.Text);
-            DataTableReader reader = db.getInfo("horario").CreateDataReader();
+            List<string> Dias = new List<string>();
+            DataTableReader reader = db.ExcQryDt("select distinct dia from horario").CreateDataReader();
 
             //Assigns subjects to combobox.
             while (reader.Read())
             {
-                cbFAHMateria.Items.Add(reader["dia"].ToString());
+                parametros.Add(reader["dia"].ToString());
             }
+            Dias = parametros;
+            int opcion = 0;
+            bool logrado = false;
+            while(!logrado)
+            {
+                
+                foreach (string day in parametros)
+                {
+                    switch (opcion)
+                    {
+                        case 0:
+                            if (day == "LUN") 
+                            {
+                                cbFAHDia1.Items.Add("Lunes"); 
+                                founded = true;
+                            }
+                            break;
+                        case 1:
+                            if (day == "MAR")
+                            {
+                                cbFAHDia1.Items.Add("Martes");
+                                founded = true;
+                            }
+                            break;
+                        case 2:
+                            if (day == "MIE")
+                            {
+                                cbFAHDia1.Items.Add("Miercoles");
+                                founded = true;
+                            }
+                            break;
+                        case 3:
+                            if (day == "JUE")
+                            {
+                                cbFAHDia1.Items.Add("Jueves");
+                                founded = true;
+                            }
+                            break;
+                        case 4:
+                            if (day == "VIE")
+                            {
+                                cbFAHDia1.Items.Add("Viernes");
+                                founded = true;
+                            }
+                            break;
+                        case 5:
+                            if (day == "SAB")
+                            {
+                                cbFAHDia1.Items.Add(day);
+                                founded = true;
+                            }
+                            break;
+                        default:
+                            logrado = true;
+                            break;
+                    }
+
+                }
+                if (founded) { opcion++; founded = false; }
+                
+
+            }
+
+            
+
         }
 
         private void cbFAHCarrera_TextChanged(object sender, EventArgs e)
