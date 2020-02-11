@@ -20,7 +20,6 @@ namespace UX1
         {
             InitializeComponent();
             ComboBoxCarrera();
-            ComboBoxDia1();
             
         }
 
@@ -44,7 +43,25 @@ namespace UX1
             //Obtains and reads all the subjects related to a career.
             List<string> parametros = new List<string>();
             parametros.Add(cbFAHCarrera.Text);
-            DataTableReader reader = db.ExecSP("SPMateriasDeUnaCarrera",parametros).CreateDataReader();
+            DataTableReader reader = db.ExecSP("SPMat_Ca_Gru_Pe_Cam", parametros).CreateDataReader();
+
+            //Assigns subjects to combobox.
+            while (reader.Read())
+            {
+                cbFAHMateria.Items.Add(reader["materia"].ToString());
+            }
+        }
+        private void ComboBoxDia2()
+        {
+
+        }
+
+        private void ComboBoxPeriodo()
+        {
+            //Obtains and reads all the subjects related to a career.
+            List<string> parametros = new List<string>();
+            parametros.Add(cbFAHCampus.Text);
+            DataTableReader reader = db.ExecSP("Periodo_Campus", parametros).CreateDataReader();
 
             //Assigns subjects to combobox.
             while (reader.Read())
@@ -53,12 +70,27 @@ namespace UX1
             }
         }
 
+        private void ComboBoxCampus()
+        {
+            //Obtains and reads all the subjects related to a career.
+            List<string> parametros = new List<string>();
+            parametros.Add(cbFAHCampus.Text);
+            DataTableReader reader = db.ExcQryDt("select * from campus").CreateDataReader();
+
+            //Assigns subjects to combobox.
+            while (reader.Read())
+            {
+                cbFAHMateria.Items.Add(reader["nombre"].ToString());
+            }
+        }
+
         private void ComboBoxDia1()
         {
+            int opcion = 0;
             bool founded = false;
+            bool logrado = false;
             //Obtains and reads all days.
             List<string> parametros = new List<string>();
-            List<string> Dias = new List<string>();
             DataTableReader reader = db.ExcQryDt("select distinct dia from horario").CreateDataReader();
 
             //Assigns subjects to combobox.
@@ -66,9 +98,8 @@ namespace UX1
             {
                 parametros.Add(reader["dia"].ToString());
             }
-            Dias = parametros;
-            int opcion = 0;
-            bool logrado = false;
+            
+            //Order Number of Days
             while(!logrado)
             {
                 
@@ -125,17 +156,17 @@ namespace UX1
 
                 }
                 if (founded) { opcion++; founded = false; }
-                
-
             }
-
-            
-
         }
 
         private void cbFAHCarrera_TextChanged(object sender, EventArgs e)
         {
             ComboBoxMateria();
+        }
+
+        private void cbFAHCampus_TextChanged(object sender, EventArgs e)
+        {
+            //ComboBoxPeriodo();
         }
     }
 }
