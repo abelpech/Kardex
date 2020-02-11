@@ -25,6 +25,7 @@ namespace Kardex.Layers
             //Se le asigna al objeto de SqlConnection la direccion de la instancia de la BD
             
             conn = new SqlConnection("server =  "+host+ "; database=kardex ; integrated security = true");
+            //conn = new SqlConnection("server =  " + host + "\\SQLEXPRESS; database=kardex ; integrated security = true");
 
         }
 
@@ -590,8 +591,9 @@ namespace Kardex.Layers
             }
 
             // Agregamos un parametro OUTPUT para devolver un entero de SP's especiales.
+            // Ojo: Necesitas tener un return(@ParameterReturnINT) en tu sp con un valor INT valido.
             var ParameterReturnINT = cmd.Parameters.Add("@ParameterReturnINT", SqlDbType.Int);
-            ParameterReturnINT.Direction = ParameterDirection.Output;
+            ParameterReturnINT.Direction = ParameterDirection.ReturnValue;
 
             cmd.ExecuteReader();
             conn.Close();
