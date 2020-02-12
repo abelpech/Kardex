@@ -38,6 +38,28 @@ namespace UX1
             }
         }
 
+        private void ComboBoxHora1()
+        {
+            //Obtains and reads all the subjects related to a career.
+            List<string> parametros = new List<string>();
+            parametros.Add(cbFAHCampus.Text);
+            parametros.Add(cbFAHPeriodo.Text);
+            parametros.Add(cbFAHGrupo.Text);
+            parametros.Add(cbFAHCarrera.Text);
+            parametros.Add(cbFAHMateria.Text);
+            parametros.Add(cbFAHDia1.Text);
+            DataTableReader reader = db.ExecSP("SPHoras_Dias_Materia_Carrera_Campus", parametros).CreateDataReader();
+
+            //Assigns subjects to combobox.
+            while (reader.Read())
+            {
+                cbFAHHora1.Items.Add(reader["horainicial1"].ToString());
+                cbFAHHora2.Items.Add(reader["horafinal1"].ToString());
+                cbFAHHora3.Items.Add(reader["horainicial2"].ToString());
+                cbFAHHora4.Items.Add(reader["horafinal2"].ToString());
+            }
+        }
+
         private void ComboBoxMateria()
         {
             //Obtains and reads all the subjects related to a career.
@@ -134,32 +156,84 @@ namespace UX1
             VIE = db.ExecSPReturnInt("SPDias_Materia_Carrera_Campus", parametros);
             parametros[5] = "SAB";
             SAB = db.ExecSPReturnInt("SPDias_Materia_Carrera_Campus", parametros);
-            MessageBox.Show("LUN:"+LUN+" MAR:"+MAR+" MIE:"+MIE+" JUE:"+JUE +" VIE:" + VIE + " SAB:" + SAB);
+            //Gives you the number of times that each day is involved for that subject.
+            //MessageBox.Show("LUN:"+LUN+" MAR:"+MAR+" MIE:"+MIE+" JUE:"+JUE +" VIE:" + VIE + " SAB:" + SAB);
 
-            if (LUN <2)
+
+            if ((LUN + MAR + MIE + JUE + VIE + SAB) >= 2)
+                //If no more days can be added do this:
             {
+                if (LUN >0)
+                {
+                    cbFAHDia1.Items.Add("Lunes");
+                }
+                if (MAR > 0)
+                {
+                    cbFAHDia1.Items.Add("Martes");
+                }
+                if (MIE > 0)
+                {
+                    cbFAHDia1.Items.Add("Miercoles");
+                }
+                if (JUE > 0)
+                {
+                    cbFAHDia1.Items.Add("Jueves");
+                }
+                if (VIE > 0)
+                {
+                    cbFAHDia1.Items.Add("Viernes");
+                }
+                if (SAB > 0)
+                {
+                    cbFAHDia1.Items.Add("Sabado");
+                }
+                
+                cbFAHDia1.SelectedIndex = 1;
+                string day2 = cbFAHDia1.Text;
+                cbFAHDia1.Items.Remove(day2);
+
+                cbFAHDia2.Items.Add(day2);
+                cbFAHDia2.SelectedIndex = 0;
+                cbFAHDia1.SelectedIndex = 0;
+                cbFAHDia1.Enabled = false;
+                cbFAHDia2.Enabled = false;
+            }
+            else
+                //If more days can be added do this
+            {
+                cbFAHDia1.Enabled = true;
+                cbFAHDia2.Enabled = true;
                 cbFAHDia1.Items.Add("Lunes");
-            }
-            if (MAR < 2)
-            {
                 cbFAHDia1.Items.Add("Martes");
-            }
-            if (MIE < 2)
-            {
                 cbFAHDia1.Items.Add("Miercoles");
-            }
-            if (JUE < 2)
-            {
                 cbFAHDia1.Items.Add("Jueves");
-            }
-            if (VIE < 2)
-            {
                 cbFAHDia1.Items.Add("Viernes");
-            }
-            if (SAB < 2)
-            {
                 cbFAHDia1.Items.Add("Sabado");
             }
+            //if (LUN <2)
+            //{
+            //    cbFAHDia1.Items.Add("Lunes");
+            //}
+            //if (MAR < 2)
+            //{
+            //    cbFAHDia1.Items.Add("Martes");
+            //}
+            //if (MIE < 2)
+            //{
+            //    cbFAHDia1.Items.Add("Miercoles");
+            //}
+            //if (JUE < 2)
+            //{
+            //    cbFAHDia1.Items.Add("Jueves");
+            //}
+            //if (VIE < 2)
+            //{
+            //    cbFAHDia1.Items.Add("Viernes");
+            //}
+            //if (SAB < 2)
+            //{
+            //    cbFAHDia1.Items.Add("Sabado");
+            //}
             /*
             //Assigns subjects to combobox.
             while (reader.Read())
@@ -292,6 +366,11 @@ namespace UX1
             cbFAHHora3.Items.Clear();
             cbFAHHora4.Items.Clear();
             ComboBoxDia1();
+        }
+
+        private void cbFAHDia1_TextChanged(object sender, EventArgs e)
+        {
+            ComboBoxHora1();
         }
     }
 }
