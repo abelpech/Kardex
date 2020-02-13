@@ -110,48 +110,48 @@
             // 
             this.cbFAHHora4.DropDownHeight = 200;
             this.cbFAHHora4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFAHHora4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFAHHora4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFAHHora4.FormattingEnabled = true;
             this.cbFAHHora4.IntegralHeight = false;
             this.cbFAHHora4.Location = new System.Drawing.Point(770, 472);
             this.cbFAHHora4.Name = "cbFAHHora4";
-            this.cbFAHHora4.Size = new System.Drawing.Size(114, 41);
+            this.cbFAHHora4.Size = new System.Drawing.Size(114, 33);
             this.cbFAHHora4.TabIndex = 27;
             // 
             // cbFAHHora3
             // 
             this.cbFAHHora3.DropDownHeight = 200;
             this.cbFAHHora3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFAHHora3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFAHHora3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFAHHora3.FormattingEnabled = true;
             this.cbFAHHora3.IntegralHeight = false;
             this.cbFAHHora3.Location = new System.Drawing.Point(640, 472);
             this.cbFAHHora3.Name = "cbFAHHora3";
-            this.cbFAHHora3.Size = new System.Drawing.Size(127, 41);
+            this.cbFAHHora3.Size = new System.Drawing.Size(127, 33);
             this.cbFAHHora3.TabIndex = 26;
             // 
             // cbFAHHora2
             // 
             this.cbFAHHora2.DropDownHeight = 200;
             this.cbFAHHora2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFAHHora2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFAHHora2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFAHHora2.FormattingEnabled = true;
             this.cbFAHHora2.IntegralHeight = false;
             this.cbFAHHora2.Location = new System.Drawing.Point(770, 396);
             this.cbFAHHora2.Name = "cbFAHHora2";
-            this.cbFAHHora2.Size = new System.Drawing.Size(114, 41);
+            this.cbFAHHora2.Size = new System.Drawing.Size(114, 33);
             this.cbFAHHora2.TabIndex = 25;
             // 
             // cbFAHHora1
             // 
             this.cbFAHHora1.DropDownHeight = 200;
             this.cbFAHHora1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFAHHora1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFAHHora1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFAHHora1.FormattingEnabled = true;
             this.cbFAHHora1.IntegralHeight = false;
             this.cbFAHHora1.Location = new System.Drawing.Point(640, 396);
             this.cbFAHHora1.Name = "cbFAHHora1";
-            this.cbFAHHora1.Size = new System.Drawing.Size(127, 41);
+            this.cbFAHHora1.Size = new System.Drawing.Size(127, 33);
             this.cbFAHHora1.TabIndex = 24;
             // 
             // label7
@@ -227,6 +227,7 @@
             this.cbFAHDia2.Name = "cbFAHDia2";
             this.cbFAHDia2.Size = new System.Drawing.Size(201, 41);
             this.cbFAHDia2.TabIndex = 18;
+            this.cbFAHDia2.TextChanged += new System.EventHandler(this.cbFAHDia2_TextChanged);
             // 
             // cbFAHDia1
             // 
@@ -291,7 +292,7 @@
             // 
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCerrar.Location = new System.Drawing.Point(600, 572);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(274, 77);
             this.btnCerrar.TabIndex = 7;
@@ -302,7 +303,7 @@
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Location = new System.Drawing.Point(28, 572);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(274, 77);
             this.btnGuardar.TabIndex = 6;

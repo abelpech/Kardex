@@ -50,17 +50,97 @@ namespace UX1
             parametros.Add(cbFAHGrupo.Text);
             parametros.Add(cbFAHCarrera.Text);
             parametros.Add(cbFAHMateria.Text);
-            parametros.Add(cbFAHDia1.Text);
+            switch (cbFAHDia1.Text)
+            {
+                case "Lunes":
+                    parametros.Add("LUN");
+                    break;
+                case "Martes":
+                    parametros.Add("MAR");
+                    break;
+                case "Miercoles":
+                    parametros.Add("MIE");
+                    break;
+                case "Jueves":
+                    parametros.Add("JUE");
+                    break;
+                case "Viernes":
+                    parametros.Add("VIE");
+                    break;
+                case "Sabado":
+                    parametros.Add("SAB");
+                    break;
+            }
+            
             DataTableReader reader = db.ExecSP("SPHoras_Dias_Materia_Carrera_Campus", parametros).CreateDataReader();
 
             //Assigns subjects to combobox.
             while (reader.Read())
             {
-                cbFAHHora1.Items.Add(reader["horainicial1"].ToString());
+                cbFAHHora1.Items.Add(reader["horainicio1"].ToString());
                 cbFAHHora2.Items.Add(reader["horafinal1"].ToString());
-                cbFAHHora3.Items.Add(reader["horainicial2"].ToString());
-                cbFAHHora4.Items.Add(reader["horafinal2"].ToString());
+                
             }
+            if(cbFAHHora1.Items.Count >0 && cbFAHHora2.Items.Count >0)
+            {
+                cbFAHHora1.SelectedIndex = 0;
+                cbFAHHora2.SelectedIndex = 0;
+            }
+            
+        }
+        private void ComboBoxHora2()
+        {
+            //Obtains and reads all the subjects related to a career.
+            List<string> parametros = new List<string>();
+            parametros.Add(cbFAHCampus.Text);
+            parametros.Add(cbFAHPeriodo.Text);
+            parametros.Add(cbFAHGrupo.Text);
+            parametros.Add(cbFAHCarrera.Text);
+            parametros.Add(cbFAHMateria.Text);
+            switch (cbFAHDia2.Text)
+            {
+                case "Lunes":
+                    parametros.Add("LUN");
+                    break;
+                case "Martes":
+                    parametros.Add("MAR");
+                    break;
+                case "Miercoles":
+                    parametros.Add("MIE");
+                    break;
+                case "Jueves":
+                    parametros.Add("JUE");
+                    break;
+                case "Viernes":
+                    parametros.Add("VIE");
+                    break;
+                case "Sabado":
+                    parametros.Add("SAB");
+                    break;
+            }
+            
+            DataTableReader reader = db.ExecSP("SPHoras_Dias_Materia_Carrera_Campus", parametros).CreateDataReader();
+            if (reader.HasRows)
+            {
+                //Assigns subjects to combobox.
+                while (reader.Read())
+                {
+
+                    cbFAHHora3.Items.Add(reader["horainicio2"].ToString());
+                    cbFAHHora4.Items.Add(reader["horafinal2"].ToString());
+
+                }
+                if (cbFAHHora3.Items.Count > 0 && cbFAHHora4.Items.Count > 0)
+                {
+                    cbFAHHora3.SelectedIndex = 0;
+                    cbFAHHora4.SelectedIndex = 0;
+                }
+            }
+            else
+            {
+
+            }
+            
         }
 
         private void ComboBoxMateria()
@@ -187,14 +267,12 @@ namespace UX1
                 {
                     cbFAHDia1.Items.Add("Sabado");
                 }
-                
-                cbFAHDia1.SelectedIndex = 1;
-                string day2 = cbFAHDia1.Text;
-                cbFAHDia1.Items.Remove(day2);
 
+                string day2 =  cbFAHDia1.Items[1].ToString();
+                cbFAHDia1.Items.Remove(day2);
                 cbFAHDia2.Items.Add(day2);
-                cbFAHDia2.SelectedIndex = 0;
                 cbFAHDia1.SelectedIndex = 0;
+                cbFAHDia2.SelectedIndex = 0;
                 cbFAHDia1.Enabled = false;
                 cbFAHDia2.Enabled = false;
             }
@@ -372,6 +450,11 @@ namespace UX1
         private void cbFAHDia1_TextChanged(object sender, EventArgs e)
         {
             ComboBoxHora1();
+        }
+
+        private void cbFAHDia2_TextChanged(object sender, EventArgs e)
+        {
+            ComboBoxHora2();
         }
     }
 }
