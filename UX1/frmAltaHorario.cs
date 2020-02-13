@@ -30,7 +30,10 @@ namespace UX1
 
         private void ComboBoxCarrera() 
         {
-            DataTableReader reader = db.getInfo("carrera").CreateDataReader();
+            //Obtains and reads all the subjects related to a career.
+            List<string> parametros = new List<string>();
+            parametros.Add(cbFAHGrupo.Text);
+            DataTableReader reader = db.SCAN("carrera",1).CreateDataReader();
 
             while (reader.Read())
             {
@@ -64,10 +67,7 @@ namespace UX1
         {
             //Obtains and reads all the subjects related to a career.
             List<string> parametros = new List<string>();
-            parametros.Add(cbFAHCampus.Text);
-            parametros.Add(cbFAHPeriodo.Text);
             parametros.Add(cbFAHGrupo.Text);
-            parametros.Add(cbFAHCarrera.Text);
             DataTableReader reader = db.ExecSP("SPMat_Ca_Gru_Pe_Cam", parametros).CreateDataReader();
 
             //Assigns subjects to combobox.
@@ -85,7 +85,6 @@ namespace UX1
         {
             //Obtains and reads all the subjects related to a career.
             List<string> parametros = new List<string>();
-            parametros.Add(cbFAHCampus.Text);
             DataTableReader reader = db.ExecSP("SPPeriodo_Campus", parametros).CreateDataReader();
 
             //Assigns subjects to combobox.
@@ -93,13 +92,14 @@ namespace UX1
             {
                 cbFAHPeriodo.Items.Add(reader["periodo"].ToString());
             }
+            cbFAHPeriodo.SelectedIndex = 0;
+            
         }
         private void ComboBoxGrupo()
         {
             //Obtains and reads all the subjects related to a career.
             List<string> parametros = new List<string>();
-            parametros.Add(cbFAHCampus.Text);
-            parametros.Add(cbFAHPeriodo.Text);
+            parametros.Add(cbFAHCarrera.Text);
             DataTableReader reader = db.ExecSP("SPGrupo_Periodo_Campus", parametros).CreateDataReader();
 
             //Assigns subjects to combobox.
@@ -304,6 +304,7 @@ namespace UX1
 
         private void cbFAHCarrera_TextChanged(object sender, EventArgs e)
         {
+            cbFAHGrupo.Items.Clear();
             cbFAHMateria.Items.Clear();
             cbFAHDia1.Items.Clear();
             cbFAHHora1.Items.Clear();
@@ -311,7 +312,8 @@ namespace UX1
             cbFAHDia2.Items.Clear();
             cbFAHHora3.Items.Clear();
             cbFAHHora4.Items.Clear();
-            ComboBoxMateria();
+            ComboBoxGrupo();
+            
         }
 
         private void cbFAHCampus_TextChanged(object sender, EventArgs e)
@@ -340,12 +342,11 @@ namespace UX1
             cbFAHDia2.Items.Clear();
             cbFAHHora3.Items.Clear();
             cbFAHHora4.Items.Clear();
-            ComboBoxGrupo();
+            ComboBoxCarrera();
         }
 
         private void cbFAHGrupo_TextChanged(object sender, EventArgs e)
         {
-            cbFAHCarrera.Items.Clear();
             cbFAHMateria.Items.Clear();
             cbFAHDia1.Items.Clear();
             cbFAHHora1.Items.Clear();
@@ -353,7 +354,7 @@ namespace UX1
             cbFAHDia2.Items.Clear();
             cbFAHHora3.Items.Clear();
             cbFAHHora4.Items.Clear();
-            ComboBoxCarrera();
+            ComboBoxMateria();
         }
 
         private void cbFAHMateria_TextChanged(object sender, EventArgs e)

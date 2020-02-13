@@ -428,7 +428,7 @@ namespace Kardex.Layers
         //Obtiene todos los parametros del SP automaticamente y devuelve un DataTable
         public DataTable ExecSP(string querySP, List<string> parametros)
         {
-            
+            System.Diagnostics.Debug.WriteLine("\n----- Intentado ejecutar SP: " + querySP + " -----");
             DataTable dt = new DataTable();
             // SPResult es la variable que se encarga de guardar el mensaje resultante de un SP (StoredProcedure).
             string SPResult = "";
@@ -522,14 +522,14 @@ namespace Kardex.Layers
             // Se limpian variables para uso posterior de la funcion.
             NombreParametros.Clear();
             i = 0;
-            
+            System.Diagnostics.Debug.WriteLine("----- SP: " + querySP + ", ¡Ejecutado con exito! -----");
             return dt;
         }
 
         //Obtiene todos los parametros del SP automaticamente y devuelve un INT
         public int ExecSPReturnInt(string querySP, List<string> parametros)
         {
-
+            System.Diagnostics.Debug.WriteLine("\n----- Intentado ejecutar SP: " + querySP + " -----");
             string SPResult = "";
             bool SPResultDetected = false;
             bool intDetected = false;
@@ -612,6 +612,7 @@ namespace Kardex.Layers
             // Se limpian variables para uso posterior de la funcion.
             NombreParametros.Clear();
             i = 0;
+            System.Diagnostics.Debug.WriteLine("----- SP: " + querySP + ", ¡Ejecutado con exito! -----");
             return ResultFromSP;
         }
 
