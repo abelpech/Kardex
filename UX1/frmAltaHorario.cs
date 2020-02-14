@@ -203,6 +203,68 @@ namespace UX1
             }
         }
 
+        /// <summary>
+        /// 
+        /// Obtiene el Dia completo o acorta el dia con acronimo<br/>
+        /// 1: Obtener el dia completo <br/>
+        /// 2: Acortar a acronimo
+        /// </summary>
+        /// <param name="dia">Dia para afectar.</param>
+        /// <param name="opcion">Int para saber como afectar el dia (1 o 2).</param>
+        private string ObtenerNombreDeDiasCompleto(string dia, int opcion)
+        {
+            
+            switch (opcion)
+            {
+                case 1:
+                    switch (dia)
+                    {
+                        case "LUN":
+                            dia = "Lunes";
+                            break;
+                        case "MAR":
+                            dia = "Martes";
+                            break;
+                        case "MIE":
+                            dia = "Miercoles";
+                            break;
+                        case "JUE":
+                            dia = "Jueves";
+                            break;
+                        case "VIE":
+                            dia = "Viernes";
+                            break;
+                        case "SAB":
+                            dia = "Sabado";
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch (dia)
+                    {
+                        case "Lunes":
+                            dia = "LUN";
+                            break;
+                        case "Martes":
+                            dia = "MAR";
+                            break;
+                        case "Miercoles":
+                            dia = "MIE";
+                            break;
+                        case "Jueves":
+                            dia = "JUE";
+                            break;
+                        case "Viernes":
+                            dia = "VIE";
+                            break;
+                        case "Sabado":
+                            dia = "SAB";
+                            break;
+                    }
+                    break;
+            }
+            return dia;
+        }
         private void ComboBoxDia1()
         {
             int LUN = 0;
@@ -237,7 +299,7 @@ namespace UX1
             parametros[5] = "SAB";
             SAB = db.ExecSPReturnInt("SPDias_Materia_Carrera_Campus", parametros);
             //Gives you the number of times that each day is involved for that subject.
-            //MessageBox.Show("LUN:"+LUN+" MAR:"+MAR+" MIE:"+MIE+" JUE:"+JUE +" VIE:" + VIE + " SAB:" + SAB);
+                //MessageBox.Show("LUN:"+LUN+" MAR:"+MAR+" MIE:"+MIE+" JUE:"+JUE +" VIE:" + VIE + " SAB:" + SAB);
 
 
             if ((LUN + MAR + MIE + JUE + VIE + SAB) >= 2)
@@ -281,12 +343,38 @@ namespace UX1
             {
                 cbFAHDia1.Enabled = true;
                 cbFAHDia2.Enabled = true;
+
                 cbFAHDia1.Items.Add("Lunes");
                 cbFAHDia1.Items.Add("Martes");
                 cbFAHDia1.Items.Add("Miercoles");
                 cbFAHDia1.Items.Add("Jueves");
                 cbFAHDia1.Items.Add("Viernes");
                 cbFAHDia1.Items.Add("Sabado");
+
+                cbFAHDia2.Items.Add("Lunes");
+                cbFAHDia2.Items.Add("Martes");
+                cbFAHDia2.Items.Add("Miercoles");
+                cbFAHDia2.Items.Add("Jueves");
+                cbFAHDia2.Items.Add("Viernes");
+                cbFAHDia2.Items.Add("Sabado");
+
+                parametros.Clear();
+                parametros.Add(cbFAHGrupo.Text);
+                DataTableReader reader2 = db.ExecSP("DiasInvolucrados", parametros).CreateDataReader();
+                while (reader2.Read())
+                {
+                    if(cbFAHDia1.Items.Contains(ObtenerNombreDeDiasCompleto(reader2["dia1"].ToString(), 1)))
+                        cbFAHDia1.Items.Remove(ObtenerNombreDeDiasCompleto(reader2["dia1"].ToString(), 1));
+                    else
+                        cbFAHDia2.Items.Remove(ObtenerNombreDeDiasCompleto(reader2["dia1"].ToString(), 1));
+
+                    if (cbFAHDia2.Items.Contains(ObtenerNombreDeDiasCompleto(reader2["dia2"].ToString(), 1)))
+                        cbFAHDia2.Items.Remove(ObtenerNombreDeDiasCompleto(reader2["dia2"].ToString(), 1));
+                    else
+                        cbFAHDia1.Items.Remove(ObtenerNombreDeDiasCompleto(reader2["dia2"].ToString(), 1));
+                    
+                }
+
             }
             //if (LUN <2)
             //{
