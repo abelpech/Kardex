@@ -360,7 +360,7 @@ namespace UX1
 
                 parametros.Clear();
                 parametros.Add(cbFAHGrupo.Text);
-                DataTableReader reader2 = db.ExecSP("DiasInvolucrados", parametros).CreateDataReader();
+                DataTableReader reader2 = db.ExecSP("SPDiasInvolucrados", parametros).CreateDataReader();
                 while (reader2.Read())
                 {
                     if(cbFAHDia1.Items.Contains(ObtenerNombreDeDiasCompleto(reader2["dia1"].ToString(), 1)))
