@@ -74,19 +74,32 @@ namespace UX1
             
             DataTableReader reader = db.ExecSP("SPHoras_Dias_Materia_Carrera_Campus", parametros).CreateDataReader();
 
-            //Assigns subjects to combobox.
-            while (reader.Read())
+            if (reader.HasRows)
             {
-                cbFAHHora1.Items.Add(reader["horainicio1"].ToString());
-                cbFAHHora2.Items.Add(reader["horafinal1"].ToString());
-                
+                //Assigns subjects to combobox.
+                while (reader.Read())
+                {
+                    cbFAHHora1.Items.Add(reader["horainicio1"].ToString());
+                    cbFAHHora2.Items.Add(reader["horafinal1"].ToString());
+
+                }
+                if (cbFAHHora1.Items.Count > 0 && cbFAHHora2.Items.Count > 0)
+                {
+                    cbFAHHora1.SelectedIndex = 0;
+                    cbFAHHora2.SelectedIndex = 0;
+                }
             }
-            if(cbFAHHora1.Items.Count >0 && cbFAHHora2.Items.Count >0)
+            else
             {
-                cbFAHHora1.SelectedIndex = 0;
-                cbFAHHora2.SelectedIndex = 0;
+                DataTableReader reader3 = db.ExecSP("SPHorasInvolucradas", parametros).CreateDataReader();
+                while (reader3.Read())
+                {
+
+                    cbFAHHora1.Items.Add(reader3["horainicio2"].ToString());
+                    cbFAHHora2.Items.Add(reader3["horafinal2"].ToString());
+
+                }
             }
-            
         }
         private void ComboBoxHora2()
         {
@@ -138,7 +151,14 @@ namespace UX1
             }
             else
             {
+                DataTableReader reader3 = db.ExecSP("SPHorasInvolucradas", parametros).CreateDataReader();
+                while (reader3.Read())
+                {
 
+                    cbFAHHora3.Items.Add(reader3["horainicio2"].ToString());
+                    cbFAHHora4.Items.Add(reader3["horafinal2"].ToString());
+
+                }
             }
             
         }
