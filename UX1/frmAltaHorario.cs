@@ -676,12 +676,16 @@ namespace UX1
 
         private void cbFAHDia1_TextChanged(object sender, EventArgs e)
         {
+            cbFAHHora1.Items.Clear();
+            cbFAHHora2.Items.Clear();
             ComboBoxHora1();
             HabilitarODeshabilitarBoton();
         }
 
         private void cbFAHDia2_TextChanged(object sender, EventArgs e)
         {
+            cbFAHHora3.Items.Clear();
+            cbFAHHora4.Items.Clear();
             ComboBoxHora2();
             HabilitarODeshabilitarBoton();
         }
