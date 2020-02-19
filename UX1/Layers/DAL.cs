@@ -500,6 +500,38 @@ namespace Kardex.Layers
             return mycollection;
         }
 
+        public DataTable HorariosAsignar(string carrera)
+        {
+            string query;
+            DataTable dt = new DataTable();
+            try
+            {
+                query = "SPHorariosAsignar '" + carrera + "'";
+                dt = conn.ExcQryDt(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+            }
+
+            return dt;
+        }
+
+        public DataTable HorariosAsignados(string carrera, string materia)
+        {
+            string query;
+            DataTable dt = new DataTable();
+            try
+            {
+                query = "SPHorariosAsignados '" + carrera + "', '" + materia + "'";
+                dt = conn.ExcQryDt(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+            }
+            return dt;
+        }
     }
 
 

@@ -497,5 +497,17 @@ namespace Kardex.Layers
             return mycollection;
         }
 
+        //Horario
+
+        public DataTable HorariosAsignar(string carrera)
+        {
+                return dal.HorariosAsignar(carrera);
+        }
+
+        public DataTable HorariosAsignados(string carrera, string materia)
+        {
+            return dal.HorariosAsignados(carrera, materia);
+        }
+
     }
 }
