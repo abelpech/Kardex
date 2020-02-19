@@ -20,12 +20,107 @@ namespace UX1
         {
             InitializeComponent();
             ComboBoxCampus();
-            
+            HabilitarODeshabilitarBoton();
+
+
+        }
+
+        private void CambiarGuardarABorrar()
+        {
+            btnGuardar.Text = "Borrar";
+            btnGuardar.Enabled = true;
+        }
+        private void CambiarBorrarAGuardar()
+        {
+            btnGuardar.Text = "Guardar";
+            btnGuardar.Enabled = true;
+        }
+        private void HabilitarODeshabilitarBoton()
+        {
+            if (cbFAHCampus.Text != "" && cbFAHHora2.Text != "" && cbFAHHora4.Text != "")
+            {
+                btnGuardar.Enabled = true;
+                switch (btnGuardar.Text)
+                {
+                    case "Guardar":
+                        btnGuardar.BackColor = Color.Green;
+                        break;
+
+                    case "Borrar":
+                        btnGuardar.BackColor = Color.Red;
+                        break;
+                }
+            }
+            else
+            {
+                btnGuardar.Enabled = false;
+                btnGuardar.BackColor = Color.Gray;
+            }
+        }
+        private void LimpiarTodo()
+        {
+            cbFAHCampus.Items.Clear();
+            cbFAHPeriodo.Items.Clear();
+            cbFAHCarrera.Items.Clear();
+            cbFAHGrupo.Items.Clear();
+            cbFAHMateria.Items.Clear();
+            cbFAHDia1.Items.Clear();
+            cbFAHDia2.Items.Clear();
+            cbFAHHora1.Items.Clear();
+            cbFAHHora2.Items.Clear();
+            cbFAHHora3.Items.Clear();
+            cbFAHHora4.Items.Clear();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (btnGuardar.Text == "Guardar")
+            {
+                if ((cbFAHDia1.Text == cbFAHDia2.Text) && (cbFAHHora1.Text == cbFAHHora3.Text) && (cbFAHHora2.Text == cbFAHHora4.Text))
+                {
+                    MessageBox.Show("Alerta: No se puede establecer dos dias en iguales en el mismo horario para la materia.");
+                }
+                else
+                {
+                    //Creates a parameters list to send into SP
+                    List<string> parametros = new List<string>();
+                    parametros.Add(cbFAHCampus.Text);
+                    parametros.Add(cbFAHPeriodo.Text);
+                    parametros.Add(cbFAHCarrera.Text);
+                    parametros.Add(cbFAHGrupo.Text);
+                    parametros.Add(cbFAHMateria.Text);
+                    parametros.Add(ObtenerNombreDeDiasCompleto(cbFAHDia1.Text, 2));
+                    parametros.Add(ObtenerNombreDeDiasCompleto(cbFAHDia2.Text, 2));
+                    parametros.Add(cbFAHHora1.Text);
+                    parametros.Add(cbFAHHora2.Text);
+                    parametros.Add(cbFAHHora3.Text);
+                    parametros.Add(cbFAHHora4.Text);
 
+                    db.ExecSP("SPAltaHorario", parametros);
+
+                    cbFAHMateria.Text = "";
+                }
+            }
+            else if(btnGuardar.Text == "Borrar")
+            {
+                //Creates a parameters list to send into SP
+                List<string> parametros = new List<string>();
+                parametros.Add(cbFAHCampus.Text);
+                parametros.Add(cbFAHPeriodo.Text);
+                parametros.Add(cbFAHCarrera.Text);
+                parametros.Add(cbFAHGrupo.Text);
+                parametros.Add(cbFAHMateria.Text);
+                parametros.Add(ObtenerNombreDeDiasCompleto(cbFAHDia1.Text, 2));
+                parametros.Add(ObtenerNombreDeDiasCompleto(cbFAHDia2.Text, 2));
+                parametros.Add(cbFAHHora1.Text);
+                parametros.Add(cbFAHHora2.Text);
+                parametros.Add(cbFAHHora3.Text);
+                parametros.Add(cbFAHHora4.Text);
+
+                db.ExecSP("SPBajaHorario", parametros);
+
+                cbFAHMateria.Text = "";
+            }
         }
 
         private void ComboBoxCarrera() 
@@ -43,6 +138,7 @@ namespace UX1
 
         private void ComboBoxHora1()
         {
+            bool activo1 = false;
             //Obtains and reads all the subjects related to a career.
             List<string> parametros = new List<string>();
             parametros.Add(cbFAHCampus.Text);
@@ -76,6 +172,7 @@ namespace UX1
 
             if (reader.HasRows)
             {
+                cbFAHHora1.Enabled = false;
                 //Assigns subjects to combobox.
                 while (reader.Read())
                 {
@@ -91,12 +188,18 @@ namespace UX1
             }
             else
             {
-                DataTableReader reader3 = db.ExecSP("SPHorasInvolucradas", parametros).CreateDataReader();
+                
+                cbFAHHora1.Enabled = true;
+                parametros.Clear();
+                parametros.Add(cbFAHGrupo.Text);
+                parametros.Add(ObtenerNombreDeDiasCompleto(cbFAHDia1.Text,2));
+                parametros.Add("1");
+                DataTableReader reader3 = db.ExecSP("SPHorarioHabilGrupo", parametros).CreateDataReader();
                 while (reader3.Read())
                 {
 
-                    cbFAHHora1.Items.Add(reader3["horainicio2"].ToString());
-                    cbFAHHora2.Items.Add(reader3["horafinal2"].ToString());
+                    cbFAHHora1.Items.Add(reader3["horainicio"].ToString());
+                    cbFAHHora2.Items.Add(reader3["horafinal"].ToString());
 
                 }
             }
@@ -135,6 +238,10 @@ namespace UX1
             DataTableReader reader = db.ExecSP("SPHoras_Dias_Materia_Carrera_Campus", parametros).CreateDataReader();
             if (reader.HasRows)
             {
+                cbFAHHora3.Enabled = false;
+
+                //Establece el boton de Guardar a Borrar
+                CambiarGuardarABorrar();
                 //Assigns subjects to combobox.
                 while (reader.Read())
                 {
@@ -151,12 +258,18 @@ namespace UX1
             }
             else
             {
-                DataTableReader reader3 = db.ExecSP("SPHorasInvolucradas", parametros).CreateDataReader();
+                CambiarBorrarAGuardar();
+                cbFAHHora3.Enabled = true;
+                parametros.Clear();
+                parametros.Add(cbFAHGrupo.Text);
+                parametros.Add(ObtenerNombreDeDiasCompleto(cbFAHDia2.Text, 2));
+                parametros.Add("1");
+                DataTableReader reader3 = db.ExecSP("SPHorarioHabilGrupo", parametros).CreateDataReader();
                 while (reader3.Read())
                 {
 
-                    cbFAHHora3.Items.Add(reader3["horainicio2"].ToString());
-                    cbFAHHora4.Items.Add(reader3["horafinal2"].ToString());
+                    cbFAHHora3.Items.Add(reader3["horainicio"].ToString());
+                    cbFAHHora4.Items.Add(reader3["horafinal"].ToString());
 
                 }
             }
@@ -173,6 +286,7 @@ namespace UX1
             //Assigns subjects to combobox.
             while (reader.Read())
             {
+                
                 cbFAHMateria.Items.Add(reader["materia"].ToString());
             }
         }
@@ -499,7 +613,8 @@ namespace UX1
             cbFAHHora3.Items.Clear();
             cbFAHHora4.Items.Clear();
             ComboBoxGrupo();
-            
+            HabilitarODeshabilitarBoton();
+
         }
 
         private void cbFAHCampus_TextChanged(object sender, EventArgs e)
@@ -515,6 +630,7 @@ namespace UX1
             cbFAHHora3.Items.Clear();
             cbFAHHora4.Items.Clear();
             ComboBoxPeriodo();
+            HabilitarODeshabilitarBoton();
         }
 
         private void cbFAHPeriodo_TextChanged(object sender, EventArgs e)
@@ -529,6 +645,7 @@ namespace UX1
             cbFAHHora3.Items.Clear();
             cbFAHHora4.Items.Clear();
             ComboBoxCarrera();
+            HabilitarODeshabilitarBoton();
         }
 
         private void cbFAHGrupo_TextChanged(object sender, EventArgs e)
@@ -541,6 +658,7 @@ namespace UX1
             cbFAHHora3.Items.Clear();
             cbFAHHora4.Items.Clear();
             ComboBoxMateria();
+            HabilitarODeshabilitarBoton();
         }
 
         private void cbFAHMateria_TextChanged(object sender, EventArgs e)
@@ -553,16 +671,31 @@ namespace UX1
             cbFAHHora3.Items.Clear();
             cbFAHHora4.Items.Clear();
             ComboBoxDia1();
+            HabilitarODeshabilitarBoton();
         }
 
         private void cbFAHDia1_TextChanged(object sender, EventArgs e)
         {
             ComboBoxHora1();
+            HabilitarODeshabilitarBoton();
         }
 
         private void cbFAHDia2_TextChanged(object sender, EventArgs e)
         {
             ComboBoxHora2();
+            HabilitarODeshabilitarBoton();
+        }
+
+        private void cbFAHHora1_TextChanged(object sender, EventArgs e)
+        {
+            cbFAHHora2.SelectedIndex = cbFAHHora1.SelectedIndex;
+            HabilitarODeshabilitarBoton();
+        }
+
+        private void cbFAHHora3_TextChanged(object sender, EventArgs e)
+        {
+            cbFAHHora4.SelectedIndex = cbFAHHora3.SelectedIndex;
+            HabilitarODeshabilitarBoton();
         }
     }
 }
