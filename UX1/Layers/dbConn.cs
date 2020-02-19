@@ -606,6 +606,7 @@ namespace Kardex.Layers
             {
                 SPResult = cmd.Parameters["@mensaje"].Value.ToString();
                 System.Diagnostics.Debug.WriteLine("BD respondio: " + SPResult);
+                MessageBox.Show(SPResult);
             }
 
 

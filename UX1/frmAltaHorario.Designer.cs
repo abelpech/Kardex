@@ -114,6 +114,7 @@
             // 
             this.cbFAHHora4.DropDownHeight = 200;
             this.cbFAHHora4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFAHHora4.Enabled = false;
             this.cbFAHHora4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFAHHora4.FormattingEnabled = true;
             this.cbFAHHora4.IntegralHeight = false;
@@ -135,11 +136,13 @@
             this.cbFAHHora3.Name = "cbFAHHora3";
             this.cbFAHHora3.Size = new System.Drawing.Size(168, 38);
             this.cbFAHHora3.TabIndex = 26;
+            this.cbFAHHora3.TextChanged += new System.EventHandler(this.cbFAHHora3_TextChanged);
             // 
             // cbFAHHora2
             // 
             this.cbFAHHora2.DropDownHeight = 200;
             this.cbFAHHora2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFAHHora2.Enabled = false;
             this.cbFAHHora2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFAHHora2.FormattingEnabled = true;
             this.cbFAHHora2.IntegralHeight = false;
@@ -161,6 +164,7 @@
             this.cbFAHHora1.Name = "cbFAHHora1";
             this.cbFAHHora1.Size = new System.Drawing.Size(168, 38);
             this.cbFAHHora1.TabIndex = 24;
+            this.cbFAHHora1.TextChanged += new System.EventHandler(this.cbFAHHora1_TextChanged);
             // 
             // label7
             // 
