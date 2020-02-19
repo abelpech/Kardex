@@ -701,5 +701,10 @@ namespace UX1
             cbFAHHora4.SelectedIndex = cbFAHHora3.SelectedIndex;
             HabilitarODeshabilitarBoton();
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
