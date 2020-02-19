@@ -136,7 +136,7 @@ namespace UX1
 
             table.Style.ShowHeader = true;
 
-            PdfImage image = PdfImage.FromFile(Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "Resources\\cesunl.png"));
+            PdfImage image = PdfImage.FromFile(Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "Resources\\reporte.jpeg"));
             float width = image.Width * 0.75f;
             float height = image.Height * 0.75f;
             float x = (page.Canvas.ClientSize.Width - width) / 2;
