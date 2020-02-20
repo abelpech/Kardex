@@ -361,6 +361,38 @@ namespace Kardex.Layers
             return reader2;
         }
 
+        public DataTable SCAN_WHERE(string query, int distinct, string WHERE)
+        {
+            string dist = "";
+            if (distinct == 1)
+            {
+                dist = ("Select distinct * from " + query + " " + WHERE);
+            }
+            else
+            {
+                dist = ("Select * from " + query + " " + WHERE);
+            }
+            SqlCommand cmd = new SqlCommand((dist), conn);
+
+            //Valores de parametros para distintas listas:
+            //alumno - Lista de todos los alumnos
+            //materia - Lista de todas las materias
+            //carrera - Lista de todas las carreras
+            //maestro - Lista de todos los maestros
+            //periodo - Lista de todos los periodos
+
+            conn.Open();
+
+            DataTable reader2 = new DataTable();
+            reader2.Load(cmd.ExecuteReader());
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            lista.Clear();
+
+            conn.Close();
+            return reader2;
+        }
+
 
         public void ExcQryCalificacion(string query)
         {

@@ -128,7 +128,7 @@ namespace UX1
             //Obtains and reads all the subjects related to a career.
             List<string> parametros = new List<string>();
             parametros.Add(cbFAHGrupo.Text);
-            DataTableReader reader = db.SCAN("carrera",1).CreateDataReader();
+            DataTableReader reader = db.SCAN_WHERE("carrera",1,"where activo=1").CreateDataReader();
 
             while (reader.Read())
             {
