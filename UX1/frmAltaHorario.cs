@@ -290,10 +290,6 @@ namespace UX1
                 cbFAHMateria.Items.Add(reader["materia"].ToString());
             }
         }
-        private void ComboBoxDia2()
-        {
-
-        }
 
         private void ComboBoxPeriodo()
         {
@@ -401,205 +397,46 @@ namespace UX1
         }
         private void ComboBoxDia1()
         {
-            int LUN = 0;
-            int MAR = 0;
-            int MIE = 0;
-            int JUE = 0;
-            int VIE = 0;
-            int SAB = 0;
-
-            int opcion = 0;
-            bool founded = false;
-            bool logrado = false;
             //Obtains and reads all days.
             List<string> parametros = new List<string>();
-            parametros.Add(cbFAHCampus.Text);
-            parametros.Add(cbFAHPeriodo.Text);
             parametros.Add(cbFAHGrupo.Text);
-            parametros.Add(cbFAHCarrera.Text);
             parametros.Add(cbFAHMateria.Text);
-            parametros.Add("LUN");
-            
-            DataTableReader reader = db.ExcQryDt("select distinct dia from horario").CreateDataReader();
-            LUN = db.ExecSPReturnInt("SPDias_Materia_Carrera_Campus", parametros);
-            parametros[5] = "MAR";
-            MAR = db.ExecSPReturnInt("SPDias_Materia_Carrera_Campus", parametros);
-            parametros[5] = "MIE";
-            MIE = db.ExecSPReturnInt("SPDias_Materia_Carrera_Campus", parametros);
-            parametros[5] = "JUE";
-            JUE = db.ExecSPReturnInt("SPDias_Materia_Carrera_Campus", parametros);
-            parametros[5] = "VIE";
-            VIE = db.ExecSPReturnInt("SPDias_Materia_Carrera_Campus", parametros);
-            parametros[5] = "SAB";
-            SAB = db.ExecSPReturnInt("SPDias_Materia_Carrera_Campus", parametros);
-            //Gives you the number of times that each day is involved for that subject.
-                //MessageBox.Show("LUN:"+LUN+" MAR:"+MAR+" MIE:"+MIE+" JUE:"+JUE +" VIE:" + VIE + " SAB:" + SAB);
+            DataTableReader DiasOcup = db.ExecSP("SPDiasHorasDeUnaMateria",parametros).CreateDataReader();
 
-
-            if ((LUN + MAR + MIE + JUE + VIE + SAB) >= 2)
-                //If no more days can be added do this:
+            if (DiasOcup.HasRows)
+            //If no more days can be added do this:
             {
-                if (LUN >0)
+                //Assigns occupied days to combobox
+                while (DiasOcup.Read())
                 {
-                    cbFAHDia1.Items.Add("Lunes");
+                    cbFAHDia1.Items.Add(ObtenerNombreDeDiasCompleto(DiasOcup["Dia1"].ToString(), 1));
+                    cbFAHDia2.Items.Add(ObtenerNombreDeDiasCompleto(DiasOcup["Dia2"].ToString(), 1));
                 }
-                if (MAR > 0)
-                {
-                    cbFAHDia1.Items.Add("Martes");
-                }
-                if (MIE > 0)
-                {
-                    cbFAHDia1.Items.Add("Miercoles");
-                }
-                if (JUE > 0)
-                {
-                    cbFAHDia1.Items.Add("Jueves");
-                }
-                if (VIE > 0)
-                {
-                    cbFAHDia1.Items.Add("Viernes");
-                }
-                if (SAB > 0)
-                {
-                    cbFAHDia1.Items.Add("Sabado");
-                }
-
-                string day2 =  cbFAHDia1.Items[1].ToString();
-                cbFAHDia1.Items.Remove(day2);
-                cbFAHDia2.Items.Add(day2);
                 cbFAHDia1.SelectedIndex = 0;
                 cbFAHDia2.SelectedIndex = 0;
                 cbFAHDia1.Enabled = false;
                 cbFAHDia2.Enabled = false;
             }
             else
-                //If more days can be added do this
+            //If more days can be added do this
             {
                 cbFAHDia1.Enabled = true;
                 cbFAHDia2.Enabled = true;
 
-                cbFAHDia1.Items.Add("Lunes");
-                cbFAHDia1.Items.Add("Martes");
-                cbFAHDia1.Items.Add("Miercoles");
-                cbFAHDia1.Items.Add("Jueves");
-                cbFAHDia1.Items.Add("Viernes");
-                cbFAHDia1.Items.Add("Sabado");
-
-                cbFAHDia2.Items.Add("Lunes");
-                cbFAHDia2.Items.Add("Martes");
-                cbFAHDia2.Items.Add("Miercoles");
-                cbFAHDia2.Items.Add("Jueves");
-                cbFAHDia2.Items.Add("Viernes");
-                cbFAHDia2.Items.Add("Sabado");
-
+                //Establish days for cbDia1 and cbDia2
                 parametros.Clear();
                 parametros.Add(cbFAHGrupo.Text);
-                DataTableReader reader2 = db.ExecSP("SPDiasInvolucrados", parametros).CreateDataReader();
-                while (reader2.Read())
+                parametros.Add(cbFAHDia1.Text);
+                parametros.Add(2.ToString());
+
+                DataTableReader d1 = db.ExecSP("SPHorarioHabilGrupo3", parametros).CreateDataReader();
+
+                while (d1.Read())
                 {
-                    if(cbFAHDia1.Items.Contains(ObtenerNombreDeDiasCompleto(reader2["dia1"].ToString(), 1)))
-                        cbFAHDia1.Items.Remove(ObtenerNombreDeDiasCompleto(reader2["dia1"].ToString(), 1));
-                    else
-                        cbFAHDia2.Items.Remove(ObtenerNombreDeDiasCompleto(reader2["dia1"].ToString(), 1));
-
-                    if (cbFAHDia2.Items.Contains(ObtenerNombreDeDiasCompleto(reader2["dia2"].ToString(), 1)))
-                        cbFAHDia2.Items.Remove(ObtenerNombreDeDiasCompleto(reader2["dia2"].ToString(), 1));
-                    else
-                        cbFAHDia1.Items.Remove(ObtenerNombreDeDiasCompleto(reader2["dia2"].ToString(), 1));
-                    
+                    cbFAHDia1.Items.Add(ObtenerNombreDeDiasCompleto(d1["dia"].ToString(), 1));
+                    cbFAHDia2.Items.Add(ObtenerNombreDeDiasCompleto(d1["dia"].ToString(), 1));
                 }
-
             }
-            //if (LUN <2)
-            //{
-            //    cbFAHDia1.Items.Add("Lunes");
-            //}
-            //if (MAR < 2)
-            //{
-            //    cbFAHDia1.Items.Add("Martes");
-            //}
-            //if (MIE < 2)
-            //{
-            //    cbFAHDia1.Items.Add("Miercoles");
-            //}
-            //if (JUE < 2)
-            //{
-            //    cbFAHDia1.Items.Add("Jueves");
-            //}
-            //if (VIE < 2)
-            //{
-            //    cbFAHDia1.Items.Add("Viernes");
-            //}
-            //if (SAB < 2)
-            //{
-            //    cbFAHDia1.Items.Add("Sabado");
-            //}
-            /*
-            //Assigns subjects to combobox.
-            while (reader.Read())
-            {
-                parametros.Add(reader["dia"].ToString());
-            }
-            
-            //Order Number of Days
-            while(!logrado)
-            {
-                
-                foreach (string day in parametros)
-                {
-                    switch (opcion)
-                    {
-                        case 0:
-                            if (day == "LUN") 
-                            {
-                                cbFAHDia1.Items.Add("Lunes"); 
-                                founded = true;
-                            }
-                            break;
-                        case 1:
-                            if (day == "MAR")
-                            {
-                                cbFAHDia1.Items.Add("Martes");
-                                founded = true;
-                            }
-                            break;
-                        case 2:
-                            if (day == "MIE")
-                            {
-                                cbFAHDia1.Items.Add("Miercoles");
-                                founded = true;
-                            }
-                            break;
-                        case 3:
-                            if (day == "JUE")
-                            {
-                                cbFAHDia1.Items.Add("Jueves");
-                                founded = true;
-                            }
-                            break;
-                        case 4:
-                            if (day == "VIE")
-                            {
-                                cbFAHDia1.Items.Add("Viernes");
-                                founded = true;
-                            }
-                            break;
-                        case 5:
-                            if (day == "SAB")
-                            {
-                                cbFAHDia1.Items.Add("Sabado");
-                                founded = true;
-                            }
-                            break;
-                        default:
-                            logrado = true;
-                            break;
-                    }
-
-                }
-                if (founded) { opcion++; founded = false; }
-            }
-            */
         }
 
         private void cbFAHCarrera_TextChanged(object sender, EventArgs e)
