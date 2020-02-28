@@ -52,6 +52,12 @@
     <Compile Include="frmAltaHorario.Designer.cs">
       <DependentUpon>frmAltaHorario.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAltaHorarioAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAltaHorarioAlumno.Designer.cs">
+      <DependentUpon>frmAltaHorarioAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModificaCalificacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,9 @@
     <EmbeddedResource Include="frmAltaHorario.resx">
       <DependentUpon>frmAltaHorario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAltaHorarioAlumno.resx">
+      <DependentUpon>frmAltaHorarioAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModificaCalificacion.resx">
       <DependentUpon>frmModificaCalificacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -396,6 +405,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Agregar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Agregar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Materia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Materia1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Horario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Usuario.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
