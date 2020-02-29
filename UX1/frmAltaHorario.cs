@@ -194,7 +194,7 @@ namespace UX1
                 parametros.Add(cbFAHGrupo.Text);
                 parametros.Add(ObtenerNombreDeDiasCompleto(cbFAHDia1.Text,2));
                 parametros.Add("1");
-                DataTableReader reader3 = db.ExecSP("SPHorarioHabilGrupo", parametros).CreateDataReader();
+                DataTableReader reader3 = db.ExecSP("SPHorarioHabilGrupo1", parametros).CreateDataReader();
                 while (reader3.Read())
                 {
 
@@ -264,7 +264,7 @@ namespace UX1
                 parametros.Add(cbFAHGrupo.Text);
                 parametros.Add(ObtenerNombreDeDiasCompleto(cbFAHDia2.Text, 2));
                 parametros.Add("1");
-                DataTableReader reader3 = db.ExecSP("SPHorarioHabilGrupo", parametros).CreateDataReader();
+                DataTableReader reader3 = db.ExecSP("SPHorarioHabilGrupo1", parametros).CreateDataReader();
                 while (reader3.Read())
                 {
 
@@ -429,7 +429,7 @@ namespace UX1
                 parametros.Add(cbFAHDia1.Text);
                 parametros.Add(2.ToString());
 
-                DataTableReader d1 = db.ExecSP("SPHorarioHabilGrupo3", parametros).CreateDataReader();
+                DataTableReader d1 = db.ExecSP("SPHorarioHabilGrupo1", parametros).CreateDataReader();
 
                 while (d1.Read())
                 {
