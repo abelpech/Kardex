@@ -490,7 +490,7 @@ namespace Kardex.Layers
             AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
             try
             {
-                string query = "select [maestro] from [maestro] ";
+                string query = "select [nombre] from [maestro] ";
                 mycollection = conn.ExcQryAuto(query);
             }
             catch (Exception ex)
@@ -529,6 +529,39 @@ namespace Kardex.Layers
             catch (Exception ex)
             {
                 MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+            }
+            return dt;
+        }
+
+        public DataTable ConsultaHorarioAlumno(string alumno)
+        {
+            string query;
+            DataTable dt = new DataTable();
+            try
+            {
+                query = "SPConsultaHorarioAlumno '" + alumno + "'";
+                dt = conn.ExcQryDt(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+            }
+            return dt;
+        }
+
+        public DataTable ConsultaHorarioMaestro(string maestro)
+        {
+            string query;
+            DataTable dt = new DataTable();
+            try
+            {
+                query = "SPConsultaHorarioMaestro '" + maestro + "'";
+                dt = conn.ExcQryDt(query);
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+                MessageBox.Show(ex.ToString());
             }
             return dt;
         }

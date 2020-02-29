@@ -19,7 +19,7 @@ using Spire.Pdf.Graphics;
 
 namespace UX1
 {
-    public partial class frmConsultaHorario : Form
+    public partial class frmConsultaHorarioMaestro : Form
     {
         KeyPressValidation kpv = new KeyPressValidation();
         BL bl = new BL();
@@ -27,42 +27,38 @@ namespace UX1
 
         string data = string.Empty;
 
-        public frmConsultaHorario()
+        public frmConsultaHorarioMaestro()
         {
             InitializeComponent();
         }
 
         private void BtnConsulta_Click(object sender, EventArgs e)
         {
-            string carrera = txtCarrera.Text.Trim();
-            string materia = txtMateria.Text.Trim();
+            string maestro = txtMaestro.Text.Trim();
 
-            DataTable dt = bl.HorariosAsignados(carrera, materia);
+            DataTable dt = bl.ConsultaHorarioMaestro(maestro);
                 if (dt.Rows.Count > 0)
                 {
-                    dgvMaterias.DataSource = dt;
-                    dgvMaterias.AllowUserToAddRows = false;
+                    dgvHorario.DataSource = dt;
+                    dgvHorario.AllowUserToAddRows = false;
                 }
                 else
                 {
                     btnLimpiar_Click(sender, e);
-                    MessageBox.Show("No hay materias con dicho criterio", "Aviso", MessageBoxButtons.OK);
+                    MessageBox.Show("No hay horarios disponibles", "Aviso", MessageBoxButtons.OK);
                 }
             }
 
         private void frmConsultaHorario_Load(object sender, EventArgs e)
         {
             AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
-            mycollection = bl.AutoCarrera();
-            txtCarrera.AutoCompleteCustomSource = mycollection;
-            AutoCompleteStringCollection mycollectionMateria = new AutoCompleteStringCollection();
-            mycollectionMateria = bl.AutoMateria();
-            txtMateria.AutoCompleteCustomSource = mycollectionMateria;
+            mycollection = bl.AutoMaestro();
+            txtMaestro.AutoCompleteCustomSource = mycollection;
         }
 
         private void btnExportarPDF_Click(object sender, EventArgs e)
         {
-            if (dgvMaterias.Rows.Count == 0)
+            if(dgvHorario.Rows.Count == 0)
             {
                 MessageBox.Show("Sin datos por EXPORTAR", "Aviso", MessageBoxButtons.OK);
             }
@@ -71,7 +67,7 @@ namespace UX1
                 PdfDocument pdf = new PdfDocument();
                 PdfPageBase page = pdf.Pages.Add();
                 PdfTable table = new PdfTable();
-                table.DataSource = dgvMaterias.DataSource;
+                table.DataSource = dgvHorario.DataSource;
                 table.Style.ShowHeader = true;
 
                 PdfImage image = PdfImage.FromFile(Path.Combine(System.IO.Path.GetFullPath(@"..\..\"), "Resources\\reporte.jpeg"));
@@ -88,9 +84,10 @@ namespace UX1
                 table.Draw(page, new RectangleF(10, 30, 500, 700), tableLayout);
 
 
-                pdf.SaveToFile("C:\\Users\\AbelFH\\Desktop\\Horarios-Asignados.pdf");
+                pdf.SaveToFile("C:\\Users\\AbelFH\\Desktop\\Horario-Maestro.pdf");
                 MessageBox.Show("PDF generado exitosamente", "Aviso", MessageBoxButtons.OK);
             }
+            
         }
 
         private void BeginRowLayout(object sender, BeginRowLayoutEventArgs args)
@@ -107,7 +104,7 @@ namespace UX1
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-            if (dgvMaterias.Rows.Count == 0)
+            if (dgvHorario.Rows.Count == 0)
             {
                 MessageBox.Show("Sin datos por EXPORTAR", "Aviso", MessageBoxButtons.OK);
             }
@@ -119,20 +116,20 @@ namespace UX1
                 app.Visible = true;
                 worksheet = workbook.Sheets[1];
                 worksheet = workbook.ActiveSheet;
-                worksheet.Name = "Horarios-Asignados";
-                for (int i = 1; i < dgvMaterias.Columns.Count + 1; i++)
+                worksheet.Name = "Horario-Maestro";
+                for (int i = 1; i < dgvHorario.Columns.Count + 1; i++)
                 {
-                    worksheet.Cells[1, i] = dgvMaterias.Columns[i - 1].HeaderText;
+                    worksheet.Cells[1, i] = dgvHorario.Columns[i - 1].HeaderText;
 
                 }
-                for (int i = 0; i < dgvMaterias.Rows.Count; i++)
+                for (int i = 0; i < dgvHorario.Rows.Count; i++)
                 {
-                    for (int j = 0; j < dgvMaterias.Columns.Count; j++)
+                    for (int j = 0; j < dgvHorario.Columns.Count; j++)
                     {
-                        worksheet.Cells[i + 2, j + 1] = dgvMaterias.Rows[i].Cells[j].Value.ToString();
+                        worksheet.Cells[i + 2, j + 1] = dgvHorario.Rows[i].Cells[j].Value.ToString();
                     }
                 }
-                workbook.SaveAs("C:\\Users\\AbelFH\\Desktop\\Horarios-Asignados.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                workbook.SaveAs("C:\\Users\\AbelFH\\Desktop\\Horario-Maestro.xlsx", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
                 app.Quit();
                 MessageBox.Show("EXCEL generado exitosamente", "Aviso", MessageBoxButtons.OK);
             }
@@ -140,13 +137,13 @@ namespace UX1
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtCarrera.Text = "";
-            txtMateria.Text = "";
-            DataTable dt = bl.HorariosAsignados("","");
+            txtMaestro.Text = "";
+
+            DataTable dt = bl.ConsultaHorarioMaestro("");
 
             if (dt.Rows.Count > 0)
             {
-                dgvMaterias.DataSource = dt;
+                dgvHorario.DataSource = dt;
                 dt.Rows.Clear();
             }
 

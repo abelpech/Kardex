@@ -34,16 +34,27 @@ namespace Kardex.Layers
             //Creamos objeto DataTable y SqlCommand
             DataTable dt = new DataTable();
             SqlCommand cmd = new SqlCommand();
-
-            //Le agregamos a la instncia cmd su query, tiempo de ejecucion y donde se va a ejecutar
-            cmd.CommandText = query;
-            cmd.CommandTimeout = 0;
-            cmd.Connection = conn;
-
-            //Abrimos la coneccion, cargamos iformacion al DataTable y cerramos coneccion.
-            conn.Open();
-            dt.Load(cmd.ExecuteReader());
             conn.Close();
+
+            try
+            {
+                
+                //Le agregamos a la instncia cmd su query, tiempo de ejecucion y donde se va a ejecutar
+                cmd.CommandText = query;
+                cmd.CommandTimeout = 0;
+                cmd.Connection = conn;
+                //Abrimos la coneccion, cargamos iformacion al DataTable y cerramos coneccion.
+                conn.Open();
+                dt.Load(cmd.ExecuteReader());
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
             return dt;
 
         }
@@ -60,7 +71,6 @@ namespace Kardex.Layers
             cmd.ExecuteNonQuery();
             
             conn.Close();
-
 
         }
 
@@ -138,7 +148,7 @@ namespace Kardex.Layers
             cmd.Connection = conn;
             conn.Open();
             SqlDataReader registros = cmd.ExecuteReader();
-            
+
             AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
 
             while (registros.Read())

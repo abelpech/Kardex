@@ -58,6 +58,18 @@
     <Compile Include="frmAltaHorario.Designer.cs">
       <DependentUpon>frmAltaHorario.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultaHorarioMaestro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaHorarioMaestro.designer.cs">
+      <DependentUpon>frmConsultaHorarioMaestro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultaHorarioAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaHorarioAlumno.designer.cs">
+      <DependentUpon>frmConsultaHorarioAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultaHorario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +262,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAltaHorario.resx">
       <DependentUpon>frmAltaHorario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaHorarioMaestro.resx">
+      <DependentUpon>frmConsultaHorarioMaestro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaHorarioAlumno.resx">
+      <DependentUpon>frmConsultaHorarioAlumno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaHorario.resx">
       <DependentUpon>frmConsultaHorario.cs</DependentUpon>
