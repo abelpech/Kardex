@@ -195,13 +195,18 @@ namespace UX1
                 parametros.Add(ObtenerNombreDeDiasCompleto(cbFAHDia1.Text,2));
                 parametros.Add("1");
                 DataTableReader reader3 = db.ExecSP("SPHorarioHabilGrupo1", parametros).CreateDataReader();
-                while (reader3.Read())
+                if (reader3.HasRows)
                 {
+                    while (reader3.Read())
+                    {
 
-                    cbFAHHora1.Items.Add(reader3["horainicio"].ToString());
-                    cbFAHHora2.Items.Add(reader3["horafinal"].ToString());
+                        cbFAHHora1.Items.Add(reader3["horainicio"].ToString());
+                        cbFAHHora2.Items.Add(reader3["horafinal"].ToString());
 
+                    }
+                    
                 }
+                reader3.Close();
             }
         }
         private void ComboBoxHora2()
@@ -265,13 +270,18 @@ namespace UX1
                 parametros.Add(ObtenerNombreDeDiasCompleto(cbFAHDia2.Text, 2));
                 parametros.Add("1");
                 DataTableReader reader3 = db.ExecSP("SPHorarioHabilGrupo1", parametros).CreateDataReader();
-                while (reader3.Read())
+                if (reader3.HasRows)
                 {
+                    while (reader3.Read())
+                    {
 
-                    cbFAHHora3.Items.Add(reader3["horainicio"].ToString());
-                    cbFAHHora4.Items.Add(reader3["horafinal"].ToString());
+                        cbFAHHora3.Items.Add(reader3["horainicio"].ToString());
+                        cbFAHHora4.Items.Add(reader3["horafinal"].ToString());
 
+                    }
                 }
+                
+                reader3.Close();
             }
             
         }
@@ -426,8 +436,8 @@ namespace UX1
                 //Establish days for cbDia1 and cbDia2
                 parametros.Clear();
                 parametros.Add(cbFAHGrupo.Text);
-                parametros.Add(cbFAHDia1.Text);
-                parametros.Add(2.ToString());
+                parametros.Add("");
+                parametros.Add("2");
 
                 DataTableReader d1 = db.ExecSP("SPHorarioHabilGrupo1", parametros).CreateDataReader();
 
