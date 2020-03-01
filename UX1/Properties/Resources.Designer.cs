@@ -93,16 +93,6 @@ namespace UX1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Agregar {
-            get {
-                object obj = ResourceManager.GetObject("Agregar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Agregar1 {
             get {
                 object obj = ResourceManager.GetObject("Agregar1", resourceCulture);

@@ -452,9 +452,6 @@
     <None Include="Resources\1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Agregar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Agregar1.png" />
   </ItemGroup>
   <ItemGroup>
