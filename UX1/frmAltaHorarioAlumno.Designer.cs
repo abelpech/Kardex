@@ -155,7 +155,6 @@
             this.dgvMaterias.Location = new System.Drawing.Point(74, 104);
             this.dgvMaterias.MultiSelect = false;
             this.dgvMaterias.Name = "dgvMaterias";
-            this.dgvMaterias.ReadOnly = true;
             this.dgvMaterias.RowHeadersWidth = 51;
             this.dgvMaterias.RowTemplate.Height = 24;
             this.dgvMaterias.Size = new System.Drawing.Size(1045, 313);
