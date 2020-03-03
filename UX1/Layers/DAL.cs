@@ -565,6 +565,25 @@ namespace Kardex.Layers
             }
             return dt;
         }
+
+        public DataTable SPdgvMaterias(string campus)
+        {
+            string query;
+            DataTable dt = new DataTable();
+            try
+            {
+                query = "SPdgvMaterias '" + campus + "'";
+                dt = conn.ExcQryDt(query);
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+                MessageBox.Show(ex.ToString());
+            }
+            return dt;
+        }
+
+
     }
 
 

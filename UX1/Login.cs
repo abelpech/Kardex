@@ -17,6 +17,7 @@ namespace UX1
     {
         BL bl = new BL();
         Permisos pm = new Permisos();
+
         public Login()
         {
             InitializeComponent();
