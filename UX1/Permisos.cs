@@ -11,6 +11,8 @@ namespace UX1.Layers
     {
         public static int permiso;
         public static string usuario;
+        
+        
 
         public void setPermiso(int dt)
         {
