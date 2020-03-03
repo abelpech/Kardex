@@ -136,7 +136,7 @@ namespace UX1
 
                         if ((r.Cells["Dia 1"].Value.ToString() == arrayOfDays[0] || r.Cells["Dia 1"].Value.ToString() == arrayOfDays[3]) &&
                             (r.Cells["Hora 1"].Value.ToString() == arrayOfDays[1] || r.Cells["Hora 1"].Value.ToString() == arrayOfDays[4]) &&
-                            (r.Cells["Hora 2"].Value.ToString() == arrayOfDays[2] || r.Cells["Hora 2"].Value.ToString() == arrayOfDays[5]) &&
+                            (r.Cells["Hora 2"].Value.ToString() == arrayOfDays[2] || r.Cells["Hora 2"].Value.ToString() == arrayOfDays[5]) ||
                             (r.Cells["Dia 2"].Value.ToString() == arrayOfDays[3] || r.Cells["Dia 2"].Value.ToString() == arrayOfDays[0]) &&
                             (r.Cells["Hora 3"].Value.ToString() == arrayOfDays[4] || r.Cells["Hora 3"].Value.ToString() == arrayOfDays[1]) &&
                             (r.Cells["Hora 4"].Value.ToString() == arrayOfDays[5] || r.Cells["Hora 4"].Value.ToString() == arrayOfDays[2]))
@@ -223,7 +223,7 @@ namespace UX1
                         if ((r["Dia 1"].ToString() == arrayOfDays[0] || r["Dia 1"].ToString() == arrayOfDays[3]) &&
                             (r["Hora 1"].ToString() == arrayOfDays[1] || r["Hora 1"].ToString() == arrayOfDays[4]) &&
                             (r["Hora 2"].ToString() == arrayOfDays[2] || r["Hora 2"].ToString() == arrayOfDays[5]) &&
-                            (r["Dia 2"].ToString() == arrayOfDays[3] || r["Dia 2"].ToString() == arrayOfDays[0]) &&
+                            (r["Dia 2"].ToString() == arrayOfDays[3] || r["Dia 2"].ToString() == arrayOfDays[0]) ||
                             (r["Hora 3"].ToString() == arrayOfDays[4] || r["Hora 3"].ToString() == arrayOfDays[1]) &&
                             (r["Hora 4"].ToString() == arrayOfDays[5] || r["Hora 4"].ToString() == arrayOfDays[2]))
                         {
