@@ -11,8 +11,13 @@ namespace UX1.Layers
     {
         public static int permiso;
         public static string usuario;
-        
-        
+        public static string campus;
+        public static string periodo;
+        public static string carrera;
+        public static string grupo;
+
+
+
 
         public void setPermiso(int dt)
         {
@@ -26,5 +31,28 @@ namespace UX1.Layers
 
         }
 
+        public void setCampus(string Campus)
+        {
+            campus = Campus;
+
+        }
+
+        public void setCarrera(string Carrera)
+        {
+            carrera = Carrera;
+
+        }
+
+        public void setPeriodo(string Periodo)
+        {
+            periodo = Periodo;
+
+        }
+
+        public void setGrupo(string Grupo)
+        {
+            grupo = Grupo;
+
+        }
     }
 }
