@@ -69,6 +69,7 @@
             this.btnCalificacion = new System.Windows.Forms.Button();
             this.btnAltaCalificacion = new System.Windows.Forms.Button();
             this.BarraTitulo = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbUsuario = new System.Windows.Forms.Label();
             this.iconrestaurar = new System.Windows.Forms.PictureBox();
             this.iconminimizar = new System.Windows.Forms.PictureBox();
@@ -87,7 +88,12 @@
             this.expandirMateriaAlumnoMaestro = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.PanelContenedor = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelHorario = new System.Windows.Forms.Panel();
+            this.btnHorarioMaestro = new System.Windows.Forms.Button();
+            this.btnHorarioAlumno = new System.Windows.Forms.Button();
+            this.btnHorario = new System.Windows.Forms.Button();
+            this.btnAltaHorario = new System.Windows.Forms.Button();
+            this.expandirHorario = new System.Windows.Forms.Timer(this.components);
             this.MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLOGO)).BeginInit();
             this.Efecto.SuspendLayout();
@@ -98,12 +104,13 @@
             this.panelPeriodo.SuspendLayout();
             this.panelCalificacion.SuspendLayout();
             this.BarraTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconrestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconminimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconmaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconcerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnslide)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelHorario.SuspendLayout();
             this.SuspendLayout();
             // 
             // MenuVertical
@@ -133,6 +140,7 @@
             // 
             // Efecto
             // 
+            this.Efecto.AutoScroll = true;
             this.Efecto.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Efecto.Controls.Add(this.panelCarrera);
             this.Efecto.Controls.Add(this.panelMateria);
@@ -140,6 +148,7 @@
             this.Efecto.Controls.Add(this.panelMaestro);
             this.Efecto.Controls.Add(this.panelPeriodo);
             this.Efecto.Controls.Add(this.panelCalificacion);
+            this.Efecto.Controls.Add(this.panelHorario);
             this.Efecto.Location = new System.Drawing.Point(4, 139);
             this.Efecto.Margin = new System.Windows.Forms.Padding(4);
             this.Efecto.Name = "Efecto";
@@ -758,10 +767,10 @@
             this.btnCalificacion.ForeColor = System.Drawing.SystemColors.Window;
             this.btnCalificacion.Image = global::UX1.Properties.Resources.Expand_Arrow_20px;
             this.btnCalificacion.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCalificacion.Location = new System.Drawing.Point(-4, 1);
+            this.btnCalificacion.Location = new System.Drawing.Point(-4, 12);
             this.btnCalificacion.Margin = new System.Windows.Forms.Padding(4);
             this.btnCalificacion.Name = "btnCalificacion";
-            this.btnCalificacion.Size = new System.Drawing.Size(317, 81);
+            this.btnCalificacion.Size = new System.Drawing.Size(317, 70);
             this.btnCalificacion.TabIndex = 6;
             this.btnCalificacion.Text = "Calificacion";
             this.btnCalificacion.UseVisualStyleBackColor = false;
@@ -802,6 +811,18 @@
             this.BarraTitulo.Size = new System.Drawing.Size(1292, 62);
             this.BarraTitulo.TabIndex = 1;
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(952, 13);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 34);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // lbUsuario
             // 
@@ -926,17 +947,98 @@
             this.PanelContenedor.TabIndex = 2;
             this.PanelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelContenedor_Paint);
             // 
-            // pictureBox1
+            // panelHorario
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(952, 13);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 34);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.panelHorario.BackColor = System.Drawing.Color.DimGray;
+            this.panelHorario.Controls.Add(this.btnHorarioMaestro);
+            this.panelHorario.Controls.Add(this.btnHorarioAlumno);
+            this.panelHorario.Controls.Add(this.btnHorario);
+            this.panelHorario.Controls.Add(this.btnAltaHorario);
+            this.panelHorario.Location = new System.Drawing.Point(4, 544);
+            this.panelHorario.Margin = new System.Windows.Forms.Padding(4);
+            this.panelHorario.MaximumSize = new System.Drawing.Size(317, 352);
+            this.panelHorario.MinimumSize = new System.Drawing.Size(317, 82);
+            this.panelHorario.Name = "panelHorario";
+            this.panelHorario.Size = new System.Drawing.Size(317, 82);
+            this.panelHorario.TabIndex = 18;
+            // 
+            // btnHorarioMaestro
+            // 
+            this.btnHorarioMaestro.BackColor = System.Drawing.Color.Transparent;
+            this.btnHorarioMaestro.FlatAppearance.BorderSize = 0;
+            this.btnHorarioMaestro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHorarioMaestro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnHorarioMaestro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHorarioMaestro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btnHorarioMaestro.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnHorarioMaestro.Location = new System.Drawing.Point(4, 225);
+            this.btnHorarioMaestro.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHorarioMaestro.Name = "btnHorarioMaestro";
+            this.btnHorarioMaestro.Size = new System.Drawing.Size(317, 71);
+            this.btnHorarioMaestro.TabIndex = 17;
+            this.btnHorarioMaestro.Text = "HorarioMaestro";
+            this.btnHorarioMaestro.UseVisualStyleBackColor = false;
+            this.btnHorarioMaestro.Click += new System.EventHandler(this.btnHorarioMaestro_Click);
+            // 
+            // btnHorarioAlumno
+            // 
+            this.btnHorarioAlumno.BackColor = System.Drawing.Color.Transparent;
+            this.btnHorarioAlumno.FlatAppearance.BorderSize = 0;
+            this.btnHorarioAlumno.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHorarioAlumno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnHorarioAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHorarioAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btnHorarioAlumno.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnHorarioAlumno.Location = new System.Drawing.Point(4, 145);
+            this.btnHorarioAlumno.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHorarioAlumno.Name = "btnHorarioAlumno";
+            this.btnHorarioAlumno.Size = new System.Drawing.Size(317, 81);
+            this.btnHorarioAlumno.TabIndex = 16;
+            this.btnHorarioAlumno.Text = "HorarioAlumno";
+            this.btnHorarioAlumno.UseVisualStyleBackColor = false;
+            this.btnHorarioAlumno.Click += new System.EventHandler(this.btnHorarioAlumno_Click);
+            // 
+            // btnHorario
+            // 
+            this.btnHorario.BackColor = System.Drawing.Color.Transparent;
+            this.btnHorario.FlatAppearance.BorderSize = 0;
+            this.btnHorario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnHorario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnHorario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHorario.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHorario.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnHorario.Image = global::UX1.Properties.Resources.Expand_Arrow_20px;
+            this.btnHorario.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnHorario.Location = new System.Drawing.Point(0, 1);
+            this.btnHorario.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHorario.Name = "btnHorario";
+            this.btnHorario.Size = new System.Drawing.Size(317, 78);
+            this.btnHorario.TabIndex = 6;
+            this.btnHorario.Text = "Horario";
+            this.btnHorario.UseVisualStyleBackColor = false;
+            this.btnHorario.Click += new System.EventHandler(this.btnHorario_Click);
+            // 
+            // btnAltaHorario
+            // 
+            this.btnAltaHorario.BackColor = System.Drawing.Color.Transparent;
+            this.btnAltaHorario.FlatAppearance.BorderSize = 0;
+            this.btnAltaHorario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAltaHorario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnAltaHorario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAltaHorario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.btnAltaHorario.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAltaHorario.Location = new System.Drawing.Point(0, 74);
+            this.btnAltaHorario.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAltaHorario.Name = "btnAltaHorario";
+            this.btnAltaHorario.Size = new System.Drawing.Size(317, 81);
+            this.btnAltaHorario.TabIndex = 15;
+            this.btnAltaHorario.Text = "AltaHorario";
+            this.btnAltaHorario.UseVisualStyleBackColor = false;
+            this.btnAltaHorario.Click += new System.EventHandler(this.btnAltaHorario_Click);
+            // 
+            // expandirHorario
+            // 
+            this.expandirHorario.Tick += new System.EventHandler(this.expandirHorario_Tick);
             // 
             // Plantilla
             // 
@@ -966,12 +1068,13 @@
             this.panelCalificacion.ResumeLayout(false);
             this.BarraTitulo.ResumeLayout(false);
             this.BarraTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconrestaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconminimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconmaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconcerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnslide)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelHorario.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1036,5 +1139,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox picLOGO;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelHorario;
+        private System.Windows.Forms.Button btnHorarioMaestro;
+        private System.Windows.Forms.Button btnHorarioAlumno;
+        private System.Windows.Forms.Button btnHorario;
+        private System.Windows.Forms.Button btnAltaHorario;
+        private System.Windows.Forms.Timer expandirHorario;
     }
 }

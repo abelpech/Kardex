@@ -79,9 +79,9 @@
             this.gbCarrera.Controls.Add(this.label3);
             this.gbCarrera.Controls.Add(this.label1);
             this.gbCarrera.Location = new System.Drawing.Point(-15, -31);
-            this.gbCarrera.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCarrera.Margin = new System.Windows.Forms.Padding(4);
             this.gbCarrera.Name = "gbCarrera";
-            this.gbCarrera.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCarrera.Padding = new System.Windows.Forms.Padding(4);
             this.gbCarrera.Size = new System.Drawing.Size(1213, 828);
             this.gbCarrera.TabIndex = 3;
             this.gbCarrera.TabStop = false;
@@ -119,7 +119,7 @@
             this.cbFAHHora4.FormattingEnabled = true;
             this.cbFAHHora4.IntegralHeight = false;
             this.cbFAHHora4.Location = new System.Drawing.Point(1027, 581);
-            this.cbFAHHora4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFAHHora4.Margin = new System.Windows.Forms.Padding(4);
             this.cbFAHHora4.Name = "cbFAHHora4";
             this.cbFAHHora4.Size = new System.Drawing.Size(151, 38);
             this.cbFAHHora4.TabIndex = 27;
@@ -132,7 +132,7 @@
             this.cbFAHHora3.FormattingEnabled = true;
             this.cbFAHHora3.IntegralHeight = false;
             this.cbFAHHora3.Location = new System.Drawing.Point(853, 581);
-            this.cbFAHHora3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFAHHora3.Margin = new System.Windows.Forms.Padding(4);
             this.cbFAHHora3.Name = "cbFAHHora3";
             this.cbFAHHora3.Size = new System.Drawing.Size(168, 38);
             this.cbFAHHora3.TabIndex = 26;
@@ -147,7 +147,7 @@
             this.cbFAHHora2.FormattingEnabled = true;
             this.cbFAHHora2.IntegralHeight = false;
             this.cbFAHHora2.Location = new System.Drawing.Point(1027, 487);
-            this.cbFAHHora2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFAHHora2.Margin = new System.Windows.Forms.Padding(4);
             this.cbFAHHora2.Name = "cbFAHHora2";
             this.cbFAHHora2.Size = new System.Drawing.Size(151, 38);
             this.cbFAHHora2.TabIndex = 25;
@@ -160,7 +160,7 @@
             this.cbFAHHora1.FormattingEnabled = true;
             this.cbFAHHora1.IntegralHeight = false;
             this.cbFAHHora1.Location = new System.Drawing.Point(853, 487);
-            this.cbFAHHora1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFAHHora1.Margin = new System.Windows.Forms.Padding(4);
             this.cbFAHHora1.Name = "cbFAHHora1";
             this.cbFAHHora1.Size = new System.Drawing.Size(168, 38);
             this.cbFAHHora1.TabIndex = 24;
@@ -198,7 +198,7 @@
             this.cbFAHCampus.FormattingEnabled = true;
             this.cbFAHCampus.IntegralHeight = false;
             this.cbFAHCampus.Location = new System.Drawing.Point(443, 52);
-            this.cbFAHCampus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFAHCampus.Margin = new System.Windows.Forms.Padding(4);
             this.cbFAHCampus.Name = "cbFAHCampus";
             this.cbFAHCampus.Size = new System.Drawing.Size(735, 48);
             this.cbFAHCampus.TabIndex = 21;
@@ -213,7 +213,7 @@
             this.cbFAHPeriodo.FormattingEnabled = true;
             this.cbFAHPeriodo.IntegralHeight = false;
             this.cbFAHPeriodo.Location = new System.Drawing.Point(443, 134);
-            this.cbFAHPeriodo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFAHPeriodo.Margin = new System.Windows.Forms.Padding(4);
             this.cbFAHPeriodo.Name = "cbFAHPeriodo";
             this.cbFAHPeriodo.Size = new System.Drawing.Size(735, 48);
             this.cbFAHPeriodo.TabIndex = 20;
@@ -227,7 +227,7 @@
             this.cbFAHGrupo.FormattingEnabled = true;
             this.cbFAHGrupo.IntegralHeight = false;
             this.cbFAHGrupo.Location = new System.Drawing.Point(443, 306);
-            this.cbFAHGrupo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFAHGrupo.Margin = new System.Windows.Forms.Padding(4);
             this.cbFAHGrupo.Name = "cbFAHGrupo";
             this.cbFAHGrupo.Size = new System.Drawing.Size(735, 48);
             this.cbFAHGrupo.TabIndex = 19;
@@ -241,7 +241,7 @@
             this.cbFAHDia2.FormattingEnabled = true;
             this.cbFAHDia2.IntegralHeight = false;
             this.cbFAHDia2.Location = new System.Drawing.Point(443, 581);
-            this.cbFAHDia2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFAHDia2.Margin = new System.Windows.Forms.Padding(4);
             this.cbFAHDia2.Name = "cbFAHDia2";
             this.cbFAHDia2.Size = new System.Drawing.Size(267, 48);
             this.cbFAHDia2.TabIndex = 18;
@@ -255,7 +255,7 @@
             this.cbFAHDia1.FormattingEnabled = true;
             this.cbFAHDia1.IntegralHeight = false;
             this.cbFAHDia1.Location = new System.Drawing.Point(443, 487);
-            this.cbFAHDia1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFAHDia1.Margin = new System.Windows.Forms.Padding(4);
             this.cbFAHDia1.Name = "cbFAHDia1";
             this.cbFAHDia1.Size = new System.Drawing.Size(267, 48);
             this.cbFAHDia1.TabIndex = 17;
@@ -269,7 +269,7 @@
             this.cbFAHMateria.FormattingEnabled = true;
             this.cbFAHMateria.IntegralHeight = false;
             this.cbFAHMateria.Location = new System.Drawing.Point(443, 399);
-            this.cbFAHMateria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFAHMateria.Margin = new System.Windows.Forms.Padding(4);
             this.cbFAHMateria.Name = "cbFAHMateria";
             this.cbFAHMateria.Size = new System.Drawing.Size(735, 48);
             this.cbFAHMateria.TabIndex = 16;
@@ -281,7 +281,7 @@
             this.cbFAHCarrera.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFAHCarrera.FormattingEnabled = true;
             this.cbFAHCarrera.Location = new System.Drawing.Point(443, 220);
-            this.cbFAHCarrera.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbFAHCarrera.Margin = new System.Windows.Forms.Padding(4);
             this.cbFAHCarrera.Name = "cbFAHCarrera";
             this.cbFAHCarrera.Size = new System.Drawing.Size(735, 48);
             this.cbFAHCarrera.TabIndex = 15;
@@ -378,7 +378,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(40)))), ((int)(((byte)(62)))));
             this.ClientSize = new System.Drawing.Size(1200, 798);
             this.Controls.Add(this.gbCarrera);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAltaHorario";
             this.Text = "AltaHorario";
             this.gbCarrera.ResumeLayout(false);

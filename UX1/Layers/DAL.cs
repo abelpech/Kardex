@@ -565,6 +565,22 @@ namespace Kardex.Layers
             }
             return dt;
         }
+
+        public string ExcQryReturnString(string query, string table)
+        {
+            query = "select " + query + " from " + table;
+            string retVal = "";
+            try
+            {
+                retVal = conn.ExcQryReturnString(query);
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+                MessageBox.Show(ex.ToString());
+            }
+            return retVal;
+        }
     }
 
 

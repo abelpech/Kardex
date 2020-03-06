@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbCarrera = new System.Windows.Forms.GroupBox();
+            this.lbLimiteMaterias = new System.Windows.Forms.Label();
+            this.lbGrupo = new System.Windows.Forms.Label();
+            this.lbLabelGrupo = new System.Windows.Forms.Label();
             this.lbUser = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pbHorario = new System.Windows.Forms.PictureBox();
@@ -38,12 +41,9 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvMaterias = new System.Windows.Forms.DataGridView();
-            this.dgvHorario = new System.Windows.Forms.DataGridView();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.lbLabelGrupo = new System.Windows.Forms.Label();
-            this.lbGrupo = new System.Windows.Forms.Label();
-            this.lbLimiteMaterias = new System.Windows.Forms.Label();
+            this.dgvHorario = new System.Windows.Forms.DataGridView();
             this.dgvHorarioActual = new System.Windows.Forms.DataGridView();
             this.ttpbHorario = new System.Windows.Forms.ToolTip(this.components);
             this.gbCarrera.SuspendLayout();
@@ -78,6 +78,38 @@
             this.gbCarrera.Size = new System.Drawing.Size(1213, 828);
             this.gbCarrera.TabIndex = 4;
             this.gbCarrera.TabStop = false;
+            // 
+            // lbLimiteMaterias
+            // 
+            this.lbLimiteMaterias.AutoSize = true;
+            this.lbLimiteMaterias.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLimiteMaterias.ForeColor = System.Drawing.Color.Orange;
+            this.lbLimiteMaterias.Location = new System.Drawing.Point(79, 440);
+            this.lbLimiteMaterias.Name = "lbLimiteMaterias";
+            this.lbLimiteMaterias.Size = new System.Drawing.Size(0, 18);
+            this.lbLimiteMaterias.TabIndex = 18;
+            // 
+            // lbGrupo
+            // 
+            this.lbGrupo.AutoSize = true;
+            this.lbGrupo.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbGrupo.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbGrupo.Location = new System.Drawing.Point(947, 32);
+            this.lbGrupo.Name = "lbGrupo";
+            this.lbGrupo.Size = new System.Drawing.Size(56, 46);
+            this.lbGrupo.TabIndex = 17;
+            this.lbGrupo.Text = "...";
+            // 
+            // lbLabelGrupo
+            // 
+            this.lbLabelGrupo.AutoSize = true;
+            this.lbLabelGrupo.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLabelGrupo.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbLabelGrupo.Location = new System.Drawing.Point(804, 32);
+            this.lbLabelGrupo.Name = "lbLabelGrupo";
+            this.lbLabelGrupo.Size = new System.Drawing.Size(149, 46);
+            this.lbLabelGrupo.TabIndex = 16;
+            this.lbLabelGrupo.Text = "Grupo:";
             // 
             // lbUser
             // 
@@ -177,26 +209,6 @@
             this.dgvMaterias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterias_CellClick);
             this.dgvMaterias.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterias_CellClick);
             // 
-            // dgvHorario
-            // 
-            this.dgvHorario.AllowUserToAddRows = false;
-            this.dgvHorario.AllowUserToDeleteRows = false;
-            this.dgvHorario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvHorario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dgvHorario.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvHorario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHorario.Location = new System.Drawing.Point(74, 464);
-            this.dgvHorario.Name = "dgvHorario";
-            this.dgvHorario.ReadOnly = true;
-            this.dgvHorario.RowHeadersWidth = 51;
-            this.dgvHorario.RowTemplate.Height = 24;
-            this.dgvHorario.Size = new System.Drawing.Size(1045, 215);
-            this.dgvHorario.TabIndex = 8;
-            this.dgvHorario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHorario_CellClick);
-            this.dgvHorario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHorario_CellClick);
-            // 
             // btnCerrar
             // 
             this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -222,37 +234,25 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // lbLabelGrupo
+            // dgvHorario
             // 
-            this.lbLabelGrupo.AutoSize = true;
-            this.lbLabelGrupo.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLabelGrupo.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbLabelGrupo.Location = new System.Drawing.Point(804, 32);
-            this.lbLabelGrupo.Name = "lbLabelGrupo";
-            this.lbLabelGrupo.Size = new System.Drawing.Size(149, 46);
-            this.lbLabelGrupo.TabIndex = 16;
-            this.lbLabelGrupo.Text = "Grupo:";
-            // 
-            // lbGrupo
-            // 
-            this.lbGrupo.AutoSize = true;
-            this.lbGrupo.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbGrupo.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbGrupo.Location = new System.Drawing.Point(947, 32);
-            this.lbGrupo.Name = "lbGrupo";
-            this.lbGrupo.Size = new System.Drawing.Size(56, 46);
-            this.lbGrupo.TabIndex = 17;
-            this.lbGrupo.Text = "...";
-            // 
-            // lbLimiteMaterias
-            // 
-            this.lbLimiteMaterias.AutoSize = true;
-            this.lbLimiteMaterias.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLimiteMaterias.ForeColor = System.Drawing.Color.Orange;
-            this.lbLimiteMaterias.Location = new System.Drawing.Point(79, 440);
-            this.lbLimiteMaterias.Name = "lbLimiteMaterias";
-            this.lbLimiteMaterias.Size = new System.Drawing.Size(0, 18);
-            this.lbLimiteMaterias.TabIndex = 18;
+            this.dgvHorario.AllowUserToAddRows = false;
+            this.dgvHorario.AllowUserToDeleteRows = false;
+            this.dgvHorario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvHorario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvHorario.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvHorario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHorario.Location = new System.Drawing.Point(74, 464);
+            this.dgvHorario.Name = "dgvHorario";
+            this.dgvHorario.ReadOnly = true;
+            this.dgvHorario.RowHeadersWidth = 51;
+            this.dgvHorario.RowTemplate.Height = 24;
+            this.dgvHorario.Size = new System.Drawing.Size(1045, 215);
+            this.dgvHorario.TabIndex = 8;
+            this.dgvHorario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHorario_CellClick);
+            this.dgvHorario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHorario_CellClick);
             // 
             // dgvHorarioActual
             // 
@@ -269,11 +269,11 @@
             this.dgvHorarioActual.Name = "dgvHorarioActual";
             this.dgvHorarioActual.ReadOnly = true;
             this.dgvHorarioActual.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Bisque;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SandyBrown;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvHorarioActual.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Bisque;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SandyBrown;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvHorarioActual.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvHorarioActual.RowTemplate.Height = 24;
             this.dgvHorarioActual.Size = new System.Drawing.Size(1045, 215);
             this.dgvHorarioActual.TabIndex = 19;
@@ -285,6 +285,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(40)))), ((int)(((byte)(62)))));
             this.ClientSize = new System.Drawing.Size(1200, 798);
             this.Controls.Add(this.gbCarrera);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAltaHorarioAlumno";
             this.Text = "frmAltaHorarioAlumno";
             this.gbCarrera.ResumeLayout(false);
