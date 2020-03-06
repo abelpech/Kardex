@@ -519,6 +519,19 @@ namespace Kardex.Layers
             return dal.ConsultaHorarioMaestro(maestro);
         }
 
+        /// <summary>
+        /// Recives just one column from a table to convert it to string
+        /// </summary>
+        /// <param name="query">Column to select</param>
+        /// <param name="table">Table from</param>
+        /// <returns>Scalar string</returns>
+        public string ExcQryReturnString(string query, string table)
+        {
+            string retVal = "";
+            retVal = dal.ExcQryReturnString(query, table);
+            return retVal;
+        }
+
         public DataTable SPdgvHorarios(string campus, string maestro)
         {
             return dal.SPdgvHorarios(campus, maestro);

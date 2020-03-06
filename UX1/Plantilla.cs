@@ -191,6 +191,12 @@ namespace UX1
             expandirCarreraMateria.Start();
         }
 
+        private void btnHorario_Click(object sender, EventArgs e)
+        {
+            expandirHorario.Start();
+        }
+
+
         private void TmExpandirMenu_Tick(object sender, EventArgs e)
         {
             if (MenuVertical.Width >= 230)
@@ -356,9 +362,31 @@ namespace UX1
             }
         }
 
-        
+        private void expandirHorario_Tick(object sender, EventArgs e)
+        {
+            if (isCollapsed)
+            {
+                btnHorario.Image = UX1.Properties.Resources.Collapse_Arrow_20px;
+                panelHorario.Height += 500;
+                if (panelHorario.Size == panelHorario.MaximumSize)
+                {
+                    expandirHorario.Stop();
+                    isCollapsed = false;
+                }
+            }
+            else
+            {
+                btnHorario.Image = UX1.Properties.Resources.Expand_Arrow_20px;
+                panelHorario.Height -= 500;
+                if (panelHorario.Size == panelHorario.MinimumSize)
+                {
+                    expandirHorario.Stop();
+                    isCollapsed = true;
+                }
+            }
+        }
 
-        
+
 
         private void BtnAltaCarrera_Click(object sender, EventArgs e)
         {
@@ -490,6 +518,21 @@ namespace UX1
             log.Show();
         }
 
+        private void btnHorarioAlumno_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new frmAltaHorarioAlumno());
+        }
+
+        private void btnAltaHorario_Click(object sender, EventArgs e)
+        {
+            AbrirFormInPanel(new frmAltaHorario());
+        }
+
+        private void btnHorarioMaestro_Click(object sender, EventArgs e)
+        {
+            //AbrirFormInPanel(new frmAltaHorarioMaestro());
+        }
+
         private void EstablecerPermisos(int pm)
         {
             switch (pm)
@@ -499,12 +542,37 @@ namespace UX1
                       //ALUMNO
                         lbUsuario.Text = "Alumno";
                         btnAlumno.Enabled = false;
+                        btnAlumno.Hide();
+                        panelAlumno.Hide();
 
                         //Modulo Carrera
                         btnCarrera.Enabled = false;
+                        btnCarrera.Hide();
+                        panelCarrera.Hide();
 
                         //Modulo Materia
                         btnMateria.Enabled = false;
+                        btnMateria.Hide();
+                        panelMateria.Hide();
+
+                        //Modulo Maestro
+                        btnMaestro.Enabled = false;
+                        btnMaestro.Hide();
+                        panelMaestro.Hide();
+
+                        //Modulo Periodo
+                        btnPeriodo.Enabled = false;
+                        btnPeriodo.Hide();
+                        panelPeriodo.Hide();
+
+                        //Modulo Calificacion
+                        btnAltaCalificacion.Enabled = false;
+                        btnModificacionCalificacion.Enabled = false;
+
+                        //Modulo Horario
+                        btnAltaHorario.Enabled = false;
+                        btnHorarioMaestro.Enabled = false;
+                        
                         break;
                     }
                 case 2:

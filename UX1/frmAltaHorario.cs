@@ -9,26 +9,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Kardex.Layers;
-
+using UX1.Layers;
 
 namespace UX1
 {
     public partial class frmAltaHorario : Form
     {
         dbConn db = new dbConn();
+        Permisos pm = new Permisos();
         public frmAltaHorario()
         {
             InitializeComponent();
             ComboBoxCampus();
             HabilitarODeshabilitarBoton();
-
-
+            DatosGenerales();
         }
 
         private void CambiarGuardarABorrar()
         {
             btnGuardar.Text = "Borrar";
             btnGuardar.Enabled = true;
+        }
+        private void DatosGenerales()
+        {
+
+            cbFAHCampus.SelectedItem = Permisos.campus;
+            cbFAHPeriodo.SelectedItem = Permisos.periodo;
         }
         private void CambiarBorrarAGuardar()
         {

@@ -435,6 +435,23 @@ namespace Kardex.Layers
 
         }
 
+        public string ExcQryReturnString(string query)
+        {
+            //El query solo debe contener la seleccion de una columna
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = query;
+            cmd.CommandTimeout = 0;
+            cmd.Connection = conn;
+
+            conn.Open();
+            //Se selecciona solo un campo del query
+            string retVal = (String)cmd.ExecuteScalar();
+
+            conn.Close();
+
+            return retVal;
+        }
+
         public void ExcQryCalificacionModifica(string query)
         {
 

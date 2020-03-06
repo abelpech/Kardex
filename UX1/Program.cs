@@ -17,6 +17,7 @@ namespace UX1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            Application.Run(new Login());
             //Application.Run(new frmAltaHorarioAlumno());
             //Application.Run(new frmAltaHorario());
             //Application.Run(new frmPendienteHorario());

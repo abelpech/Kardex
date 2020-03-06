@@ -16,6 +16,7 @@ namespace UX1
     public partial class Login : Form
     {
         BL bl = new BL();
+        dbConn db = new dbConn();
         Permisos pm = new Permisos();
 
         public Login()
@@ -30,6 +31,7 @@ namespace UX1
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
+            int idCarrera = 0;
             int dt = 0;
             string Usuario = txtUsername.Text;
             string Password = txtPassword.Text;
@@ -38,10 +40,18 @@ namespace UX1
 
             if (dt != 0)
             {
-
+                
                 MessageBox.Show("Bienvenido " + Usuario, "Inicio de sesión", MessageBoxButtons.OK);
                 pm.setPermiso(dt);
+                pm.setPeriodo(bl.ExcQryReturnString("periodo","control"));
+                pm.setCampus(bl.ExcQryReturnString("campus","control"));
+                
+                List<string> parametros = new List<string>();
+                parametros.Add(Permisos.usuario);
+                idCarrera = db.ExecSPReturnInt("SPLogin_SeleccionaCarreraDeAlumno",parametros);
                 Plantilla pl = new Plantilla();
+
+                pm.setCarrera(bl.ExcQryReturnString("carrera", "carrera where carrera.id_carrera = " + idCarrera.ToString()));
 
                 this.Hide();
                 
