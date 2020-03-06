@@ -519,9 +519,16 @@ namespace Kardex.Layers
             return dal.ConsultaHorarioMaestro(maestro);
         }
 
-        public DataTable SPdgvMaterias(string campus)
+        public DataTable SPdgvHorarios(string campus, string maestro)
         {
-            return dal.SPdgvMaterias(campus);
+            return dal.SPdgvHorarios(campus, maestro);
         }
+
+        public DataTable SPdgvMaterias(string campus, string maestro)
+        {
+            return dal.SPdgvMaterias(campus, maestro);
+        }
+
+       
     }
 }

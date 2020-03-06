@@ -17,14 +17,13 @@ namespace UX1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new frmAltaHorarioAlumno());
+            //Application.Run(new frmAltaHorarioAlumno());
             //Application.Run(new frmAltaHorario());
             //Application.Run(new frmPendienteHorario());
             //Application.Run(new frmConsultaHorario());
             //Application.Run(new frmConsultaHorarioAlumno());
             //Application.Run(new frmConsultaHorarioMaestro());
             Application.Run(new frmAltaHorarioMaestro());
-
 
         }
     }

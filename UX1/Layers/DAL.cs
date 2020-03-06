@@ -566,13 +566,13 @@ namespace Kardex.Layers
             return dt;
         }
 
-        public DataTable SPdgvMaterias(string campus)
+        public DataTable SPdgvHorarios(string campus, string maestro)
         {
             string query;
             DataTable dt = new DataTable();
             try
             {
-                query = "SPdgvMaterias '" + campus + "'";
+                query = "SPdgvHorarios '" + campus + "', '" + maestro + "'";
                 dt = conn.ExcQryDt(query);
             }
             catch (Exception ex)
@@ -583,6 +583,24 @@ namespace Kardex.Layers
             return dt;
         }
 
+        public DataTable SPdgvMaterias(string campus, string maestro)
+        {
+            string query;
+            DataTable dt = new DataTable();
+            try
+            {
+                query = "SPdgvMaterias '" + campus + "', '" + maestro + "'";
+                dt = conn.ExcQryDt(query);
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Surgio un error de sistema - Favor de contactar a ADMINISTRADOR", "Error", MessageBoxButtons.OK);
+                MessageBox.Show(ex.ToString());
+            }
+            return dt;
+        }
+
+      
 
     }
 
